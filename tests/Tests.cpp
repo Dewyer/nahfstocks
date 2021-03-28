@@ -1,4 +1,6 @@
-#include "../lib/gtest_lite.h"
+#ifdef ETEST
+#include "../lib/external/gtest_lite.h"
+
 #include "Tests.h"
 
 void Tests::sanity_test() {
@@ -11,3 +13,12 @@ void Tests::sanity_test() {
 void Tests::run_all() {
     Tests::sanity_test();
 }
+#else
+#include "Tests.h"
+
+void Tests::sanity_test() {
+}
+
+void Tests::run_all() {
+}
+#endif
