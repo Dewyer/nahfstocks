@@ -7,6 +7,7 @@
 #include "../../lib/option/Option.h"
 #include "../../lib/collections/Vector.h"
 #include "../../lib/algorithms.h"
+#include "../../lib/string/String.h"
 
 using namespace nhflib;
 
@@ -60,6 +61,17 @@ void run_lib_tests() {
 
             auto res = nhflib::algo::map<int, double>(vec, [](int &al) { return al + 1.0; });
             EXPECT_EQ(res[0], 11.0);
+        }
+            END
+
+    TEST(LibTests, String)
+        {
+            String s1 = "123";
+            s1 += "12345";
+            EXPECT_STREQ(s1.c_str(), "12312345");
+
+            String s2 = 'a';
+            EXPECT_STREQ(s2.c_str(), "a");
         }
             END
 }

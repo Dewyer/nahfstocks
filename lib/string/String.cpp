@@ -55,7 +55,16 @@ String String::operator+(const String &rhs_s) const {
     strcat(temp.stringData, rhs_s.stringData);
 
     return temp;
+}
 
+String& nhflib::String::operator+=(const String &rhs_s) {
+    this->len = len + rhs_s.len;
+    delete[] this->stringData;
+    this->stringData = new char[this->len + 1];
+    strcpy(this->stringData, stringData);
+    strcat(this->stringData, rhs_s.stringData);
+
+    return *this;
 }
 
 std::ostream &operator<<(std::ostream &os, const String &s0) {

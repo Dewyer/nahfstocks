@@ -32,26 +32,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/ICompany.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/lib/libtests.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/lib/libtests.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/external/gtest_lite.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/gtest_lite.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/ICompany.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/ICompany.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lib/libtests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/libtests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +115,7 @@
       <workItem from="1617352042516" duration="312000" />
       <workItem from="1617352645481" duration="265000" />
       <workItem from="1617353122642" duration="6178000" />
-      <workItem from="1617380083001" duration="4352000" />
+      <workItem from="1617380083001" duration="5035000" />
     </task>
     <servers />
   </component>
@@ -154,22 +138,22 @@
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="184" y="70" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.795@0.23.1440.795" timestamp="1617353346262" />
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1617384495571">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1617389956321">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.795@0.23.1440.795" timestamp="1617384495571" />
-    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1617384495570">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.795@0.23.1440.795" timestamp="1617389956321" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1617389956320">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.795@0.23.1440.795" timestamp="1617384495570" />
-    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1617384495569">
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.795@0.23.1440.795" timestamp="1617389956320" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1617389956320">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.795@0.23.1440.795" timestamp="1617384495569" />
-    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1617384495570">
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.795@0.23.1440.795" timestamp="1617389956320" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1617389956320">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.795@0.23.1440.795" timestamp="1617384495570" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.795@0.23.1440.795" timestamp="1617389956320" />
     <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1617382321476">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
@@ -190,9 +174,9 @@
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="229" y="59" key="SettingsEditor/0.23.1440.795@0.23.1440.795" timestamp="1617355430141" />
-    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup" timestamp="1617381690863">
+    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup" timestamp="1617389487745">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1617381690863" />
+    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1617389487745" />
   </component>
 </project>

@@ -32,6 +32,8 @@ namespace nhflib {
 
         String operator+(char rhs_c) const { return *this + String(rhs_c); }
 
+        String& operator+=(const String &rhs_s);
+
         char &operator[](unsigned int idx);
 
         const char &operator[](unsigned int idx) const;
