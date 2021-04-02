@@ -3,7 +3,6 @@
 #include "../types.h"
 
 namespace nhflib {
-
 	template<typename T>
 	class Vector {
 	private:
@@ -14,4 +13,4 @@ namespace nhflib {
 
 		usize size() const noexcept;
 	};
-}
+};
