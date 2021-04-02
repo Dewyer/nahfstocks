@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="nahfstocks" targetName="nahfstocks" />
@@ -14,10 +32,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/ICompany.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/lib/libtests.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/lib/libtests.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/gtest_lite.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/gtest_lite.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/ICompany.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/ICompany.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +61,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Test" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -35,6 +69,9 @@
     <option name="directoryName" value="eh0yjih4" />
   </component>
   <component name="ProjectId" id="1qbd5ZMjkPX3EUZSWlRILz1nEpA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,12 +81,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
   <component name="RunManager" selected="CMake Application.nahstcks">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
@@ -82,21 +130,69 @@
       <updated>1617352041123</updated>
       <workItem from="1617352042516" duration="312000" />
       <workItem from="1617352645481" duration="265000" />
-      <workItem from="1617353122642" duration="387000" />
+      <workItem from="1617353122642" duration="6178000" />
+      <workItem from="1617380083001" duration="4352000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="184" y="70" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617353346262">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
     <state x="184" y="70" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.795@0.23.1440.795" timestamp="1617353346262" />
-    <state x="229" y="59" key="SettingsEditor" timestamp="1617353357622">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1617384495571">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state x="229" y="59" key="SettingsEditor/0.23.1440.795@0.23.1440.795" timestamp="1617353357622" />
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.795@0.23.1440.795" timestamp="1617384495571" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1617384495570">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.795@0.23.1440.795" timestamp="1617384495570" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1617384495569">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.795@0.23.1440.795" timestamp="1617384495569" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1617384495570">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.795@0.23.1440.795" timestamp="1617384495570" />
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1617382321476">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.23.1440.795@0.23.1440.795" timestamp="1617382321476" />
+    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1617382321476">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.1.center/0.23.1440.795@0.23.1440.795" timestamp="1617382321476" />
+    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1617382321475">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.1.left/0.23.1440.795@0.23.1440.795" timestamp="1617382321475" />
+    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1617382321476">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state width="1398" height="253" key="GridCell.Tab.1.right/0.23.1440.795@0.23.1440.795" timestamp="1617382321476" />
+    <state x="229" y="59" key="SettingsEditor" timestamp="1617355430141">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="229" y="59" key="SettingsEditor/0.23.1440.795@0.23.1440.795" timestamp="1617355430141" />
+    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup" timestamp="1617381690863">
+      <screen x="0" y="23" width="1440" height="795" />
+    </state>
+    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1617381690863" />
   </component>
 </project>

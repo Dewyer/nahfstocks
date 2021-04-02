@@ -5,14 +5,17 @@ set(CMAKE_CXX_STANDARD 11)
 
 if (MSVC)
     add_compile_options(/W4 /WX)
-else()
+else ()
     add_compile_options(-Wall -Wextra -pedantic -Werror)
-endif()
+endif ()
 
 add_definitions(-D"${TEST_VAR}")
 
 add_executable(nahfstocks
         src/main.cpp
+        lib/string/String.h
+        lib/string/String.cpp
+        lib/option/Option.h
         tests/Tests.cpp
         tests/Tests.h
         lib/external/gtest_lite.h
@@ -25,10 +28,16 @@ add_executable(nahfstocks
         src/company/Company.cpp
         src/company/Company.h
         src/trader/ITrader.h
-        lib/collections/Vector.cpp
         lib/collections/Vector.h
         lib/rand/RandomProvider.cpp
         lib/rand/RandomProvider.h
         src/exchange/exchange_api/ExchangeApi.cpp
         src/exchange/exchange_api/ExchangeApi.h
-        src/exchange/exchange_api/IExchangeApi.h src/exchange/exchange_api/TraderRecordInExchange.cpp src/exchange/exchange_api/TraderRecordInExchange.h src/exchange/ExchangeConfig.h)
+        src/exchange/exchange_api/IExchangeApi.h
+        src/exchange/exchange_api/TraderRecordInExchange.cpp
+        src/exchange/exchange_api/TraderRecordInExchange.h
+        src/exchange/ExchangeConfig.h
+        tests/lib/libtests.cpp
+        tests/lib/libtests.h
+        src/company/ICompany.cpp
+        lib/algorithms.h)

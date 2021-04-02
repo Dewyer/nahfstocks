@@ -1,7 +1,7 @@
 #pragma once
 
 namespace trader {
-	class ITrader {
+    class ITrader {
 
-	};
+    };
 }

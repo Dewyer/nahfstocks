@@ -1,13 +1,18 @@
 #pragma once
+
 #include "../../trader/ITrader.h"
+#include "../../../lib/types.h"
+
 using trader::ITrader;
 
 
 namespace exchange {
-	class TraderRecordInExchange {
-	public:
-		ITrader trader;
+    class TraderRecordInExchange {
+    public:
+        ITrader trader;
 
-		double cash_balance;
-	};
+        usize cash_balance;
+
+        TraderRecordInExchange(ITrader trader, usize starting_cash);
+    };
 }
