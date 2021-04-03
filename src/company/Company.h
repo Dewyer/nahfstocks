@@ -1,7 +1,9 @@
 #pragma once
 
 #include "ICompany.h"
+#include "../../lib/string/String.h"
 
+using nhflib::String;
 using company::ICompany;
 
 namespace company {
@@ -13,9 +15,9 @@ namespace company {
         // double leadership_bias;
         // usize earnings_offset;
     public:
-        const std::string &get_symbol() const noexcept override;
+        const String &get_symbol() const noexcept override;
 
-        const std::string &get_name() const noexcept override;
+        const String &get_name() const noexcept override;
 
         double get_sector() const noexcept override;
     };
