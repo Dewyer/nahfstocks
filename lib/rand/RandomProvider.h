@@ -1,20 +1,22 @@
 #pragma once
 
 #include <cstdlib>
+#include <random>
 #include "../types.h"
+#include "../option/Option.h"
 
 namespace nhflib {
     class RandomProvider {
-    private:
-        void initialize(u32 *seed);
-
+		std::mt19937 engine;
     public:
-        explicit RandomProvider(u32 seed) {
-            this->initialize(&seed);
-        }
+        explicit RandomProvider(Option<u32> seed);
 
-        explicit RandomProvider() {
-            this->initialize(nullptr);
-        }
+        usize next_usize(usize min, usize max);
+
+		f64 next_f64(f64 min, f64 max);
+
+		f64 next_f64_normal(f64 min, f64 max, f64 mean, f64 devi);
+
+		usize next_usize_normal(usize min, usize max, f64 mean, f64 devi);
     };
 }

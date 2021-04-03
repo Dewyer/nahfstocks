@@ -35,7 +35,7 @@ namespace nhflib {
             return this->inner[idx];
         }
     };
-};
+}
 
 template<typename T>
 typename std::vector<T>::iterator begin(nhflib::Vector<T> vec) {

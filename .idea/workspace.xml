@@ -25,16 +25,30 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DTEST_VAR=NTEST" />
-      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release" GENERATION_OPTIONS="-DTEST_VAR=NTEST" />
-      <configuration PROFILE_NAME="Test" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DTEST_VAR=ETEST" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DTEST_VAR=NTEST" ENABLED="true" />
+      <configuration PROFILE_NAME="Release" CONFIG_NAME="Release" GENERATION_OPTIONS="-DTEST_VAR=NTEST" ENABLED="true" />
+      <configuration PROFILE_NAME="Test" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DTEST_VAR=ETEST" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nahfstocks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nahfstocks.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/gtest_lite.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/gtest_lite.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/memtrace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/memtrace.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/option/Option.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/ICompany.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/ICompany.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lib/libtests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/libtests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +58,17 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Test" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="eh0yjih4" />
@@ -61,6 +83,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -78,25 +101,52 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.nahstcks">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
+    <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+      <texify-bibtex>
+        <compiler />
+        <compiler-path />
+        <compiler-arguments />
+        <envs />
+        <main-file />
+        <aux-dir />
+      </texify-bibtex>
+      <method v="2" />
     </configuration>
-    <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="nahstcks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="nahstcks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="EXTERNAL_TOOL_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+      <texify-external>
+        <program>PYTHONTEX</program>
+        <main-file />
+        <work-dir />
+      </texify-external>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="MAKEINDEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+      <texify-makeindex>
+        <program>MAKEINDEX</program>
+        <main-file />
+        <work-dir />
+      </texify-makeindex>
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="CMake Application.nahstcks" />
@@ -115,6 +165,7 @@
       <workItem from="1617352645481" duration="265000" />
       <workItem from="1617353122642" duration="6178000" />
       <workItem from="1617380083001" duration="5439000" />
+      <workItem from="1617468488492" duration="6042000" />
     </task>
     <servers />
   </component>
@@ -131,51 +182,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="184" y="70" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617353346262">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state x="184" y="70" width="1071" height="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.795@0.23.1440.795" timestamp="1617353346262" />
-    <state width="1398" height="253" key="GridCell.Tab.0.bottom" timestamp="1617436183899">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.bottom/0.23.1440.795@0.23.1440.795" timestamp="1617436183899" />
-    <state width="1398" height="253" key="GridCell.Tab.0.center" timestamp="1617436183898">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.center/0.23.1440.795@0.23.1440.795" timestamp="1617436183898" />
-    <state width="1398" height="253" key="GridCell.Tab.0.left" timestamp="1617436183890">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.left/0.23.1440.795@0.23.1440.795" timestamp="1617436183890" />
-    <state width="1398" height="253" key="GridCell.Tab.0.right" timestamp="1617436183899">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.0.right/0.23.1440.795@0.23.1440.795" timestamp="1617436183899" />
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom" timestamp="1617436183901">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.bottom/0.23.1440.795@0.23.1440.795" timestamp="1617436183901" />
-    <state width="1398" height="253" key="GridCell.Tab.1.center" timestamp="1617436183900">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.center/0.23.1440.795@0.23.1440.795" timestamp="1617436183900" />
-    <state width="1398" height="253" key="GridCell.Tab.1.left" timestamp="1617436183899">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.left/0.23.1440.795@0.23.1440.795" timestamp="1617436183899" />
-    <state width="1398" height="253" key="GridCell.Tab.1.right" timestamp="1617436183901">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state width="1398" height="253" key="GridCell.Tab.1.right/0.23.1440.795@0.23.1440.795" timestamp="1617436183901" />
-    <state x="229" y="59" key="SettingsEditor" timestamp="1617355430141">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state x="229" y="59" key="SettingsEditor/0.23.1440.795@0.23.1440.795" timestamp="1617355430141" />
-    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup" timestamp="1617390197686">
-      <screen x="0" y="23" width="1440" height="795" />
-    </state>
-    <state x="385" y="142" width="670" height="676" key="search.everywhere.popup/0.23.1440.795@0.23.1440.795" timestamp="1617390197686" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

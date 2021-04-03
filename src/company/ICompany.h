@@ -9,10 +9,12 @@ namespace company {
     public:
         virtual ~ICompany() = 0;
 
+		virtual void print_debug() const noexcept = 0;
+
         virtual const String &get_symbol() const noexcept = 0;
 
         virtual const String &get_name() const noexcept = 0;
 
-        virtual double get_sector() const noexcept = 0;
+        virtual f64 get_sector() const noexcept = 0;
     };
 }

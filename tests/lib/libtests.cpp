@@ -68,10 +68,10 @@ void run_lib_tests() {
         {
             String s1 = "123";
             s1 += "12345";
-            EXPECT_STREQ(s1.c_str(), "12312345");
+            EXPECT_STREQ("12312345",s1.c_str());
 
             String s2 = 'a';
-            EXPECT_STREQ(s2.c_str(), "a");
+            EXPECT_STREQ( "a", s2.c_str());
         }
             END
 }

@@ -7,50 +7,50 @@ using std::ios_base;
 using nhflib::String;
 
 String::String(char ch) {
-    len = 1;
-    stringData = new char[len + 1];
+	length = 1;
+    stringData = new char[length + 1];
     stringData[0] = ch;
     stringData[1] = '\0';
 }
 
 
 String::String(const char *p) {
-    len = strlen(p);
-    stringData = new char[len + 1];
+	length = strlen(p);
+    stringData = new char[length + 1];
     strcpy(stringData, p);
 }
 
 String::String(const String &s1) {
-    len = s1.len;
-    stringData = new char[len + 1];
+	length = s1.length;
+    stringData = new char[length + 1];
     strcpy(stringData, s1.stringData);
 }
 
 String &String::operator=(const String &rhs_s) {
     if (this != &rhs_s) {
         delete[] stringData;
-        len = rhs_s.len;
-        stringData = new char[len + 1];
+		length = rhs_s.length;
+        stringData = new char[length + 1];
         strcpy(stringData, rhs_s.stringData);
     }
     return *this;
 }
 
 char &String::operator[](unsigned int idx) {
-    if (idx >= len) throw std::out_of_range("String index out of range");
+    if (idx >= length) throw std::out_of_range("String index out of range");
     return stringData[idx];
 }
 
 const char &String::operator[](unsigned int idx) const {
-    if (idx >= len) throw std::out_of_range("String index out of range");
+    if (idx >= length) throw std::out_of_range("String index out of range");
     return stringData[idx];
 }
 
 String String::operator+(const String &rhs_s) const {
     String temp;
-    temp.len = len + rhs_s.len;
+    temp.length = length + rhs_s.length;
     delete[]temp.stringData;
-    temp.stringData = new char[temp.len + 1];
+    temp.stringData = new char[temp.length + 1];
     strcpy(temp.stringData, stringData);
     strcat(temp.stringData, rhs_s.stringData);
 
@@ -58,11 +58,12 @@ String String::operator+(const String &rhs_s) const {
 }
 
 String& nhflib::String::operator+=(const String &rhs_s) {
-    this->len = len + rhs_s.len;
-    delete[] this->stringData;
-    this->stringData = new char[this->len + 1];
-    strcpy(this->stringData, stringData);
+    this->length = length + rhs_s.length;
+    char* saved_own_data = this->stringData;
+    this->stringData = new char[this->length + 1];
+    strcpy(this->stringData, saved_own_data);
     strcat(this->stringData, rhs_s.stringData);
+	delete[] saved_own_data;
 
     return *this;
 }

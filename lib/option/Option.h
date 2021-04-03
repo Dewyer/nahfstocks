@@ -53,6 +53,13 @@ namespace nhflib {
             return *value;
         }
 
+        bool is_some() const noexcept {
+			return this->value != nullptr;
+        }
+
+		explicit operator bool () const {
+        	return this->is_some();
+        }
     };
 }
 

@@ -40,4 +40,7 @@ add_executable(nahfstocks
         tests/lib/libtests.cpp
         tests/lib/libtests.h
         src/company/ICompany.cpp
-        lib/algorithms.h)
+        lib/algorithms.h
+        src/company/names_data.h
+        src/company/CompanyBuilder.cpp
+        src/company/CompanyBuilder.h src/config/Config.cpp src/config/Config.h)

@@ -310,7 +310,7 @@ START_NAMESPACE
                     free(r);
                 } else {
                     /*hibas felszabaditas*/
-                    die("Hibas felszabaditas:",r->p,r->size,&r->call,&call);
+                    die("Hibas felszabaditas:",r->p,r->len,&r->call,&call);
                 }
             } else {
                 die("Nem letezo, vagy mar felszabaditott adat felszabaditasa:", p, 0,NULL,&call);
