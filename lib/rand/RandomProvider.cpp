@@ -3,13 +3,8 @@
 #include <random>
 #include <math.h>
 
-nhflib::RandomProvider::RandomProvider(nhflib::Option<u32> seed) {
-	if (seed.is_some()) {
-		this->engine.seed(seed.unwrap());
-	} else {
-		std::random_device rd;
-		this->engine.seed(rd());
-	}
+nhflib::RandomProvider::RandomProvider(nhflib::Option<usize> seed) {
+	this->seed(std::move(seed));
 }
 
 usize nhflib::RandomProvider::next_usize(usize min, usize max) {
@@ -35,4 +30,13 @@ f64 nhflib::RandomProvider::next_f64_normal(f64 min, f64 max, f64 mean, f64 devi
 	f64 pow_val = -0.5* std::pow((xx - mean)/devi,2);
 	f64 normal = std::pow(l_side, pow_val);
 	return (max-min)*normal + min;
+}
+
+void nhflib::RandomProvider::seed(nhflib::Option<usize> seed) {
+	if (seed.is_some()) {
+		this->engine.seed(seed.unwrap());
+	} else {
+		std::random_device rd;
+		this->engine.seed(rd());
+	}
 }

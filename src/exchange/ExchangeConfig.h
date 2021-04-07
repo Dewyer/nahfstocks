@@ -8,6 +8,9 @@ using nhflib::Option;
 namespace exchange {
     class ExchangeConfig {
     public:
-        Option<usize> starting_cash;
-    };
+
+		usize get_company_count() const noexcept {
+			return 40;
+		}
+	};
 }

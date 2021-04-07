@@ -18,6 +18,8 @@ namespace company {
     public:
     	Company(const String& _name, const String& _sym, f64 _financial_standing, f64 _sector, f64 _leadership_bias, usize _earnings_offset );
 
+		void print_debug(std::ostream& os) const noexcept override;
+
         const String &get_symbol() const noexcept override;
 
         const String &get_name() const noexcept override;

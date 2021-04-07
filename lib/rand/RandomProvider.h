@@ -9,7 +9,9 @@ namespace nhflib {
     class RandomProvider {
 		std::mt19937 engine;
     public:
-        explicit RandomProvider(Option<u32> seed);
+        explicit RandomProvider(Option<usize> seed);
+
+        void seed(Option<usize> seed);
 
         usize next_usize(usize min, usize max);
 

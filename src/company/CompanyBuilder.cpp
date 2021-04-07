@@ -30,4 +30,3 @@ company::CompanyName company::CompanyBuilder::get_random_name() {
 	}
 	return full_name;
 }
-0

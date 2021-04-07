@@ -37,10 +37,16 @@ add_executable(nahfstocks
         src/exchange/exchange_api/TraderRecordInExchange.cpp
         src/exchange/exchange_api/TraderRecordInExchange.h
         src/exchange/ExchangeConfig.h
-        tests/lib/libtests.cpp
-        tests/lib/libtests.h
+        tests/lib/lib_tests.cpp
+        tests/lib/lib_tests.h
         src/company/ICompany.cpp
         lib/algorithms.h
         src/company/names_data.h
         src/company/CompanyBuilder.cpp
-        src/company/CompanyBuilder.h src/config/Config.cpp src/config/Config.h)
+        src/company/CompanyBuilder.h
+        src/config/Config.cpp
+        src/config/Config.h
+        tests/company/company_tests.cpp
+        tests/company/company_tests.h
+        src/exchange/ExchangeBuilder.cpp
+        src/exchange/ExchangeBuilder.h)
