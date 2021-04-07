@@ -9,6 +9,8 @@ namespace company {
     public:
         virtual ~ICompany() = 0;
 
+		virtual usize get_id() const noexcept = 0;
+
 		virtual void print_debug(std::ostream& os) const noexcept = 0;
 
         virtual const String &get_symbol() const noexcept = 0;

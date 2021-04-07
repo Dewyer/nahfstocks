@@ -10,7 +10,7 @@ namespace nhflib {
         usize length;
 
         static bool str_cmp(const char* aa, const char* bb) {
-        	return std::strcmp(aa, bb);
+        	return std::strcmp(aa, bb) == 0;
         }
     public:
 

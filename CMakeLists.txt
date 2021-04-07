@@ -49,4 +49,8 @@ add_executable(nahfstocks
         tests/company/company_tests.cpp
         tests/company/company_tests.h
         src/exchange/ExchangeBuilder.cpp
-        src/exchange/ExchangeBuilder.h)
+        src/exchange/ExchangeBuilder.h
+        src/simulation/Simulation.cpp
+        src/simulation/Simulation.h
+        src/trader/Trader.cpp
+        src/trader/Trader.h)

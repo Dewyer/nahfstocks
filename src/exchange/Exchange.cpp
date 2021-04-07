@@ -3,11 +3,17 @@
 #include <utility>
 #include "../../lib/types.h"
 
-exchange::Exchange::Exchange(exchange::ExchangeConfig config, nhflib::Vector<Company> &companies,
-                             nhflib::Vector<ITrader> &traders) : config(std::move(config)) {
+exchange::Exchange::Exchange(std::shared_ptr<nhflib::RandomProvider> rng,exchange::ExchangeConfig config, nhflib::Vector<Company> &companies,
+                             nhflib::Vector<ITrader> &traders) {
+	this->rng = std::move(rng);
+	this->config = config;
     this->companies = companies;
-    for (usize ii = 0; ii < traders.size(); ++ii) {
-        // TraderRecordInExchange rec(, this->config.starting_cash.unwrap());
-        // this->traders.push_back(rec);
+
+    usize median_cash = this->config.get_median_starting_cash();
+
+    for (auto & trader : traders) {
+    	usize cash = this->rng->next_usize_normal(0, median_cash*2, median_cash, median_cash*0.5);
+        TraderRecordInExchange rec(trader, cash);
+        this->traders.push_back(rec);
     }
 }

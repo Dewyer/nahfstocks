@@ -25,7 +25,7 @@ namespace company {
 			this->rng = std::move(_rng);
 		}
 
-		Company build_random();
+		Company build_random(usize id);
 	};
 
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../lib/collections/Vector.h"
+#include "../../lib/rand/RandomProvider.h"
 #include "../company/Company.h"
 #include "./exchange_api/TraderRecordInExchange.h"
 #include "ExchangeConfig.h"
@@ -10,10 +11,13 @@ using company::Company;
 namespace exchange {
     class Exchange {
     private:
-        const ExchangeConfig config;
+		std::shared_ptr<nhflib::RandomProvider> rng;
+		ExchangeConfig config;
         nhflib::Vector<Company> companies;
         nhflib::Vector<TraderRecordInExchange> traders;
+
+
     public:
-        Exchange(ExchangeConfig config, nhflib::Vector<Company> &companies, nhflib::Vector<ITrader> &traders);
+        Exchange(std::shared_ptr<nhflib::RandomProvider> rng,ExchangeConfig config, nhflib::Vector<Company> &companies, nhflib::Vector<ITrader> &traders);
     };
 }

@@ -1,8 +1,10 @@
 #include <iostream>
 #include "../tests/Tests.h"
+#include "./simulation/Simulation.h"
 
 int real_main() {
-    std::cout << "Hello, World!" << std::endl;
+	simulation::Simulation sim;
+	std::cout << "End, World!" << std::endl;
     return 0;
 }
 
