@@ -5,6 +5,7 @@
 #include "../../lib/external/gtest_lite.h"
 #include "../../src/company/CompanyBuilder.h"
 #include "../../lib/rand/RandomProvider.h"
+#include "../../lib/memory/Rc.h"
 #include "../../lib/option/Option.h"
 
 using nhflib::RandomProvider;
@@ -17,7 +18,7 @@ void run_company_tests() {
 	{
 		Option<usize> seed(10);
 		RandomProvider rng_base(seed);
-		std::shared_ptr<RandomProvider> rng = std::make_shared<RandomProvider>(rng_base);
+		nhflib::Rc<RandomProvider> rng = nhflib::Rc<RandomProvider>::make_rc(rng_base);
 
 		CompanyBuilder builder(rng);
 

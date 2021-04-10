@@ -1,6 +1,6 @@
 #include "ExchangeBuilder.h"
 #include "../../lib/collections/Vector.h"
-#include "../trader/ITrader.h"
+#include "../trader/Trader.h"
 #include "../company/CompanyBuilder.h"
 
 using nhflib::Vector;
@@ -8,7 +8,7 @@ using company::CompanyBuilder;
 
 Exchange exchange::ExchangeBuilder::build_random() {
 	Vector<Company> companies;
-	Vector<ITrader> traders;
+	Vector<Trader> traders;
 
 	CompanyBuilder company_builder(this->rng);
 

@@ -2,12 +2,13 @@
 #include "../exchange/Exchange.h"
 #include "memory"
 #include "../../lib/rand/RandomProvider.h"
+#include "../../lib/memory/Rc.h"
 
 namespace simulation {
 	class Simulation {
-		std::shared_ptr<nhflib::RandomProvider> rng;
+		nhflib::Rc<nhflib::RandomProvider> rng;
 
-		std::shared_ptr<exchange::Exchange> exchange;
+		nhflib::Rc<exchange::Exchange> exchange;
 	public:
 		Simulation();
 	};

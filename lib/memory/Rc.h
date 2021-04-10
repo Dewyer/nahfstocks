@@ -33,8 +33,8 @@ namespace nhflib {
 			this->nullize();
 		}
 
-		Rc(nullptr_t _) {
-			this->nullize();
+		Rc(nullptr_t nptr) {
+			this->initialize(nptr, nptr);
 		}
 
 		Rc(T *from) {
@@ -89,6 +89,22 @@ namespace nhflib {
 			return this->data_ptr;
 		}
 
+		bool operator==(const T* rhs) const {
+			return this->data_ptr == rhs;
+		}
+
+		bool operator!=(const T* rhs) const {
+			return this->data_ptr != rhs;
+		}
+
+		bool operator==(const Rc<T>& rhs) const {
+			return this->data_ptr == rhs.data_ptr;
+		}
+
+		bool operator!=(const Rc<T>& rhs) const {
+			return this->data_ptr != rhs.data_ptr;
+		}
+
 		void free() {
 			if (this->is_null()) {
 				return;
@@ -102,7 +118,7 @@ namespace nhflib {
 			this->nullize();
 		}
 
-		inline bool is_null() {
+		inline bool is_null() const {
 			return this->data_ptr == nullptr || this->ref_count == nullptr;
 		}
 	};

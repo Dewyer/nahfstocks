@@ -1,11 +1,10 @@
 #pragma once
-
-#include <memory>
+#include "../memory/Rc.h"
 
 namespace nhflib {
     template<typename T>
     class Option {
-        std::shared_ptr<T> value;
+        Rc<T> value;
 
     public:
         Option() {
@@ -22,7 +21,7 @@ namespace nhflib {
         }
 
         void swap(T with_value) noexcept {
-            this->value = std::make_shared<T>(with_value);
+            this->value = Rc<T>::make_rc(with_value);
         }
 
         T &unwrap() {

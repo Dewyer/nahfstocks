@@ -1,7 +1,7 @@
 #pragma once
-#include <memory>
 #include <utility>
 #include "../../lib/rand/RandomProvider.h"
+#include "../../lib/memory/Rc.h"
 #include "./Exchange.h"
 
 using nhflib::RandomProvider;
@@ -11,13 +11,13 @@ using exchange::ExchangeConfig;
 namespace exchange {
 
 	class ExchangeBuilder {
-		std::shared_ptr<RandomProvider> rng;
+		nhflib::Rc<RandomProvider> rng;
 		ExchangeConfig config;
 
 	public:
-		explicit ExchangeBuilder(std::shared_ptr<RandomProvider> _rng, ExchangeConfig _config) {
-			this->rng = std::move(_rng);
-			this->config = std::move(_config);
+		explicit ExchangeBuilder(const nhflib::Rc<RandomProvider>& _rng, ExchangeConfig _config) {
+			this->rng = _rng;
+			this->config = _config;
 		}
 
 		Exchange build_random();

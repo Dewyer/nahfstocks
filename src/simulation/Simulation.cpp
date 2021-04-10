@@ -7,11 +7,11 @@ simulation::Simulation::Simulation() {
 
 	nhflib::Option<usize> seed;
 	nhflib::RandomProvider rng_base(seed);
-	this->rng = std::make_shared<nhflib::RandomProvider>(rng_base);
+	this->rng = Rc<nhflib::RandomProvider>::make_rc(rng_base);
 
 	ExchangeConfig config;
 
 	exchange::ExchangeBuilder exchange_builder(this->rng, config);
 
-	this->exchange = std::make_shared<exchange::Exchange>(exchange_builder.build_random());
+	this->exchange = Rc<exchange::Exchange>::make_rc(exchange_builder.build_random());
 }

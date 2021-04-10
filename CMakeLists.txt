@@ -23,23 +23,18 @@ add_executable(nahfstocks
         lib/external/memtrace.cpp
         src/exchange/Exchange.cpp
         src/exchange/Exchange.h
-        src/company/ICompany.h
         lib/types.h
         src/company/Company.cpp
         src/company/Company.h
-        src/trader/ITrader.h
         lib/collections/Vector.h
         lib/rand/RandomProvider.cpp
         lib/rand/RandomProvider.h
         src/exchange/exchange_api/ExchangeApi.cpp
         src/exchange/exchange_api/ExchangeApi.h
-        src/exchange/exchange_api/IExchangeApi.h
-        src/exchange/exchange_api/TraderRecordInExchange.cpp
         src/exchange/exchange_api/TraderRecordInExchange.h
         src/exchange/ExchangeConfig.h
         tests/lib/lib_tests.cpp
         tests/lib/lib_tests.h
-        src/company/ICompany.cpp
         lib/algorithms.h
         src/company/names_data.h
         src/company/CompanyBuilder.cpp
@@ -53,4 +48,5 @@ add_executable(nahfstocks
         src/simulation/Simulation.cpp
         src/simulation/Simulation.h
         src/trader/Trader.cpp
-        src/trader/Trader.h lib/memory/Rc.cpp lib/memory/Rc.h)
+        src/trader/Trader.h
+        lib/memory/Rc.h)
