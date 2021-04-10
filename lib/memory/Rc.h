@@ -89,19 +89,19 @@ namespace nhflib {
 			return this->data_ptr;
 		}
 
-		bool operator==(const T* rhs) const {
+		bool operator==(const T *rhs) const {
 			return this->data_ptr == rhs;
 		}
 
-		bool operator!=(const T* rhs) const {
+		bool operator!=(const T *rhs) const {
 			return this->data_ptr != rhs;
 		}
 
-		bool operator==(const Rc<T>& rhs) const {
+		bool operator==(const Rc<T> &rhs) const {
 			return this->data_ptr == rhs.data_ptr;
 		}
 
-		bool operator!=(const Rc<T>& rhs) const {
+		bool operator!=(const Rc<T> &rhs) const {
 			return this->data_ptr != rhs.data_ptr;
 		}
 

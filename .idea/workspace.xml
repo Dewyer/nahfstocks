@@ -34,25 +34,42 @@
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/idea.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/idea.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/spec/spec.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/spec/spec.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/stock_names.py" beforeDir="false" afterPath="$PROJECT_DIR$/doc/stock_names.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/algorithms.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/algorithms.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/gtest_lite.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/gtest_lite.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/memtrace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/memtrace.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/memtrace.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/memtrace.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/memory/Rc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/memory/Rc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/option/Option.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/ICompany.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/ICompany.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/names_data.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/names_data.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/IExchangeApi.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/ITrader.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/Trader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/Trader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/company/company_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/company/company_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/Trader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/Trader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tests.h" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tests.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +79,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Test" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -198,7 +215,7 @@
       <workItem from="1617817276942" duration="3814000" />
       <workItem from="1617821766229" duration="2211000" />
       <workItem from="1617949964742" duration="14000" />
-      <workItem from="1618063620478" duration="4845000" />
+      <workItem from="1618063620478" duration="7261000" />
     </task>
     <servers />
   </component>

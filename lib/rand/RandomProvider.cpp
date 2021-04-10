@@ -15,7 +15,7 @@ usize nhflib::RandomProvider::next_usize(usize min, usize max) {
 
 usize nhflib::RandomProvider::next_usize_normal(usize min, usize max, f64 mean, f64 devi) {
 	f64 normal = this->next_f64_normal(0, 1, mean, devi);
-	return (max-min)*normal + min;
+	return (max - min) * normal + min;
 }
 
 f64 nhflib::RandomProvider::next_f64(f64 min, f64 max) {
@@ -25,11 +25,11 @@ f64 nhflib::RandomProvider::next_f64(f64 min, f64 max) {
 }
 
 f64 nhflib::RandomProvider::next_f64_normal(f64 min, f64 max, f64 mean, f64 devi) {
-	f64 xx = this->next_f64(0,1);
-	f64 l_side = 1/(devi * std::sqrt(2* nhflib::constants::PI())) * nhflib::constants::E();
-	f64 pow_val = -0.5* std::pow((xx - mean)/devi,2);
+	f64 xx = this->next_f64(0, 1);
+	f64 l_side = 1 / (devi * std::sqrt(2 * nhflib::constants::PI())) * nhflib::constants::E();
+	f64 pow_val = -0.5 * std::pow((xx - mean) / devi, 2);
 	f64 normal = std::pow(l_side, pow_val);
-	return (max-min)*normal + min;
+	return (max - min) * normal + min;
 }
 
 void nhflib::RandomProvider::seed(nhflib::Option<usize> seed) {

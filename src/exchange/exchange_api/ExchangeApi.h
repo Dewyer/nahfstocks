@@ -1,14 +1,15 @@
 #pragma once
+
 #include "../../../lib/types.h"
 
 namespace exchange {
-    class ExchangeApi {
-    private:
-        usize trader_balance;
+	class ExchangeApi {
+	private:
+		usize trader_balance;
 
-    public:
-        ExchangeApi();
+	public:
+		ExchangeApi();
 
-        usize get_trader_balance() const noexcept;
-    };
+		usize get_trader_balance() const noexcept;
+	};
 }

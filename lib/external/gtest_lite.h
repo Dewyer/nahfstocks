@@ -197,13 +197,13 @@ inline void hasMember(...) {}
 /// Segédsablon típuskonverzió futás közbeni ellenőrzésere
 template<typename F, typename T>
 struct _Is_Types {
-    template<typename D>
-    static char (&f(D))[1];
+	template<typename D>
+	static char (&f(D))[1];
 
-    template<typename D>
-    static char (&f(...))[2];
+	template<typename D>
+	static char (&f(...))[2];
 
-    static bool const convertable = sizeof(f<T>(F())) == 1;
+	static bool const convertable = sizeof(f<T>(F())) == 1;
 };
 
 /// -----------------------------------
@@ -225,15 +225,15 @@ struct _Is_Types {
 
 #ifdef CPORTA
 #define GTINIT(is)  \
-    int magic;      \
-    is >> magic;
+	int magic;      \
+	is >> magic;
 #else
 #define GTINIT(IS)
 #endif // CPORTA
 
 #ifdef CPORTA
 #define GTEND(os)  \
-    os << magic << (gtest_lite::test.fail() ? " NO" : " OK?") << std::endl;
+	os << magic << (gtest_lite::test.fail() ? " NO" : " OK?") << std::endl;
 #else
 #define GTEND(os)
 #endif // CPORTA
@@ -244,200 +244,200 @@ namespace gtest_lite {
 /// Tesztek állapotát tároló osztály.
 /// Egyetlen egy statikus példány keletkezik, aminek a
 /// destruktora a futás végén hívódik meg.
-    struct Test {
-        int sum;            ///< tesztek számlálója
-        int failed;         ///< hibás tesztek
-        int ablocks;        ///< allokált blokkok száma
-        bool status;        ///< éppen futó teszt státusza
-        bool tmp;           ///< temp a kivételkezeléshez;
-        std::string name;   ///< éppen futó teszt neve
-        std::fstream null;  ///< nyelő, ha nem kell kiírni semmit
-        static Test &getTest() {
-            static Test instance;///< egyedüli (singleton) példány
-            return instance;
-        }
+	struct Test {
+		int sum;            ///< tesztek számlálója
+		int failed;         ///< hibás tesztek
+		int ablocks;        ///< allokált blokkok száma
+		bool status;        ///< éppen futó teszt státusza
+		bool tmp;           ///< temp a kivételkezeléshez;
+		std::string name;   ///< éppen futó teszt neve
+		std::fstream null;  ///< nyelő, ha nem kell kiírni semmit
+		static Test &getTest() {
+			static Test instance;///< egyedüli (singleton) példány
+			return instance;
+		}
 
-    private:    /// singleton minta miatt
-        Test() : sum(0), failed(0), status(false), null("/dev/null") {}
+	private:    /// singleton minta miatt
+		Test() : sum(0), failed(0), status(false), null("/dev/null") {}
 
-        Test(const Test &);
+		Test(const Test &);
 
-        void operator=(const Test &);
+		void operator=(const Test &);
 
-    public:
-        /// Teszt kezdete
-        void begin(const char *n) {
-            name = n;
-            status = true;
+	public:
+		/// Teszt kezdete
+		void begin(const char *n) {
+			name = n;
+			status = true;
 #ifdef MEMTRACE
-            ablocks = memtrace::allocated_blocks();
+			ablocks = memtrace::allocated_blocks();
 #endif
 #ifndef CPORTA
-            std::cerr << "\n---> " << name << std::endl;
+			std::cerr << "\n---> " << name << std::endl;
 #endif // CPORTA
-            ++sum;
-        }
+			++sum;
+		}
 
-        /// Teszt vége
-        std::ostream &end() {
+		/// Teszt vége
+		std::ostream &end() {
 #ifdef MEMTRACE
-            if (memchk && ablocks != memtrace::allocated_blocks()) {
-                status = false;
-                return std::cerr << "** Lehet, hogy nem szabaditott fel minden memoriat! **" << std::endl;
-            }
+			if (memchk && ablocks != memtrace::allocated_blocks()) {
+				status = false;
+				return std::cerr << "** Lehet, hogy nem szabaditott fel minden memoriat! **" << std::endl;
+			}
 #endif
 #ifdef CPORTA
-            if (!status)
+			if (!status)
 #endif // CPORTA
-            std::cerr << (status ? "     SIKERES" : "** HIBAS ****") << "\t" << name << " <---" << std::endl;
-            if (!status)
-                return std::cerr;
-            else
-                return null;
-        }
+			std::cerr << (status ? "     SIKERES" : "** HIBAS ****") << "\t" << name << " <---" << std::endl;
+			if (!status)
+				return std::cerr;
+			else
+				return null;
+		}
 
-        bool fail() { return failed; }
+		bool fail() { return failed; }
 
-        bool astatus() { return status; }
+		bool astatus() { return status; }
 
-        /// Eredményt adminisztráló tagfüggvény True a jó eset.
-        std::ostream &expect(bool st, const char *file, int line, const char *expr, bool pr = false) {
-            if (!st) {
-                ++failed;
-                status = false;
-            }
-            if (!st || pr) {
-                std::string str(file);
-                size_t i = str.rfind("\\");
-                if (i == std::string::npos) i = str.rfind("/");
-                if (i == std::string::npos) i = 0; else i++;
-                return std::cerr << "\n**** " << &file[i] << "(" << line << "): " << expr << " ****" << std::endl;
-            }
-            return null;
-        }
+		/// Eredményt adminisztráló tagfüggvény True a jó eset.
+		std::ostream &expect(bool st, const char *file, int line, const char *expr, bool pr = false) {
+			if (!st) {
+				++failed;
+				status = false;
+			}
+			if (!st || pr) {
+				std::string str(file);
+				size_t i = str.rfind("\\");
+				if (i == std::string::npos) i = str.rfind("/");
+				if (i == std::string::npos) i = 0; else i++;
+				return std::cerr << "\n**** " << &file[i] << "(" << line << "): " << expr << " ****" << std::endl;
+			}
+			return null;
+		}
 
-        /// Destruktor
-        ~Test() {
+		/// Destruktor
+		~Test() {
 #ifdef CPORTA
-            if (failed)
+			if (failed)
 #endif // CPORTA
-            std::cerr << "\n==== TESZT VEGE ==== HIBAS/OSSZES: " << failed << "/" << sum << std::endl;
-        }
-    };
+			std::cerr << "\n==== TESZT VEGE ==== HIBAS/OSSZES: " << failed << "/" << sum << std::endl;
+		}
+	};
 
 /// A statikus referencia minden fordítási egységben keletkezik, de
 /// mindegyik egyetlen példányra fog hivatkozni a singleton minta miatt
-    static Test &test = Test::getTest();
+	static Test &test = Test::getTest();
 
 /// általános sablon a várt értékhez.
-    template<typename T1, typename T2>
-    std::ostream &EXPECT_(T1 exp, T2 act, bool (*pred)(T1, T2), const char *file, int line,
-                          const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
-        return test.expect(pred(exp, act), file, line, expr)
-                << "** " << lhs << ": " << std::boolalpha << exp
-                << "\n** " << rhs << ": " << std::boolalpha << act << std::endl;
-    }
+	template<typename T1, typename T2>
+	std::ostream &EXPECT_(T1 exp, T2 act, bool (*pred)(T1, T2), const char *file, int line,
+						  const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
+		return test.expect(pred(exp, act), file, line, expr)
+				<< "** " << lhs << ": " << std::boolalpha << exp
+				<< "\n** " << rhs << ": " << std::boolalpha << act << std::endl;
+	}
 
 /// pointerre specializált sablon a várt értékhez.
-    template<typename T1, typename T2>
-    std::ostream &EXPECT_(T1 *exp, T2 *act, bool (*pred)(T1 *, T2 *), const char *file, int line,
-                          const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
-        return test.expect(pred(exp, act), file, line, expr)
-                << "** " << lhs << ": " << (void *) exp
-                << "\n** " << rhs << ": " << (void *) act << std::endl;
-    }
+	template<typename T1, typename T2>
+	std::ostream &EXPECT_(T1 *exp, T2 *act, bool (*pred)(T1 *, T2 *), const char *file, int line,
+						  const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
+		return test.expect(pred(exp, act), file, line, expr)
+				<< "** " << lhs << ": " << (void *) exp
+				<< "\n** " << rhs << ": " << (void *) act << std::endl;
+	}
 
 #if __cplusplus >= 201103L
 
 /// nullptr-re specializált sablon a várt értékhez.
-    template<typename T1>
-    std::ostream &EXPECT_(T1 *exp, std::nullptr_t act, bool (*pred)(T1 *, std::nullptr_t), const char *file, int line,
-                          const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
-        return test.expect(pred(exp, act), file, line, expr)
-                << "** " << lhs << ": " << (void *) exp
-                << "\n** " << rhs << ": " << (void *) act << std::endl;
-    }
+	template<typename T1>
+	std::ostream &EXPECT_(T1 *exp, std::nullptr_t act, bool (*pred)(T1 *, std::nullptr_t), const char *file, int line,
+						  const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
+		return test.expect(pred(exp, act), file, line, expr)
+				<< "** " << lhs << ": " << (void *) exp
+				<< "\n** " << rhs << ": " << (void *) act << std::endl;
+	}
 
 #endif
 
 /// stringek összehasonlításához.
 /// azért nem spec. mert a sima EQ-ra másként kell működnie.
-    inline
-    std::ostream &
-    EXPECTSTR(const char *exp, const char *act, bool (*pred)(const char *, const char *), const char *file, int line,
-              const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
-        return test.expect(pred(exp, act), file, line, expr)
-                << "** " << lhs << ": " << (exp == NULL ? "NULL pointer" : std::string("\"") + exp + std::string("\""))
-                << "\n** " << rhs << ": "
-                << (act == NULL ? "NULL pointer" : std::string("\"") + act + std::string("\"")) << std::endl;
-    }
+	inline
+	std::ostream &
+	EXPECTSTR(const char *exp, const char *act, bool (*pred)(const char *, const char *), const char *file, int line,
+			  const char *expr, const char *lhs = "elvart", const char *rhs = "aktual") {
+		return test.expect(pred(exp, act), file, line, expr)
+				<< "** " << lhs << ": " << (exp == NULL ? "NULL pointer" : std::string("\"") + exp + std::string("\""))
+				<< "\n** " << rhs << ": "
+				<< (act == NULL ? "NULL pointer" : std::string("\"") + act + std::string("\"")) << std::endl;
+	}
 
 /// segéd sablonok a relációkhoz.
 /// azért nem STL (algorithm), mert csak a függvény lehet, hogy menjen a deduckció
-    template<typename T1, typename T2>
-    bool eq(T1 a, T2 b) { return a == b; }
+	template<typename T1, typename T2>
+	bool eq(T1 a, T2 b) { return a == b; }
 
-    inline
-    bool eqstr(const char *a, const char *b) {
-        if (a != NULL && b != NULL)
-            return strcmp(a, b) == 0;
-        return false;
-    }
+	inline
+	bool eqstr(const char *a, const char *b) {
+		if (a != NULL && b != NULL)
+			return strcmp(a, b) == 0;
+		return false;
+	}
 
-    inline
-    bool eqstrcase(const char *a, const char *b) {
-        if (a != NULL && b != NULL) {
-            while (toupper(*a) == toupper(*b) && *a != '\0') {
-                a++;
-                b++;
-            }
-            return *a == *b;
-        }
-        return false;
+	inline
+	bool eqstrcase(const char *a, const char *b) {
+		if (a != NULL && b != NULL) {
+			while (toupper(*a) == toupper(*b) && *a != '\0') {
+				a++;
+				b++;
+			}
+			return *a == *b;
+		}
+		return false;
 
-    }
+	}
 
-    template<typename T1, typename T2>
-    bool ne(T1 a, T2 b) { return a != b; }
+	template<typename T1, typename T2>
+	bool ne(T1 a, T2 b) { return a != b; }
 
-    inline
-    bool nestr(const char *a, const char *b) {
-        if (a != NULL && b != NULL)
-            return strcmp(a, b) != 0;
-        return false;
-    }
+	inline
+	bool nestr(const char *a, const char *b) {
+		if (a != NULL && b != NULL)
+			return strcmp(a, b) != 0;
+		return false;
+	}
 
-    template<typename T1, typename T2>
-    bool le(T1 a, T2 b) { return a <= b; }
+	template<typename T1, typename T2>
+	bool le(T1 a, T2 b) { return a <= b; }
 
-    template<typename T1, typename T2>
-    bool lt(T1 a, T2 b) { return a < b; }
+	template<typename T1, typename T2>
+	bool lt(T1 a, T2 b) { return a < b; }
 
-    template<typename T1, typename T2>
-    bool ge(T1 a, T2 b) { return a >= b; }
+	template<typename T1, typename T2>
+	bool ge(T1 a, T2 b) { return a >= b; }
 
-    template<typename T1, typename T2>
-    bool gt(T1 a, T2 b) { return a > b; }
+	template<typename T1, typename T2>
+	bool gt(T1 a, T2 b) { return a > b; }
 
 /// Segédsablon valós számok összehasonlításához
 /// Nem bombabiztos, de nekünk most jó lesz
 /// Elméleti hátér:
 /// http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
-    template<typename T>
-    bool almostEQ(T a, T b) {
-        // eps: ha a relatív, vagy abszolút hiba ettől kisebb, akkor elfogadjuk
-        T eps = 10 * std::numeric_limits<T>::epsilon(); // 10-szer a legkisebb érték
-        if (a == b) return true;
-        if (fabs(a - b) < eps)
-            return true;
-        double aa = fabs(a);
-        double ba = fabs(b);
-        if (aa < ba) {
-            aa = ba;
-            ba = fabs(a);
-        }
-        return (aa - ba) < aa * eps;
-    }
+	template<typename T>
+	bool almostEQ(T a, T b) {
+		// eps: ha a relatív, vagy abszolút hiba ettől kisebb, akkor elfogadjuk
+		T eps = 10 * std::numeric_limits<T>::epsilon(); // 10-szer a legkisebb érték
+		if (a == b) return true;
+		if (fabs(a - b) < eps)
+			return true;
+		double aa = fabs(a);
+		double ba = fabs(b);
+		if (aa < ba) {
+			aa = ba;
+			ba = fabs(a);
+		}
+		return (aa - ba) < aa * eps;
+	}
 
 } // namespace gtest_lite
 

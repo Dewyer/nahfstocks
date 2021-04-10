@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../trader/Trader.h"
+#include "../../trader/TraderAgent.h"
 #include "../../../lib/string/String.h"
 #include "../../../lib/collections/Vector.h"
 #include "../../../lib/memory/Rc.h"
@@ -9,7 +9,7 @@
 using nhflib::String;
 using nhflib::Vector;
 using nhflib::Rc;
-using trader::Trader;
+using trader::TraderAgent;
 
 namespace exchange {
 
@@ -18,13 +18,15 @@ namespace exchange {
 		usize count;
 	};
 
-    class TraderRecordInExchange {
-    public:
-        Rc<Trader> trader;
-        usize cash_balance;
+	class TraderRecordInExchange {
+	public:
+		usize trader_id;
+		Rc<TraderAgent> trader;
+		usize cash_balance;
 		Vector<TraderStock> stocks;
 
-        TraderRecordInExchange(const Rc<Trader>& trader, usize starting_cash) {
+		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash) {
+			this->trader_id = _trader_id;
 			this->trader = trader;
 			this->cash_balance = starting_cash;
 		}

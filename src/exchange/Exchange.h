@@ -11,15 +11,16 @@
 using company::Company;
 
 namespace exchange {
-    class Exchange {
-    private:
+	class Exchange {
+	private:
 		nhflib::Rc<nhflib::RandomProvider> rng;
-		ExchangeConfig config;
-        nhflib::Vector<Company> companies;
-        nhflib::Vector<TraderRecordInExchange> traders;
+		nhflib::Rc<ExchangeConfig> config;
+		nhflib::Vector<Company> companies;
+		nhflib::Vector<TraderRecordInExchange> traders;
 
 
-    public:
-        Exchange(const nhflib::Rc<nhflib::RandomProvider>& rng,ExchangeConfig config, nhflib::Vector<Company> &companies, nhflib::Vector<Trader> &traders);
-    };
+	public:
+		Exchange(const nhflib::Rc<nhflib::RandomProvider> &rng, const nhflib::Rc<ExchangeConfig>& config,
+				 nhflib::Vector<Company> &companies, nhflib::Vector<TraderAgent> &traders);
+	};
 }

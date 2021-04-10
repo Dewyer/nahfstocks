@@ -10,10 +10,10 @@
 \usepackage{subfiles}
 
 \hypersetup{
-colorlinks=true,
-linkcolor=blue,
-filecolor=magenta,
-urlcolor=cyan,
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
 }
 
 \title{Részvénypiac Szimuláció}
@@ -25,6 +25,7 @@ urlcolor=cyan,
 
 \begin{document}
     \maketitle
+
 
     \section{Rövid összefoglaló a problémáról}\label{sec:description}
     A program célja egy képzeletbeli részvénypiac szimulációja. \\
@@ -38,41 +39,43 @@ urlcolor=cyan,
     A rendszer ciklusokban működik, minden ciklusban létrejöhetnek események, illetve random aktivált kereskedők kezelhetik befektetéseik.
     A piac egy úgynevezett "Aukciós Piac" elvén működik, ahol a kereskedők ajánlatainak egyezése esetén történnek eladások és vételek.
 
+
     \section{Bemenetek}
     A program egy parancsoros interfacen keresztül használható aminek a standard bemeneten lehet megadni különböző beállításokat
     Ezeket egy egyszerű kulcs-érték pár listaként várja a következő formában:
     \textit{KULCS=ÉRTÉK} a párok pedig valamilyen "whitespace" karakterrel kell, hogy elválasztva legyenek.
     A felhasználó dupla "whitespace" karakter bevitelével tudja jelezni, hogy több beállítást nem szeretne megadni.
 
+
     \section{Beállítások}
     \begin{center}
         \begin{tabular}{ | p{5.5cm} || p{5.5cm} | }
             \hline
-            \textbf{Kulcs / Tipus} & Leírás \\
+            \textbf{Kulcs / Tipus}               & Leírás                                                                                \\
             \hline
-            \textbf{INTERACTIVE\_MODE (Bool)} & A program interaktív módban vagy limit* módban fusson.\\
+            \textbf{INTERACTIVE\_MODE (Bool)}    & A program interaktív módban vagy limit* módban fusson.                                \\
             \hline
-            \textbf{CYCLE\_LIMITS (Int)} & Maximum mennyi ciklusig tarthat a szimuláció.\\
+            \textbf{CYCLE\_LIMITS (Int)}         & Maximum mennyi ciklusig tarthat a szimuláció.                                         \\
             \hline
-            \textbf{SEED (Int)} & Mi legyen a random \textit{seed**}\\
+            \textbf{SEED (Int)}                  & Mi legyen a random \textit{seed**}                                                    \\
             \hline
-            \textbf{LOG\_LEVEL (Int)} & Mennyire legyen a standard kimenetre való naplózás részletes.\\
+            \textbf{LOG\_LEVEL (Int)}            & Mennyire legyen a standard kimenetre való naplózás részletes.                         \\
             \hline
-            \textbf{TRADER\_COUNT (Int)} & Hány random generált kereskedők legyen.\\
+            \textbf{TRADER\_COUNT (Int)}         & Hány random generált kereskedők legyen.                                               \\
             \hline
-            \textbf{COMPANY\_COUNT (Int)} & Hány random generált cég legyen.\\
+            \textbf{COMPANY\_COUNT (Int)}        & Hány random generált cég legyen.                                                      \\
             \hline
-            \textbf{EARNINGS\_CYCLES (Int)} & Mennyi ciklusonként legyen "earnings" jelentése a cégeknek átlagosan.\\
+            \textbf{EARNINGS\_CYCLES (Int)}      & Mennyi ciklusonként legyen "earnings" jelentése a cégeknek átlagosan.                 \\
             \hline
-            \textbf{DIVIDEND\_CYCLES (Int)} & Mennyi ciklusonként legyen dividáns fizetés átlagosan.\\
+            \textbf{DIVIDEND\_CYCLES (Int)}      & Mennyi ciklusonként legyen dividáns fizetés átlagosan.                                \\
             \hline
-            \textbf{TRADER\_MONEY (Int)} & Mennyi legyen a kereskedők átlag kezdő vagyona.\\
+            \textbf{TRADER\_MONEY (Int)}         & Mennyi legyen a kereskedők átlag kezdő vagyona.                                       \\
             \hline
-            \textbf{TRADER\_INCOME (Int)} & Mennyi legyen a kereskedők átlag keresete.\\
+            \textbf{TRADER\_INCOME (Int)}        & Mennyi legyen a kereskedők átlag keresete.                                            \\
             \hline
-            \textbf{MEDIAN\_IPO (Int)} & Mennyi legyen a medián kezdetleges részvénykibocsájtás részvényenkénti ára.\\
+            \textbf{MEDIAN\_IPO (Int)}           & Mennyi legyen a medián kezdetleges részvénykibocsájtás részvényenkénti ára.           \\
             \hline
-            \textbf{PRICE\_SAMPLING\_RATE (Int)} & A szimuláció hűny ciklusonként mintavételzze a cégek árfolyamát. (Kimenet felbontása)\\
+            \textbf{PRICE\_SAMPLING\_RATE (Int)} & A szimuláció hűny ciklusonként mintavételzze a cégek árfolyamát. (Kimenet felbontása) \\
             \hline
         \end{tabular}\\
         \textit{* - Limit módban a program, menü megjelenítése nélkül CYCLE\_LIMITS-nyi cikluson keresztül fut aztán kilép.} \\
@@ -81,6 +84,7 @@ urlcolor=cyan,
     Az összes beállítás opcionális és implementáció függő alapértelmezett értékekkel rendelkezik.
     Az implementáció támogathat még ezeken kívül más beállításokat is.
     Illetve a program "--help" parancssori argomentummal történő futtatására kiírja a támogatott beállításait és egy rövid használati útmutatót.
+
 
     \section{Interaktív mód}
     Interaktív módban való futtatáskor a szimulácó aktuális állapota egy menü segítségével megfigyelhető.
@@ -104,6 +108,7 @@ urlcolor=cyan,
 
     \subsection{Kereskedők részletes adatai}
     Le lehet kérni egy kereskedő részletes adatait, beállításait, összes nyitott pozícióját a kereskedő egyedi azonosítója alapján.
+
 
     \section{Kimenetek}
     A szimuláció végeztével, a program az elmentett árfolyam, cég és kereskedő információt kiírja JSON formátumban.

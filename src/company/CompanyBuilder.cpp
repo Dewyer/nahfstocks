@@ -3,12 +3,12 @@
 
 company::Company company::CompanyBuilder::build_random(usize id) {
 	company::CompanyName cmp_name = this->get_random_name();
-	f64 financials = this->rng->next_f64_normal(0.0,1.0, 0.5, 0.2);
+	f64 financials = this->rng->next_f64_normal(0.0, 1.0, 0.5, 0.2);
 	f64 sector = this->rng->next_f64(0, 1);
 	f64 leadership = this->rng->next_f64(0, 1);
 	usize earnings = this->rng->next_usize_normal(0, 50, 25, 10);
 
-	Company cmp(id,cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings);
+	Company cmp(id, cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings);
 	return cmp;
 }
 

@@ -2,7 +2,7 @@
 
 class Tests final {
 public:
-    static void run_all();
+	static void run_all();
 
-    static void sanity_test();
+	static void sanity_test();
 };

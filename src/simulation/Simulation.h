@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../exchange/Exchange.h"
 #include "memory"
 #include "../../lib/rand/RandomProvider.h"
