@@ -18,9 +18,13 @@ namespace exchange {
 		nhflib::Vector<Company> companies;
 		nhflib::Vector<TraderRecordInExchange> traders;
 
+		usize cycle_count;
 
+		void handle_fixed_income_on_cycle();
 	public:
 		Exchange(const nhflib::Rc<nhflib::RandomProvider> &rng, const nhflib::Rc<ExchangeConfig>& config,
 				 nhflib::Vector<Company> &companies, nhflib::Vector<TraderAgent> &traders);
+
+		void cycle();
 	};
 }

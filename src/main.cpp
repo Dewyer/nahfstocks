@@ -4,7 +4,7 @@
 
 int real_main() {
 	simulation::Simulation sim;
-	std::cout << "End, World!" << std::endl;
+	sim.run();
 	return 0;
 }
 

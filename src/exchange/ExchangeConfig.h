@@ -17,9 +17,12 @@ namespace exchange {
 			return 40;
 		}
 
+		usize get_fixed_income_interval() const noexcept {
+			return 24*30;
+		}
 
 		usize get_median_starting_cash() const noexcept {
-			return 2000;
+			return 10000;
 		}
 	};
 }

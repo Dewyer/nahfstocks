@@ -23,12 +23,19 @@ namespace exchange {
 		usize trader_id;
 		Rc<TraderAgent> trader;
 		usize cash_balance;
+		usize fixed_income;
 		Vector<TraderStock> stocks;
 
-		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash) {
+		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash, usize _fixed_income) {
 			this->trader_id = _trader_id;
 			this->trader = trader;
 			this->cash_balance = starting_cash;
+			this->fixed_income = _fixed_income;
+		}
+
+		void print_debug(std::ostream &os) const noexcept {
+			this->trader->print_debug(os);
+			os << "| Bal: " << this->cash_balance << ", Inc: " << this->fixed_income << std::endl;
 		}
 	};
 }

@@ -14,7 +14,7 @@ usize nhflib::RandomProvider::next_usize(usize min, usize max) {
 }
 
 usize nhflib::RandomProvider::next_usize_normal(usize min, usize max, f64 mean, f64 devi) {
-	f64 normal = this->next_f64_normal(0, 1, mean, devi);
+	f64 normal = this->next_f64_normal(0, 1, mean/max, devi/max);
 	return (max - min) * normal + min;
 }
 

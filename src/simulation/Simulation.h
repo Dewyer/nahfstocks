@@ -10,7 +10,11 @@ namespace simulation {
 		nhflib::Rc<nhflib::RandomProvider> rng;
 
 		nhflib::Rc<exchange::Exchange> exchange;
+
+		void setup();
 	public:
 		Simulation();
+
+		void run();
 	};
 }
