@@ -53,4 +53,4 @@ add_executable(nahfstocks
         src/simulation/Simulation.cpp
         src/simulation/Simulation.h
         src/trader/Trader.cpp
-        src/trader/Trader.h)
+        src/trader/Trader.h lib/memory/Rc.cpp lib/memory/Rc.h)

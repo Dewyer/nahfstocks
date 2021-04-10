@@ -3,6 +3,8 @@
 
 namespace trader {
     class ITrader {
+    private:
+
 	public:
 		virtual usize get_id() const noexcept = 0;
 

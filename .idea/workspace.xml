@@ -32,23 +32,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nahfstocks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nahfstocks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/ICompany.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/ICompany.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeConfig.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/ITrader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/ITrader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/memory/Rc.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/memory/Rc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/memory/Rc.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +43,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Test" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -120,6 +105,11 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -137,11 +127,6 @@
         <work-dir />
       </texify-external>
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify>
@@ -193,6 +178,8 @@
       <workItem from="1617734393878" duration="2825000" />
       <workItem from="1617817276942" duration="3814000" />
       <workItem from="1617821766229" duration="2211000" />
+      <workItem from="1617949964742" duration="14000" />
+      <workItem from="1618063620478" duration="3653000" />
     </task>
     <servers />
   </component>

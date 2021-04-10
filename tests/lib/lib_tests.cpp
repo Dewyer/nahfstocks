@@ -8,8 +8,15 @@
 #include "../../lib/collections/Vector.h"
 #include "../../lib/algorithms.h"
 #include "../../lib/string/String.h"
+#include "../../lib/memory/Rc.h"
 
 using namespace nhflib;
+
+class TestClass {
+public:
+	usize a;
+	usize b;
+};
 
 template<typename T>
 void working_expect_throw(const std::function<void()> &func) {
@@ -74,6 +81,22 @@ void run_lib_tests() {
             EXPECT_STREQ( "a", s2.c_str());
         }
             END
+
+	TEST(LibTests, Rc)
+		{
+    		TestClass test_c;
+    		test_c.a = 10;
+
+			Rc<TestClass> tc_rc = Rc<TestClass>::make_rc(test_c);
+			auto tc_two = tc_rc;
+
+			EXPECT_TRUE(tc_rc->a == 10);
+			EXPECT_TRUE(tc_two->a == 10);
+			tc_two->a = 20;
+			EXPECT_TRUE(tc_rc->a == 20);
+			EXPECT_TRUE(tc_two->a == 20);
+		}
+			END
 }
 
 #else

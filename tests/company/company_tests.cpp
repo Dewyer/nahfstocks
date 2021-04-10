@@ -21,7 +21,7 @@ void run_company_tests() {
 
 		CompanyBuilder builder(rng);
 
-		Company cmp = builder.build_random();
+		Company cmp = builder.build_random(0);
 		EXPECT_TRUE(cmp.get_name().len() > 0);
 		EXPECT_TRUE(cmp.get_sector() > 0);
 	}
