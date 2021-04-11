@@ -49,4 +49,8 @@ add_executable(nahfstocks
         src/simulation/Simulation.h
         src/trader/TraderAgent.cpp
         src/trader/TraderAgent.h
-        lib/memory/Rc.h src/trader/TraderAgentBuilder.cpp src/trader/TraderAgentBuilder.h)
+        lib/memory/Rc.h
+        src/trader/TraderAgentBuilder.cpp
+        src/trader/TraderAgentBuilder.h
+        src/exchange/exchange_api/Order.h
+        src/exchange/exchange_api/MarketContext.h)

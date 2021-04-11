@@ -5,6 +5,7 @@
 #include "../../../lib/collections/Vector.h"
 #include "../../../lib/memory/Rc.h"
 #include "../../../lib/types.h"
+#include "./Order.h"
 
 using nhflib::String;
 using nhflib::Vector;
@@ -15,7 +16,7 @@ namespace exchange {
 
 	struct TraderStock {
 		usize company_id;
-		usize count;
+		usize amount;
 	};
 
 	class TraderRecordInExchange {
@@ -25,6 +26,8 @@ namespace exchange {
 		usize cash_balance;
 		usize fixed_income;
 		Vector<TraderStock> stocks;
+
+		nhflib::Vector<nhflib::Rc<exchange::Order>> open_orders;
 
 		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash, usize _fixed_income) {
 			this->trader_id = _trader_id;

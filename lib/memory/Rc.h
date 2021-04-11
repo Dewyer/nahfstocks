@@ -122,4 +122,14 @@ namespace nhflib {
 			return this->data_ptr == nullptr || this->ref_count == nullptr;
 		}
 	};
+
+	template<typename T>
+	static Rc<T> make_rc(T from_t) {
+		return Rc<T>::make_rc(from_t);
+	}
+
+	template<typename T>
+	static Rc<T> make_rc(T *from_t) {
+		return Rc<T>::make_rc(from_t);
+	}
 }

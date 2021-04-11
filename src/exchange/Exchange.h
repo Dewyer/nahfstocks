@@ -9,21 +9,25 @@
 #include "ExchangeConfig.h"
 
 using company::Company;
+using nhflib::Rc;
+using nhflib::Vector;
 
 namespace exchange {
 	class Exchange {
 	private:
-		nhflib::Rc<nhflib::RandomProvider> rng;
-		nhflib::Rc<ExchangeConfig> config;
-		nhflib::Vector<Company> companies;
-		nhflib::Vector<TraderRecordInExchange> traders;
+		Rc<nhflib::RandomProvider> rng;
+		Rc<ExchangeConfig> config;
+		Rc<Vector<Rc<Company>>> companies;
+		Rc<Vector<Rc<TraderRecordInExchange>>> traders;
 
 		usize cycle_count;
 
 		void handle_fixed_income_on_cycle();
 	public:
-		Exchange(const nhflib::Rc<nhflib::RandomProvider> &rng, const nhflib::Rc<ExchangeConfig>& config,
-				 nhflib::Vector<Company> &companies, nhflib::Vector<TraderAgent> &traders);
+		Exchange(const Rc<nhflib::RandomProvider> &rng,
+				 const Rc<exchange::ExchangeConfig> &config,
+				 const Rc<Vector<Rc<Company>>> &companies,
+				 const Rc<Vector<Rc<TraderAgent>>> &traders);
 
 		void cycle();
 	};

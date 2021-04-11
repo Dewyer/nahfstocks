@@ -11,13 +11,13 @@ void simulation::Simulation::setup() {
 
 	nhflib::Option<usize> seed;
 	nhflib::RandomProvider rng_base(seed);
-	this->rng = Rc<nhflib::RandomProvider>::make_rc(rng_base);
+	this->rng = nhflib::make_rc(rng_base);
 
 	Rc<ExchangeConfig> config;
 
 	exchange::ExchangeBuilder exchange_builder(this->rng, config);
 
-	this->exchange = Rc<exchange::Exchange>::make_rc(exchange_builder.build_random());
+	this->exchange = nhflib::make_rc(exchange_builder.build_random());
 }
 
 void simulation::Simulation::run() {

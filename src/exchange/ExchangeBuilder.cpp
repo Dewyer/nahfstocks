@@ -9,36 +9,36 @@ using nhflib::Vector;
 using company::CompanyBuilder;
 
 Exchange exchange::ExchangeBuilder::build_random() {
-	Vector<Company> companies = this->build_companies();
+	auto companies = this->build_companies();
 	std::cout << std::endl;
-	Vector<TraderAgent> traders = this->build_trader_agents();
+	auto traders = this->build_trader_agents();
 
 	Exchange exch(this->rng, this->config, companies, traders);
 	return exch;
 }
 
-Vector<Company> exchange::ExchangeBuilder::build_companies() {
+Rc<Vector<Rc<Company>>> exchange::ExchangeBuilder::build_companies() {
 	CompanyBuilder company_builder(this->rng);
 
 	std::cout << "Creating companies: " << std::endl;
-	return nhfalgo::map<usize, Company>(
-			nhfalgo::range<usize>(this->config->get_company_count()), [&company_builder](usize &ii) {
+	return nhflib::make_rc(nhfalgo::map<usize, Rc<Company>>(
+			nhfalgo::range<usize>(this->config->get_company_count()), [&company_builder](const usize &ii) {
 				Company cmp = company_builder.build_random(ii);
 				cmp.print_debug(std::cout);
-				return cmp;
-			});;
+				return nhflib::make_rc(cmp);
+			}));
 }
 
-Vector<TraderAgent> exchange::ExchangeBuilder::build_trader_agents() {
+Rc<Vector<Rc<TraderAgent>>> exchange::ExchangeBuilder::build_trader_agents() {
 	trader::TraderAgentBuilder trader_builder;
 
 	std::cout << "Creating traders: " << std::endl;
-	return nhfalgo::map<usize, TraderAgent>(
+	return nhflib::make_rc(nhfalgo::map<usize, Rc<TraderAgent>>(
 			nhfalgo::range(this->config->get_trader_count()),
 			[&trader_builder]() {
 				TraderAgent agent = trader_builder.build_random();
 				agent.print_debug(std::cout);
-				return agent;
+				return nhflib::make_rc(agent);
 			}
-	);
+	));
 }
