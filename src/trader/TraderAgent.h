@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../lib/string/String.h"
+#include "../exchange/exchange_api/ExchangeApi.h"
 
 namespace trader {
 	class TraderAgent {
@@ -14,6 +15,8 @@ namespace trader {
 		void print_debug(std::ostream &os) const noexcept;
 
 		const nhflib::String &get_name() const noexcept;
+
+		void on_cycle(const exchange::ExchangeApi& api);
 	};
 }
 

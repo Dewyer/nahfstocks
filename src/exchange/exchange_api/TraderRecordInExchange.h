@@ -27,6 +27,8 @@ namespace exchange {
 		usize fixed_income;
 		Vector<TraderStock> stocks;
 
+		usize next_activation;
+
 		nhflib::Vector<nhflib::Rc<exchange::Order>> open_orders;
 
 		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash, usize _fixed_income) {

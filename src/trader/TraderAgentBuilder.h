@@ -8,6 +8,6 @@ namespace trader {
 	class TraderAgentBuilder {
 		nhflib::Rc<nhflib::RandomProvider> rng;
 	public:
-		TraderAgent build_random();
+		nhflib::Rc<TraderAgent> build_random();
 	};
 }

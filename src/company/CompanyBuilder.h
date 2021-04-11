@@ -28,7 +28,7 @@ namespace company {
 			this->rng = _rng;
 		}
 
-		Company build_random(usize id);
+		nhflib::Rc<Company> build_random(usize id);
 	};
 
 }

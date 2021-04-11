@@ -1,7 +1,7 @@
 #include "CompanyBuilder.h"
 #include "names_data.h"
 
-company::Company company::CompanyBuilder::build_random(usize id) {
+nhflib::Rc<company::Company> company::CompanyBuilder::build_random(usize id) {
 	company::CompanyName cmp_name = this->get_random_name();
 	f64 financials = this->rng->next_f64_normal(0.0, 1.0, 0.5, 0.2);
 	f64 sector = this->rng->next_f64(0, 1);
@@ -9,7 +9,7 @@ company::Company company::CompanyBuilder::build_random(usize id) {
 	usize earnings = this->rng->next_usize_normal(0, 50, 25, 10);
 
 	Company cmp(id, cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings);
-	return cmp;
+	return nhflib::make_rc(cmp);
 }
 
 company::CompanyName company::CompanyBuilder::get_random_name() {

@@ -4,7 +4,7 @@
 
 #include "TraderAgentBuilder.h"
 
-trader::TraderAgent trader::TraderAgentBuilder::build_random() {
+nhflib::Rc<trader::TraderAgent> trader::TraderAgentBuilder::build_random() {
 	TraderAgent agent("Trader joe");
-	return agent;
+	return nhflib::make_rc(agent);
 }

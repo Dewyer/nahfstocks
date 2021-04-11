@@ -27,7 +27,7 @@ namespace exchange {
 			this->config = _config;
 		}
 
-		Exchange build_random();
+		Rc<Exchange> build_random();
 	};
 
 }

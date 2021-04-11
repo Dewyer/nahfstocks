@@ -17,7 +17,7 @@ void simulation::Simulation::setup() {
 
 	exchange::ExchangeBuilder exchange_builder(this->rng, config);
 
-	this->exchange = nhflib::make_rc(exchange_builder.build_random());
+	this->exchange = exchange_builder.build_random();
 }
 
 void simulation::Simulation::run() {
