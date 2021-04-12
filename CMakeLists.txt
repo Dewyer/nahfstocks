@@ -35,7 +35,6 @@ add_executable(nahfstocks
         src/exchange/ExchangeConfig.h
         tests/lib/lib_tests.cpp
         tests/lib/lib_tests.h
-        lib/algorithms.h
         src/company/names_data.h
         src/company/CompanyBuilder.cpp
         src/company/CompanyBuilder.h

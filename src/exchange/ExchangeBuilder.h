@@ -17,9 +17,9 @@ namespace exchange {
 		Rc<ExchangeConfig> config;
 
 	private:
-		Rc<Vector<Rc<Company>>> build_companies();
+		Rc<Vector<Company>> build_companies();
 
-		Rc<Vector<Rc<TraderAgent>>> build_trader_agents();
+		Rc<Vector<TraderAgent>> build_trader_agents();
 
 	public:
 		explicit ExchangeBuilder(const nhflib::Rc<RandomProvider> &_rng,const nhflib::Rc<ExchangeConfig>& _config) {

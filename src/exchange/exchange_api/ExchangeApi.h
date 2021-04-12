@@ -7,19 +7,31 @@
 #include "Order.h"
 
 namespace exchange {
+
+	class Exchange;
+
 	class ExchangeApi {
 	private:
+		exchange::Exchange* exchange;
 		nhflib::Rc<exchange::TraderRecordInExchange> trader;
-		MarketContext context;
+		nhflib::Rc<MarketContext> context;
+		std::ostream* logger_stream;
+
 
 	public:
-		explicit ExchangeApi(MarketContext _context, const nhflib::Rc<exchange::TraderRecordInExchange>& _trader) :
+		ExchangeApi(exchange::Exchange* _exchange, const nhflib::Rc<MarketContext>& _context, const nhflib::Rc<exchange::TraderRecordInExchange>& _trader, std::ostream* _logger_stream) :
+			exchange(_exchange),
 			trader(_trader),
-			context(_context)
+			context(_context),
+			logger_stream(_logger_stream)
 		{}
 
+		std::ostream& get_logger_stream() const noexcept {
+			return *this->logger_stream;
+		}
+
 		const MarketContext& get_market_context() const noexcept {
-			return this->context;
+			return *this->context;
 		}
 
 		usize get_trader_balance() const noexcept {
@@ -34,6 +46,8 @@ namespace exchange {
 			return this->trader->fixed_income;
 		}
 
-		void open_order(exchange::Order order);
+		exchange::Order open_order(exchange::OrderCreationPayload order);
+
+		void cancel_order(usize order_id);
 	};
 }

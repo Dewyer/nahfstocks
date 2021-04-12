@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../types.h"
+#include <iostream>
 
 namespace nhflib {
 	template<typename T>
@@ -105,6 +106,11 @@ namespace nhflib {
 			return this->data_ptr != rhs.data_ptr;
 		}
 
+		operator bool() const
+		{
+			return !this->is_null();
+		}
+
 		void free() {
 			if (this->is_null()) {
 				return;
@@ -124,12 +130,24 @@ namespace nhflib {
 	};
 
 	template<typename T>
-	static Rc<T> make_rc(T from_t) {
+	Rc<T> make_rc(T from_t) {
 		return Rc<T>::make_rc(from_t);
 	}
 
 	template<typename T>
-	static Rc<T> make_rc(T *from_t) {
+	Rc<T> make_rc(T *from_t) {
 		return Rc<T>::make_rc(from_t);
+	}
+
+	template<typename T>
+	Rc<T> make_rc_ctr() {
+		T t;
+		return Rc<T>::make_rc(t);
+	}
+
+	template<typename T>
+	Rc<T> make_rc() {
+		Rc<T> rc(nullptr);
+		return rc;
 	}
 }

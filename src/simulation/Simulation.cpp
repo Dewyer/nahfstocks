@@ -21,7 +21,7 @@ void simulation::Simulation::setup() {
 }
 
 void simulation::Simulation::run() {
-	for (int ii = 0; ii < 1500; ++ii) {
+	for (int ii = 0; ii < 10; ++ii) {
 		this->exchange->cycle();
 	}
 

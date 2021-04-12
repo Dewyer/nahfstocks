@@ -1,7 +1,10 @@
 #pragma once
 
 #include "../../lib/string/String.h"
-#include "../exchange/exchange_api/ExchangeApi.h"
+
+namespace exchange {
+	class ExchangeApi;
+}
 
 namespace trader {
 	class TraderAgent {
