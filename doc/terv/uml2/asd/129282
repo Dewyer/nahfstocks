@@ -1,0 +1,202 @@
+format 224
+"rand" // lib::rand
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/lib/rand/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/lib/rand/"
+  cpp_namespace "nhflib"
+  classview 129154 "rand"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 129282 "RandomProvider"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 129282 "engine"
+	private explicit_type "std::mt19937"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 143362 "RandomProvider"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "seed" explicit_type "Option<usize>"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}${t0} ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 143490 "seed"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "seed" explicit_type "Option<usize>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 143618 "next_usize"
+	preserve_cpp_body_indent public return_type class_ref 128258 // usize
+	nparams 2
+	  param in name "min" type class_ref 128258 // usize
+	  param in name "max" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 143746 "next_f64"
+	preserve_cpp_body_indent public return_type class_ref 129026 // f64
+	nparams 2
+	  param in name "min" type class_ref 129026 // f64
+	  param in name "max" type class_ref 129026 // f64
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 143874 "next_f64_normal"
+	preserve_cpp_body_indent public return_type class_ref 129026 // f64
+	nparams 4
+	  param in name "min" type class_ref 129026 // f64
+	  param in name "max" type class_ref 129026 // f64
+	  param in name "mean" type class_ref 129026 // f64
+	  param in name "devi" type class_ref 129026 // f64
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144002 "next_usize_normal"
+	preserve_cpp_body_indent public return_type class_ref 128258 // usize
+	nparams 4
+	  param in name "min" type class_ref 128258 // usize
+	  param in name "max" type class_ref 128258 // usize
+	  param in name "mean" type class_ref 129026 // f64
+	  param in name "devi" type class_ref 129026 // f64
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 129794 "rand"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 130690 "RandomProvider"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 129282 // RandomProvider
+      end
+    end
+  end
+end

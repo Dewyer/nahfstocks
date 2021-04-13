@@ -32,14 +32,12 @@ add_executable(nahfstocks
         src/exchange/exchange_api/ExchangeApi.cpp
         src/exchange/exchange_api/ExchangeApi.h
         src/exchange/exchange_api/TraderRecordInExchange.h
-        src/exchange/ExchangeConfig.h
+        src/config/Config.h
         tests/lib/lib_tests.cpp
         tests/lib/lib_tests.h
         src/company/names_data.h
         src/company/CompanyBuilder.cpp
         src/company/CompanyBuilder.h
-        src/config/Config.cpp
-        src/config/Config.h
         tests/company/company_tests.cpp
         tests/company/company_tests.h
         src/exchange/ExchangeBuilder.cpp
@@ -52,4 +50,8 @@ add_executable(nahfstocks
         src/trader/TraderAgentBuilder.cpp
         src/trader/TraderAgentBuilder.h
         src/exchange/exchange_api/Order.h
-        src/exchange/exchange_api/MarketContext.h)
+        src/exchange/exchange_api/MarketContext.h
+        src/events/EventDispatcher.cpp
+        src/events/EventDispatcher.h
+        src/events/Event.h
+        src/events/EventDispatchingContext.h src/cli/SimulationCli.cpp src/cli/SimulationCli.h)

@@ -1,0 +1,450 @@
+format 224
+"memory" // lib::memory
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/lib/memory/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/lib/memory/"
+  cpp_namespace "nhflib"
+  classview 129282 "memory"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 129666 "Rc"
+      visibility package 
+      nformals 1
+      formal name "T" type "typename" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 129026 "data_ptr"
+	private explicit_type "T"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 134402 // ref_count (<unidirectional association>)
+	relation 134402 --->
+	  a role_name "ref_count" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 134402 // ref_count (<unidirectional association>)
+	  b parent class_ref 128258 // usize
+      end
+
+      operation 139266 "initialize"
+	cpp_inline private explicit_return_type "void"
+	nparams 2
+	  param inout name "dat" explicit_type "T"
+	  param inout name "rc" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} * ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+			this->data_ptr = dat;
+			this->ref_count = rc;
+
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139394 "nullize"
+	cpp_inline private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			this->initialize(nullptr, nullptr);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139522 "copy"
+	cpp_inline private explicit_return_type "void"
+	nparams 2
+	  param inout name "dat" explicit_type "T"
+	  param inout name "rc" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}, ${t1} * ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+			this->initialize(dat, rc);
+			if (this->is_null()) {
+				return;
+			}
+
+			(*this->ref_count)++;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139650 "Rc"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} {
+			this->nullize();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139778 "Rc"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "nptr" explicit_type "nullptr_t"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}${)}${volatile}${throw}${abstract} {
+			this->initialize(nptr, nptr);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139906 "Rc"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param inout name "from" explicit_type "T"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract} {
+			this->initialize(from, new usize(1));
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140034 "Rc"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "copy_from" type class_ref 129666 // Rc
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} {
+			this->copy(copy_from.data_ptr, copy_from.ref_count);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140162 "operator ="
+	cpp_inline public return_type class_ref 129666 // Rc
+	nparams 1
+	  param in name "rhs" type class_ref 129666 // Rc
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			if (this == &rhs) {
+				return *this;
+			}
+
+			if (rhs.is_null()) {
+				this->free();
+			}
+
+			this->copy(rhs.data_ptr, rhs.ref_count);
+
+			return *this;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140290 "~Rc"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {
+			this->free();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140418 "make_rc"
+	class_operation cpp_inline public return_type class_ref 129666 // Rc
+	nparams 1
+	  param in name "from_t" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			Rc<T> temp(new T(from_t));
+			return temp;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140546 "make_rc"
+	class_operation cpp_inline public return_type class_ref 129666 // Rc
+	nparams 1
+	  param inout name "from_t" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			Rc<T> temp(from_t);
+			return temp;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140674 "operator ->"
+	cpp_inline public explicit_return_type "T"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140802 "operator *"
+	cpp_inline public explicit_return_type "T"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return *this->data_ptr;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 140930 "operator *"
+	const constvalue cpp_inline public explicit_return_type "T"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return *this->data_ptr;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141058 "operator ->"
+	const constvalue cpp_inline public explicit_return_type "T"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141186 "operator =="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rhs" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr == rhs;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141314 "operator !="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rhs" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr != rhs;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141442 "operator =="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rhs" type class_ref 129666 // Rc
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr == rhs.data_ptr;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141570 "operator !="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rhs" type class_ref 129666 // Rc
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr != rhs.data_ptr;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141698 "operator bool"
+	const cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return !this->is_null();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141826 "free"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			if (this->is_null()) {
+				return;
+			}
+
+			--(*this->ref_count);
+			if (*this->ref_count == 0) {
+				delete this->data_ptr;
+				delete this->ref_count;
+			}
+			this->nullize();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 141954 "is_null"
+	const cpp_inline public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->data_ptr == nullptr || this->ref_count == nullptr;
+		};
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 129538 "memory"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 130434 "Rc"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 129666 // Rc
+      end
+    end
+  end
+end

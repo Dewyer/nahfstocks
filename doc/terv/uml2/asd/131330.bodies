@@ -1,0 +1,5 @@
+class TraderAgentBuilder
+!!!135938.cpp!!!	build_random() : nhflib::Rc<TraderAgent>
+
+	TraderAgent agent("Trader joe");
+	return nhflib::make_rc(agent);

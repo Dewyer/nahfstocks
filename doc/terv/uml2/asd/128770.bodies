@@ -1,0 +1,28 @@
+class Company
+!!!129410.cpp!!!	Company(in id : usize, in _name : String, in _sym : String, in _financial_standing : f64, in _sector : f64, in _leadership_bias : f64, in _earnings_offset : usize)
+
+	this->id = id;
+	this->name = _name;
+	this->symbol = _sym;
+	this->financial_standing = _financial_standing;
+	this->sector = _sector;
+	this->leadership_bias = _leadership_bias;
+	this->earnings_offset = _earnings_offset;
+!!!129538.cpp!!!	get_id() : usize
+
+	return this->id;
+!!!129666.cpp!!!	print_debug(inout os : std::ostream) : void
+
+	os << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str() << "]"
+	   << std::endl;
+	os << "Sector: " << this->get_sector() << ", Financials: " << this->financial_standing << ", Leadership: "
+	   << this->leadership_bias << std::endl;
+!!!129794.cpp!!!	get_symbol() : String
+
+	return this->symbol;
+!!!129922.cpp!!!	get_name() : String
+
+	return this->name;
+!!!130050.cpp!!!	get_sector() : f64
+
+	return this->sector;

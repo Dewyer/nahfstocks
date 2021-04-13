@@ -1,0 +1,10 @@
+class TraderAgent
+!!!135554.cpp!!!	print_debug(inout os : std::ostream) : void
+
+	os << "T[" << this->get_name() << "]" <<std::endl;
+!!!135682.cpp!!!	get_name() : String
+
+	return this->name;
+!!!135810.cpp!!!	on_cycle(in api : ExchangeApi) : void
+
+	api.get_logger_stream() << "Trader activated: " << api.get_trader_id() << std::endl;

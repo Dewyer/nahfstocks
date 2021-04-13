@@ -1,0 +1,372 @@
+format 224
+"string" // lib::string
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/lib/string/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/lib/string/"
+  cpp_namespace "nhflib"
+  classview 128386 "string"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 128386 "String"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 129410 "stringData"
+	private explicit_type "char"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 134530 // length (<directional composition>)
+	relation 134530 *-->
+	  a role_name "length" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134530 // length (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      operation 144130 "str_cmp"
+	class_operation cpp_inline private explicit_return_type "bool"
+	nparams 2
+	  param in name "aa" explicit_type "char"
+	  param in name "bb" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} * ${p0}${v0}, const ${t1} * ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+			return std::strcmp(aa, bb) == 0;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 144258 "len"
+	const cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} { return length; };
+"
+	
+	
+	
+	
+      end
+
+      operation 144386 "c_str"
+	const constvalue cpp_inline public explicit_return_type "char"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract} { return stringData; };
+"
+	
+	
+	
+	
+      end
+
+      operation 144514 "String"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param in name "ch" explicit_type "char"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144642 "String"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param in name "p" explicit_type "char"
+	    defaultvalue "\"\""
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} * ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144770 "String"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 1
+	  param in name "s1" type class_ref 128386 // String
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 144898 "~String"
+	cpp_virtual cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} { delete[] stringData; };
+"
+	
+	
+	
+	
+      end
+
+      operation 145026 "print_debug"
+	const cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "txt" explicit_type "char"
+	    defaultvalue "\"\""
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			std::cout << txt << \"[\" << length << \"], \"
+					  << (stringData ? stringData : \"(NULL)\") << std::endl;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 145154 "operator ="
+	preserve_cpp_body_indent public return_type class_ref 128386 // String
+	nparams 1
+	  param in name "rhs_s" type class_ref 128386 // String
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145282 "operator +"
+	preserve_cpp_body_indent const public return_type class_ref 128386 // String
+	nparams 1
+	  param in name "rhs_s" type class_ref 128386 // String
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145410 "operator +"
+	const cpp_inline public return_type class_ref 128386 // String
+	nparams 1
+	  param in name "rhs_c" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} { return *this + String(rhs_c); };
+"
+	
+	
+	
+	
+      end
+
+      operation 145538 "operator +="
+	preserve_cpp_body_indent public return_type class_ref 128386 // String
+	nparams 1
+	  param in name "rhs_s" type class_ref 128386 // String
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145666 "operator []"
+	preserve_cpp_body_indent public explicit_return_type "char"
+	nparams 1
+	  param in name "idx" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145794 "operator []"
+	preserve_cpp_body_indent const constvalue public explicit_return_type "char"
+	nparams 1
+	  param in name "idx" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 145922 "operator =="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rsd" type class_ref 128386 // String
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return String::str_cmp(this->c_str(), rsd.c_str());
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 146050 "operator !="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rsd" type class_ref 128386 // String
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return !String::str_cmp(this->c_str(), rsd.c_str());
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 146178 "operator =="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rsd" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return String::str_cmp(this->c_str(), rsd);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 146306 "operator !="
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "rsd" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return !String::str_cmp(this->c_str(), rsd);
+		};
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 129922 "string"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 130818 "String"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128386 // String
+      end
+    end
+  end
+end

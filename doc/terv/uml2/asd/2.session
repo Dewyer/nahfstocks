@@ -1,0 +1,10 @@
+window_sizes 1800 910 450 1345 262 600
+
+show_stereotypes
+selected deploymentview_ref 128002 // cli
+open
+  class_ref 128002 // SimulationCli
+  deploymentview_ref 128002 // cli
+  classview_ref 129794 // trader
+end
+end

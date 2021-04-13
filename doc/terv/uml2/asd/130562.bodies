@@ -1,0 +1,7 @@
+class ExchangeApi
+!!!133890.cpp!!!	open_order(in order : OrderCreationPayload) : Order
+
+	return this->exchange->open_order(this->trader, order);
+!!!134018.cpp!!!	cancel_order(in order_id : usize) : void
+
+	this->exchange->cancel_order(this->trader, order_id);

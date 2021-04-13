@@ -9,7 +9,7 @@ using nhflib::Rc;
 using nhflib::Vector;
 
 exchange::Exchange::Exchange(const Rc<nhflib::RandomProvider> &rng,
-							 const Rc<exchange::ExchangeConfig> &config,
+							 const Rc<config::Config> &config,
 							 const Rc<Vector<Company>> &companies,
 							 const Rc<Vector<TraderAgent>> &trader_agents) {
 	this->rng = rng;

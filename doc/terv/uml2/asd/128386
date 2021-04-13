@@ -1,0 +1,262 @@
+format 224
+"lib" // lib
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:\\Users\\Barna\\Projects\\nahfstocks\\lib/"
+  cpp_src_dir "C:\\Users\\Barna\\Projects\\nahfstocks\\lib/"
+  classview 128258 "lib"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 128258 "usize"
+      visibility package stereotype "typedef" explicit_base_type "std::size_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 129026 "f64"
+      visibility package stereotype "typedef" explicit_base_type "double"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 131458 "u32"
+      visibility package stereotype "typedef" explicit_base_type "uint32_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 131586 "u8"
+      visibility package stereotype "typedef" explicit_base_type "uint8_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 131714 "u16"
+      visibility package stereotype "typedef" explicit_base_type "uint16_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 131842 "u64"
+      visibility package stereotype "typedef" explicit_base_type "uint64_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 131970 "i8"
+      visibility package stereotype "typedef" explicit_base_type "int8_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 132098 "i16"
+      visibility package stereotype "typedef" explicit_base_type "int16_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 132226 "i32"
+      visibility package stereotype "typedef" explicit_base_type "int32_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 132354 "i64"
+      visibility package stereotype "typedef" explicit_base_type "int64_t"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 132482 "f32"
+      visibility package stereotype "typedef" explicit_base_type "float"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 132610 "f128"
+      visibility package stereotype "typedef" explicit_base_type "long double"
+      cpp_decl "${comment}typedef ${type} ${name};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+  end
+
+  package_ref 128514 // string
+
+  package_ref 128642 // collections
+
+  package_ref 128770 // option
+
+  package_ref 129282 // rand
+
+  package_ref 129410 // memory
+
+  deploymentview 129282 "lib"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 130178 "types"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128258 // usize
+	class_ref 131458 // u32
+	class_ref 131586 // u8
+	class_ref 131714 // u16
+	class_ref 131842 // u64
+	class_ref 131970 // i8
+	class_ref 132098 // i16
+	class_ref 132226 // i32
+	class_ref 132354 // i64
+	class_ref 132482 // f32
+	class_ref 129026 // f64
+	class_ref 132610 // f128
+      end
+    end
+  end
+
+  package_ref 130050 // external
+end

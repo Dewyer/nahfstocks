@@ -1,0 +1,22 @@
+class RandomProvider
+!!!143618.cpp!!!	next_usize(in min : usize, in max : usize) : usize
+
+	std::uniform_int_distribution<usize> dist(min, max);
+
+	return dist(this->engine);
+!!!143746.cpp!!!	next_f64(in min : f64, in max : f64) : f64
+
+	std::uniform_real_distribution<f64> dist(min, max);
+
+	return dist(this->engine);
+!!!143874.cpp!!!	next_f64_normal(in min : f64, in max : f64, in mean : f64, in devi : f64) : f64
+
+	f64 xx = this->next_f64(0, 1);
+	f64 l_side = 1 / (devi * std::sqrt(2 * nhflib::constants::PI())) * nhflib::constants::E();
+	f64 pow_val = -0.5 * std::pow((xx - mean) / devi, 2);
+	f64 normal = std::pow(l_side, pow_val);
+	return (max - min) * normal + min;
+!!!144002.cpp!!!	next_usize_normal(in min : usize, in max : usize, in mean : f64, in devi : f64) : usize
+
+	f64 normal = this->next_f64_normal(0, 1, mean/max, devi/max);
+	return (max - min) * normal + min;

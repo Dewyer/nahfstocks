@@ -1,0 +1,718 @@
+format 224
+"exchange_api" // src::exchange::exchange_api
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/src/exchange/exchange_api/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/src/exchange/exchange_api/"
+  cpp_namespace "exchange"
+  classview 129026 "exchange_api"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 129154 "Order"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 131842 // <generalisation>
+	relation 131842 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 131842 // <generalisation>
+	  b parent class_ref 130306 // OrderCreationPayload
+      end
+
+      classrelation 131970 // id (<directional composition>)
+	relation 131970 *-->
+	  a role_name "id" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 131970 // id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 132098 // trader_id (<directional composition>)
+	relation 132098 *-->
+	  a role_name "trader_id" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 132098 // trader_id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 132226 // trader (<directional composition>)
+	relation 132226 *-->
+	  stereotype "nhflib::Rc"
+	  a role_name "trader" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 132226 // trader (<directional composition>)
+	  b parent class_ref 130690 // TraderRecordInExchange
+      end
+
+      operation 134402 "Order"
+	cpp_inline public explicit_return_type ""
+	nparams 4
+	  param in name "_id" type class_ref 128258 // usize
+	  param in name "_trader_id" type class_ref 128258 // usize
+	  param in name "_trader" explicit_type "nhflib::Rc<TraderRecordInExchange>"
+	  param in name "payload" type class_ref 130306 // OrderCreationPayload
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${volatile}${throw}${abstract} :
+			OrderCreationPayload(payload),
+			id(_id),
+			trader_id(_trader_id),
+			trader(_trader)
+		{
+		};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 130306 "OrderCreationPayload"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 131202 // type (<directional composition>)
+	relation 131202 *-->
+	  a role_name "type" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 131202 // type (<directional composition>)
+	  b parent class_ref 130946 // OrderType
+      end
+
+      classrelation 131330 // company_id (<directional composition>)
+	relation 131330 *-->
+	  a role_name "company_id" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 131330 // company_id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 131458 // amount (<directional composition>)
+	relation 131458 *-->
+	  a role_name "amount" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 131458 // amount (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 131586 // target_price (<directional composition>)
+	relation 131586 *-->
+	  a role_name "target_price" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 131586 // target_price (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 131714 // expires_at (<directional composition>)
+	relation 131714 *-->
+	  stereotype "nhflib::Option"
+	  a role_name "expires_at" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 131714 // expires_at (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      operation 134274 "get_total_price"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->amount*this->target_price;
+		};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 130562 "ExchangeApi"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130818 // exchange (<unidirectional association>)
+	relation 130818 --->
+	  a role_name "exchange" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 130818 // exchange (<unidirectional association>)
+	  b parent class_ref 128898 // Exchange
+      end
+
+      classrelation 130946 // trader (<directional composition>)
+	relation 130946 *-->
+	  stereotype "nhflib::Rc"
+	  a role_name "trader" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 130946 // trader (<directional composition>)
+	  b parent class_ref 130690 // TraderRecordInExchange
+      end
+
+      classrelation 131074 // context (<directional composition>)
+	relation 131074 *-->
+	  stereotype "nhflib::Rc"
+	  a role_name "context" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 131074 // context (<directional composition>)
+	  b parent class_ref 130818 // MarketContext
+      end
+
+      attribute 128386 "logger_stream"
+	private explicit_type "std::ostream"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 133122 "ExchangeApi"
+	cpp_inline public explicit_return_type ""
+	nparams 4
+	  param inout name "_exchange" type class_ref 128898 // Exchange
+	  param in name "_context" explicit_type "nhflib::Rc<MarketContext>"
+	  param in name "_trader" explicit_type "nhflib::Rc<exchange::TraderRecordInExchange>"
+	  param inout name "_logger_stream" explicit_type "std::ostream"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, ${t3} * ${p3}${v3}${)}${volatile}${throw}${abstract} :
+			exchange(_exchange),
+			trader(_trader),
+			context(_context),
+			logger_stream(_logger_stream)
+		{};
+"
+	
+	
+	
+	
+      end
+
+      operation 133250 "get_logger_stream"
+	const cpp_noexcept cpp_inline public explicit_return_type "std::ostream"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return *this->logger_stream;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 133378 "get_market_context"
+	const constvalue cpp_noexcept cpp_inline public return_type class_ref 130818 // MarketContext
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return *this->context;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 133506 "get_trader_balance"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->trader->cash_balance;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 133634 "get_trader_id"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->trader->trader_id;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 133762 "get_trader_income"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->trader->fixed_income;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 133890 "open_order"
+	preserve_cpp_body_indent public return_type class_ref 129154 // Order
+	nparams 1
+	  param in name "order" type class_ref 130306 // OrderCreationPayload
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 134018 "cancel_order"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 1
+	  param in name "order_id" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 130690 "TraderRecordInExchange"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 132610 // trader_id (<directional composition>)
+	relation 132610 *-->
+	  a role_name "trader_id" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 132610 // trader_id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 132738 // trader (<directional composition>)
+	relation 132738 *-->
+	  stereotype "Rc"
+	  a role_name "trader" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 132738 // trader (<directional composition>)
+	  b parent class_ref 131074 // TraderAgent
+      end
+
+      classrelation 132866 // cash_balance (<directional composition>)
+	relation 132866 *-->
+	  a role_name "cash_balance" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 132866 // cash_balance (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 132994 // available_balance (<directional composition>)
+	relation 132994 *-->
+	  a role_name "available_balance" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 132994 // available_balance (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 133122 // fixed_income (<directional composition>)
+	relation 133122 *-->
+	  a role_name "fixed_income" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 133122 // fixed_income (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 133250 // stocks (<directional composition>)
+	relation 133250 *-->
+	  stereotype "Vector"
+	  a role_name "stocks" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 133250 // stocks (<directional composition>)
+	  b parent class_ref 131202 // TraderStock
+      end
+
+      classrelation 133378 // next_activation (<directional composition>)
+	relation 133378 *-->
+	  a role_name "next_activation" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 133378 // next_activation (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 133506 // open_orders (<directional composition>)
+	relation 133506 *-->
+	  stereotype "nhflib::Vector"
+	  a role_name "open_orders" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 133506 // open_orders (<directional composition>)
+	  b parent class_ref 129154 // Order
+      end
+
+      operation 134530 "TraderRecordInExchange"
+	cpp_inline public explicit_return_type ""
+	nparams 4
+	  param in name "_trader_id" type class_ref 128258 // usize
+	  param in name "trader" explicit_type "Rc<TraderAgent>"
+	  param in name "starting_cash" type class_ref 128258 // usize
+	  param in name "_fixed_income" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}${)}${volatile}${throw}${abstract} {
+			this->trader_id = _trader_id;
+			this->trader = trader;
+			this->cash_balance = starting_cash;
+			this->available_balance = starting_cash;
+			this->fixed_income = _fixed_income;
+			this->next_activation = 0;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 134658 "next_random_activation"
+	cpp_inline public explicit_return_type "void"
+	nparams 3
+	  param inout name "rng" explicit_type "nhflib::Rc<nhflib::RandomProvider>"
+	  param in name "at" type class_ref 128258 // usize
+	  param in name "max" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract} {
+			this->next_activation = at + rng->next_usize_normal(1, max, max/2, max*0.25);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 134786 "print_debug"
+	const cpp_noexcept cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "os" explicit_type "std::ostream"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			this->trader->print_debug(os);
+			os << \"| Bal: \" << this->cash_balance << \", Inc: \" << this->fixed_income << std::endl;
+		};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 130818 "MarketContext"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128514 "companies"
+	public explicit_type "Vector<company::Company>"
+	stereotype "Rc"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 134146 "MarketContext"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "cc" explicit_type "Rc<Vector<company::Company>>"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}${)}${volatile}${throw}${abstract} : companies(cc) {};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 130946 "OrderType"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128642 "Buy"
+	public type class_ref 130946 // OrderType
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128770 "Sell"
+	public type class_ref 130946 // OrderType
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 131202 "TraderStock"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 132354 // company_id (<directional composition>)
+	relation 132354 *-->
+	  a role_name "company_id" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 132354 // company_id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 132482 // amount (<directional composition>)
+	relation 132482 *-->
+	  a role_name "amount" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 132482 // amount (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+    end
+  end
+
+  deploymentview 128770 "exchange_api"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 129154 "ExchangeApi"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 130562 // ExchangeApi
+      end
+    end
+
+    artifact 129282 "MarketContext"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 130818 // MarketContext
+      end
+    end
+
+    artifact 129410 "Order"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 130946 // OrderType
+	class_ref 130306 // OrderCreationPayload
+	class_ref 129154 // Order
+      end
+    end
+
+    artifact 129538 "TraderRecordInExchange"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 131202 // TraderStock
+	class_ref 130690 // TraderRecordInExchange
+      end
+    end
+  end
+end

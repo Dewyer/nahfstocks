@@ -6,7 +6,7 @@
 #include "../company/Company.h"
 #include "./exchange_api/TraderRecordInExchange.h"
 
-#include "ExchangeConfig.h"
+#include "../config/Config.h"
 
 namespace company {
 	class Company;
@@ -20,7 +20,7 @@ namespace exchange {
 	class Exchange {
 	private:
 		Rc<nhflib::RandomProvider> rng;
-		Rc<ExchangeConfig> config;
+		Rc<config::Config> config;
 		Rc<Vector<Company>> companies;
 		Rc<Vector<TraderRecordInExchange>> traders;
 
@@ -40,7 +40,7 @@ namespace exchange {
 		void execute_open_auction();
 	public:
 		Exchange(const Rc<nhflib::RandomProvider> &rng,
-				 const Rc<exchange::ExchangeConfig> &config,
+				 const Rc<config::Config> &config,
 				 const Rc<Vector<Company>> &companies,
 				 const Rc<Vector<TraderAgent>> &traders);
 

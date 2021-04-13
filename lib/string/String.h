@@ -27,7 +27,7 @@ namespace nhflib {
 
 		virtual ~String() { delete[] stringData; }
 
-		void printDbg(const char *txt = "") const {
+		void print_debug(const char *txt = "") const {
 			std::cout << txt << "[" << length << "], "
 					  << (stringData ? stringData : "(NULL)") << std::endl;
 		}

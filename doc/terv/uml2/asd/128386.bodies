@@ -1,0 +1,54 @@
+class String
+!!!144514.cpp!!!	String(in ch : char)
+
+	length = 1;
+	stringData = new char[length + 1];
+	stringData[0] = ch;
+	stringData[1] = '\0';
+!!!144642.cpp!!!	String(in p : char = "")
+
+	length = strlen(p);
+	stringData = new char[length + 1];
+	strcpy(stringData, p);
+!!!144770.cpp!!!	String(in s1 : String)
+
+	length = s1.length;
+	stringData = new char[length + 1];
+	strcpy(stringData, s1.stringData);
+!!!145154.cpp!!!	operator =(in rhs_s : String) : String
+
+	if (this != &rhs_s) {
+		delete[] stringData;
+		length = rhs_s.length;
+		stringData = new char[length + 1];
+		strcpy(stringData, rhs_s.stringData);
+	}
+	return *this;
+!!!145282.cpp!!!	operator +(in rhs_s : String) : String
+
+	String temp;
+	temp.length = length + rhs_s.length;
+	delete[]temp.stringData;
+	temp.stringData = new char[temp.length + 1];
+	strcpy(temp.stringData, stringData);
+	strcat(temp.stringData, rhs_s.stringData);
+
+	return temp;
+!!!145538.cpp!!!	operator +=(in rhs_s : String) : String
+
+	this->length = length + rhs_s.length;
+	char *saved_own_data = this->stringData;
+	this->stringData = new char[this->length + 1];
+	strcpy(this->stringData, saved_own_data);
+	strcat(this->stringData, rhs_s.stringData);
+	delete[] saved_own_data;
+
+	return *this;
+!!!145666.cpp!!!	operator [](in idx : uint) : char
+
+	if (idx >= length) throw std::out_of_range("String index out of range");
+	return stringData[idx];
+!!!145794.cpp!!!	operator [](in idx : uint) : char
+
+	if (idx >= length) throw std::out_of_range("String index out of range");
+	return stringData[idx];

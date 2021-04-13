@@ -1,0 +1,610 @@
+format 224
+"collections" // lib::collections
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/lib/collections/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/lib/collections/"
+  cpp_namespace "nhflib"
+  classview 128514 "collections"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 128514 "Vector"
+      visibility package 
+      nformals 1
+      formal name "T" type "typename" explicit_default_value ""
+        explicit_extends ""
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128898 "data"
+	private explicit_type "T"
+	stereotype "Rc"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 134146 // len (<directional composition>)
+	relation 134146 *-->
+	  a role_name "len" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134146 // len (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 134274 // capacity (<directional composition>)
+	relation 134274 *-->
+	  a role_name "capacity" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 134274 // capacity (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      operation 136066 "null_init"
+	cpp_inline private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			this->data = nullptr;
+			this->len = 0;
+			this->capacity = 0;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136194 "resize"
+	cpp_inline private explicit_return_type "void"
+	nparams 1
+	  param in name "to" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			auto temp = data;
+			this->data = new Rc<T>[to];
+			for (usize ii = 0; ii < std::min(this->size(), to); ii++) {
+				this->data[ii] = temp[ii];
+			}
+			if (temp != nullptr) {
+				delete[] temp;
+			}
+
+			this->capacity = to;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136322 "copy"
+	cpp_inline private explicit_return_type "void"
+	nparams 1
+	  param in name "rhs" type class_ref 128514 // Vector
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			this->null_init();
+			this->len = rhs.len;
+			this->resize(rhs.len);
+			for (usize ii = 0; ii < this->size(); ii++) {
+				this->data[ii] = rhs.at(ii);
+			}
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136450 "assert_index_in_bound"
+	cpp_inline private explicit_return_type "void"
+	nparams 1
+	  param in name "ii" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			if (this->len <= ii) {
+				throw std::runtime_error(\"Index out of bounds of vector\");
+			}
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136578 "Vector"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}${abstract} {
+			this->null_init();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136706 "Vector"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "rhs" type class_ref 128514 // Vector
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} {
+			this->copy(rhs);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136834 "operator ="
+	cpp_inline public return_type class_ref 128514 // Vector
+	nparams 1
+	  param in name "rhs" type class_ref 128514 // Vector
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			if (this == &rhs) {
+				return *this;
+			}
+
+			this->copy(rhs);
+			return *this;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 136962 "~Vector"
+	cpp_inline public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw}${abstract} {
+			if (this->data == nullptr) {
+				return;
+			}
+
+			delete[] this->data;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137090 "clear"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			if (this->data != nullptr) {
+				delete [] this->data;
+			}
+
+			this->null_init();
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137218 "push_back"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "el" explicit_type "Rc<T>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			if (this->capacity < this->len+1) {
+				this->resize(this->len+1);
+			}
+
+			this->data[this->len] = el;
+			this->len++;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137346 "push_back"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param inout name "el" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			this->push_back(make_rc(el));
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137474 "push_back"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "el" explicit_type "T"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			this->push_back(make_rc(el));
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137602 "remove_at"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "ind" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			this->assert_index_in_bound(ind);
+			auto temp = data;
+			this->data = new Rc<T>[this->size() - 1];
+			for (usize ii = 0; ii < ind; ii++) {
+				this->data[ii] = temp[ii];
+			}
+			for (usize ii = ind+1; ii < this->size(); ii++) {
+				this->data[ii-1] = temp[ii];
+			}
+			delete[] temp;
+
+			this->len--;
+			this->capacity = this->size() - 1;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137730 "insert_at"
+	cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param in name "idx" type class_ref 128258 // usize
+	  param in name "el" explicit_type "Rc<T>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+			if (this->len >= idx) {
+				this->push_back(el);
+				return;
+			}
+
+			auto temp = data;
+			this->data = new Rc<T>[this->size() +1];
+			for (usize ii = 0; ii < idx; ii++) {
+				this->data[ii] = temp[ii];
+			}
+			this->data[idx] = el;
+			for (usize ii = idx+1; ii < this->size(); ii++) {
+				this->data[ii+1] = temp[ii];
+			}
+			delete[] temp;
+
+			this->len++;
+			this->capacity = this->size() + 1;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 137858 "filter_in_place"
+	stereotype "template"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "filter_fn" explicit_type "S"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			Vector<T> matches;
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto at_el = this->at(ii);
+				if (filter_fn(at_el)) {
+					matches.push_back(at_el);
+				}
+			}
+
+			this->clear();
+			this->data = matches.data;
+			this->len = matches.len;
+			this->capacity = matches.capacity;
+			matches.null_init();
+		};
+"
+	nformals 1
+	formal name "S" type "typename" explicit_default_value ""
+	  explicit_extends ""
+	
+	
+	
+	
+      end
+
+      operation 137986 "remove"
+	stereotype "template"
+	cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "som_fn" explicit_type "S"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			for (usize ii = 0; ii < this->size(); ii++) {
+				if (som_fn(this->at(ii))) {
+					this->remove_at(ii);
+					return true;
+				}
+			}
+
+			return false;
+		};
+"
+	nformals 1
+	formal name "S" type "typename" explicit_default_value ""
+	  explicit_extends ""
+	
+	
+	
+	
+      end
+
+      operation 138114 "sorted_push_back"
+	stereotype "template"
+	cpp_inline public explicit_return_type "void"
+	nparams 2
+	  param in name "el" explicit_type "Rc<T>"
+	  param in name "el_bigger" explicit_type "S"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract} {
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto el_ii = this->at(ii);
+				if (el_bigger(el, el_ii)) {
+					this->insert_at(ii+1, el);
+					return;
+				}
+			}
+
+			this->push_back(el);
+		};
+"
+	nformals 1
+	formal name "S" type "typename" explicit_default_value ""
+	  explicit_extends ""
+	
+	
+	
+	
+      end
+
+      operation 138242 "some"
+	stereotype "template"
+	const cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "som_fn" explicit_type "S"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			for (usize ii = 0; ii < this->size(); ii++) {
+				if (som_fn(this->at(ii))) {
+					return true;
+				}
+			}
+
+			return false;
+		};
+"
+	nformals 1
+	formal name "S" type "typename" explicit_default_value ""
+	  explicit_extends ""
+	
+	
+	
+	
+      end
+
+      operation 138370 "find"
+	stereotype "template"
+	cpp_inline public explicit_return_type "Rc<T>"
+	nparams 1
+	  param in name "find_fn" explicit_type "S"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			for (usize ii = 0; ii < this->size(); ii++) {
+				if (find_fn(this->at(ii))) {
+					return this->at(ii);
+				}
+			}
+
+			return Rc<T>(nullptr);
+		};
+"
+	nformals 1
+	formal name "S" type "typename" explicit_default_value ""
+	  explicit_extends ""
+	
+	
+	
+	
+      end
+
+      operation 138498 "size"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return this->len;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 138626 "at"
+	cpp_inline public explicit_return_type "Rc<T>"
+	nparams 1
+	  param in name "idx" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			this->assert_index_in_bound(idx);
+			return this->data[idx];
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 138754 "at"
+	const constvalue cpp_inline public explicit_return_type "Rc<T>"
+	nparams 1
+	  param in name "idx" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->data[idx];
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 138882 "operator []"
+	cpp_inline public explicit_return_type "Rc<T>"
+	nparams 1
+	  param in name "idx" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->at(idx);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139010 "operator []"
+	const constvalue cpp_inline public explicit_return_type "Rc<T>"
+	nparams 1
+	  param in name "idx" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			return this->at(idx);
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 139138 "for_each"
+	stereotype "template"
+	cpp_inline public explicit_return_type "void"
+	nparams 1
+	  param in name "fn" explicit_type "S"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract} {
+			for (usize ii = 0; ii < this->size(); ii++) {
+				fn(this->at(ii));
+			}
+		};
+"
+	nformals 1
+	formal name "S" type "typename" explicit_default_value ""
+	  explicit_extends ""
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 129410 "collections"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 130306 "Vector"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128514 // Vector
+      end
+    end
+  end
+end

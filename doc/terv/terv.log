@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.29)  13 APR 2021 01:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.29)  13 APR 2021 04:28
 entering extended mode
-**./spec.tex
-(spec.tex
+**./terv.tex
+(terv.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18>
 (C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -300,38 +300,84 @@ Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 (C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/import\import.sty
 Package: import 2020/04/01  v 6.2
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 17.
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count288
+\lst@gtempboxa=\box49
+\lst@token=\toks24
+\lst@length=\count289
+\lst@currlwidth=\dimen172
+\lst@column=\count290
+\lst@pos=\count291
+\lst@lostspace=\dimen173
+\lst@width=\dimen174
+\lst@newlines=\count292
+\lst@lineno=\count293
+\lst@maxwidth=\dimen175
+
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count294
+\lst@skipnumbers=\count295
+\lst@framebox=\box50
+)
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen176
+\Gin@req@width=\dimen177
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
 
 (C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count288
-\l__pdf_internal_box=\box49
-) (spec.aux)
-\openout1 = `spec.aux'.
+\l__color_backend_stack_int=\count296
+\l__pdf_internal_box=\box51
+) (terv.aux)
+\openout1 = `terv.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 (C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
@@ -341,28 +387,9 @@ Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
-
-(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-
-(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
-ii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count289
-\scratchdimen=\dimen172
-\scratchbox=\box50
-\nofMPsegments=\count290
-\nofMParguments=\count291
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count292
-\MPscratchDim=\dimen173
-\MPnumerator=\count293
-\makeMPintoPDFobject=\count294
-\everyMPtoPDFconversion=\toks25
-)))
-Package hyperref Info: Link coloring ON on input line 26.
-
-(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+)
+Package hyperref Info: Link coloring ON on input line 32.
+ (C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
 (C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
@@ -372,73 +399,114 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count295
+\c@section@level=\count297
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
- (spec.out) (spec.out)
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
+ (terv.out) (terv.out)
 \@outlinefile=\write3
-\openout3 = `spec.out'.
+\openout3 = `terv.out'.
 
+\c@lstlisting=\count298
 
-Overfull \hbox (0.38788pt too wide) in paragraph at lines 31--41
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count299
+\scratchdimen=\dimen178
+\scratchbox=\box52
+\nofMPsegments=\count300
+\nofMParguments=\count301
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count302
+\MPscratchDim=\dimen179
+\MPnumerator=\count303
+\makeMPintoPDFobject=\count304
+\everyMPtoPDFconversion=\toks26
+)
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Barna\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+)) (terv.toc)
+\tf@toc=\write4
+\openout4 = `terv.toc'.
+
+ (sub_spec.tex
+Overfull \hbox (0.38788pt too wide) in paragraph at lines 7--17
 \T1/cmr/m/n/10 összes többi piaci körülmények-ben vál-tozást elér® hatást vélet
 len-sz-er¶ es-emények
  []
 
+[1
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--56
+{C:/Users/Barna/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
 []\T1/cmr/bx/n/10 INTERACTIVE_MODE
  []
 
 
-Underfull \hbox (badness 7595) in paragraph at lines 70--71
+Underfull \hbox (badness 7595) in paragraph at lines 46--47
 []\T1/cmr/m/n/10 Mennyi cik-lu-sonként legyen di-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
 []\T1/cmr/bx/n/10 PRICE_SAMPLING_RATE
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 78--79
+Underfull \hbox (badness 5417) in paragraph at lines 54--55
 []\T1/cmr/m/n/10 A sz-imulá-ció h¶ny cik-lu-sonként
  []
 
-[1
-
-{C:/Users/Barna/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2]
-Overfull \hbox (6.02539pt too wide) in paragraph at lines 104--105
+[2] [3]
+Overfull \hbox (6.02539pt too wide) in paragraph at lines 80--81
 \T1/cmr/m/n/10 Le lehet kérni egy cég rés-zletes adatait, re-jtett tu-la-j-don-
 sá-gaival és vis-sza-men®leges
  []
 
-[3] (spec.aux)
-Package rerunfilecheck Info: File `spec.out' has not changed.
-(rerunfilecheck)             Checksum: 241D7A6300D845983D6C2FD0B93770DE;1753.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
+
+ []
+
+[4]
+Overfull \hbox (4.26547pt too wide) in paragraph at lines 59--62
+\T1/cmr/m/n/10 érdekében. A könyvtár ujradefiniáls nu-merikus ti-pu-sokat is, h
+ogy azok könyebben
+ []
+
+[5] [6] (terv.aux)
+Package rerunfilecheck Info: File `terv.out' has not changed.
+(rerunfilecheck)             Checksum: 6EB60CE83D19BE031DA00C707B48A219;2878.
  ) 
 Here is how much of TeX's memory you used:
- 10563 strings out of 479321
- 161177 string characters out of 2856583
- 470204 words of memory out of 3000000
- 27894 multiletter control sequences out of 15000+600000
+ 12492 strings out of 479321
+ 187731 string characters out of 2856583
+ 502339 words of memory out of 3000000
+ 29759 multiletter control sequences out of 15000+600000
  413370 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,8n,74p,371b,438s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
-1200.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbx1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecti1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour
+ 71i,8n,74p,396b,994s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti
+1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecbx1200.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour
 /jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/
 ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on C:/Users\Barna\Projects\nahfstocks\out\spec.pdf (3 pages, 995
-56 bytes).
+Output written on C:/Users\Barna\Projects\nahfstocks\doc\terv\terv.pdf (6 pages
+, 133710 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 474 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

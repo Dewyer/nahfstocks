@@ -1,0 +1,424 @@
+format 224
+"exchange" // src::exchange
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/src/exchange/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/src/exchange/"
+  cpp_namespace "exchange"
+  classview 128898 "exchange"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 128898 "Exchange"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 129922 // rng (<directional composition>)
+	relation 129922 *-->
+	  stereotype "Rc"
+	  a role_name "rng" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 129922 // rng (<directional composition>)
+	  b parent class_ref 129282 // RandomProvider
+      end
+
+      classrelation 130050 // config (<directional composition>)
+	relation 130050 *-->
+	  stereotype "Rc"
+	  a role_name "config" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 130050 // config (<directional composition>)
+	  b parent class_ref 129794 // Config
+      end
+
+      attribute 128130 "companies"
+	private explicit_type "Vector<Company>"
+	stereotype "Rc"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128258 "traders"
+	private explicit_type "Vector<TraderRecordInExchange>"
+	stereotype "Rc"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 130178 // cycle_count (<directional composition>)
+	relation 130178 *-->
+	  a role_name "cycle_count" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 130178 // cycle_count (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 130306 // mean_traders_per_cycle (<directional composition>)
+	relation 130306 *-->
+	  a role_name "mean_traders_per_cycle" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 130306 // mean_traders_per_cycle (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 130434 // last_order_id (<directional composition>)
+	relation 130434 *-->
+	  a role_name "last_order_id" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 130434 // last_order_id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      operation 131458 "handle_fixed_income_on_cycle"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131586 "handle_trader_agent_activation"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131714 "execute_orders"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 2
+	  param in name "buy_order" explicit_type "Rc<Order>"
+	  param in name "sell_order" explicit_type "Rc<Order>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131842 "clear_executed_orders"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131970 "execute_open_auction"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132098 "Exchange"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 4
+	  param in name "rng" explicit_type "Rc<nhflib::RandomProvider>"
+	  param in name "config" explicit_type "Rc<config::Config>"
+	  param in name "companies" explicit_type "Rc<Vector<Company>>"
+	  param in name "trader_agents" explicit_type "Rc<Vector<TraderAgent>>"
+	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132226 "cycle"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132354 "open_order"
+	preserve_cpp_body_indent public return_type class_ref 129154 // Order
+	nparams 2
+	  param in name "trader" explicit_type "Rc<TraderRecordInExchange>"
+	  param in name "order" type class_ref 130306 // OrderCreationPayload
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132482 "cancel_order"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param in name "trader" explicit_type "Rc<TraderRecordInExchange>"
+	  param in name "order_id" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 130434 "ExchangeBuilder"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 130562 // rng (<directional composition>)
+	relation 130562 *-->
+	  stereotype "Rc"
+	  a role_name "rng" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 130562 // rng (<directional composition>)
+	  b parent class_ref 129282 // RandomProvider
+      end
+
+      classrelation 130690 // config (<directional composition>)
+	relation 130690 *-->
+	  stereotype "Rc"
+	  a role_name "config" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 130690 // config (<directional composition>)
+	  b parent class_ref 129794 // Config
+      end
+
+      operation 132610 "build_companies"
+	preserve_cpp_body_indent private explicit_return_type "Rc<Vector<Company>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132738 "build_trader_agents"
+	preserve_cpp_body_indent private explicit_return_type "Rc<Vector<TraderAgent>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132866 "ExchangeBuilder"
+	cpp_inline public explicit_return_type ""
+	nparams 2
+	  param in name "_rng" explicit_type "nhflib::Rc<RandomProvider>"
+	  param in name "_config" explicit_type "nhflib::Rc<config::Config>"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${volatile}${throw}${abstract} {
+			this->rng = _rng;
+			this->config = _config;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 132994 "build_random"
+	preserve_cpp_body_indent public explicit_return_type "Rc<Exchange>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  package_ref 129154 // exchange_api
+
+  deploymentview 128642 "exchange"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128898 "Exchange"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128898 // Exchange
+      end
+    end
+
+    artifact 129026 "ExchangeBuilder"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 130434 // ExchangeBuilder
+      end
+    end
+  end
+end

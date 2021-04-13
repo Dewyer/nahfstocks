@@ -1,0 +1,67 @@
+format 224
+"src" // src
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:\\Users\\Barna\\Projects\\nahfstocks\\src/"
+  cpp_src_dir "C:\\Users\\Barna\\Projects\\nahfstocks\\src/"
+  package_ref 128130 // cli
+
+  package_ref 128258 // simulation
+
+  package_ref 128898 // company
+
+  package_ref 129026 // exchange
+
+  package_ref 129538 // config
+
+  package_ref 129666 // events
+
+  package_ref 129922 // trader
+
+  deploymentview 129154 "src"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 130050 "main"
+      stereotype "source"
+      cpp_src "int main() {
+#ifdef ETEST
+	return test_main();
+#else
+	return real_main();
+#endif
+}
+"
+      associated_elems
+      end
+    end
+  end
+end

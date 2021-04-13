@@ -1,0 +1,161 @@
+format 224
+"config" // src::config
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/src/config/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/src/config/"
+  cpp_namespace "config"
+  classview 129410 "config"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 129794 "Config"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 130562 "get_company_count"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return 40;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 130690 "get_trader_count"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return 40;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 130818 "get_fixed_income_interval"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return 24*30;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 130946 "get_median_starting_cash"
+	const cpp_noexcept cpp_inline public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+			return 10000;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 131074 "read_from_cin"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 128258 "config"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128386 "Config"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 129794 // Config
+      end
+    end
+  end
+end

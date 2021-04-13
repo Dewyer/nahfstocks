@@ -1,0 +1,395 @@
+format 224
+"company" // src::company
+  revision 1
+  modified_by 2 "Barna"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  cpp_h_dir "C:/Users/Barna/Projects/nahfstocks/src/company/"
+  cpp_src_dir "C:/Users/Barna/Projects/nahfstocks/src/company/"
+  cpp_namespace "company"
+  classview 128770 "company"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 128770 "Company"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 128130 // <dependency>
+	relation 128130 -_->
+	  stereotype "friend"
+	  a public
+	    cpp default "Generated"
+	    classrelation_ref 128130 // <dependency>
+	  b parent class_ref 128898 // Exchange
+      end
+
+      classrelation 128258 // id (<directional composition>)
+	relation 128258 *-->
+	  a role_name "id" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128258 // id (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 128386 // name (<directional composition>)
+	relation 128386 *-->
+	  a role_name "name" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128386 // name (<directional composition>)
+	  b parent class_ref 128386 // String
+      end
+
+      classrelation 128514 // symbol (<directional composition>)
+	relation 128514 *-->
+	  a role_name "symbol" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128514 // symbol (<directional composition>)
+	  b parent class_ref 128386 // String
+      end
+
+      classrelation 128642 // financial_standing (<directional composition>)
+	relation 128642 *-->
+	  a role_name "financial_standing" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128642 // financial_standing (<directional composition>)
+	  b parent class_ref 129026 // f64
+      end
+
+      classrelation 128770 // sector (<directional composition>)
+	relation 128770 *-->
+	  a role_name "sector" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128770 // sector (<directional composition>)
+	  b parent class_ref 129026 // f64
+      end
+
+      classrelation 128898 // leadership_bias (<directional composition>)
+	relation 128898 *-->
+	  a role_name "leadership_bias" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128898 // leadership_bias (<directional composition>)
+	  b parent class_ref 129026 // f64
+      end
+
+      classrelation 129026 // earnings_offset (<directional composition>)
+	relation 129026 *-->
+	  a role_name "earnings_offset" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 129026 // earnings_offset (<directional composition>)
+	  b parent class_ref 128258 // usize
+      end
+
+      classrelation 129154 // orders (<directional composition>)
+	relation 129154 *-->
+	  stereotype "nhflib::Vector"
+	  a role_name "orders" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 129154 // orders (<directional composition>)
+	  b parent class_ref 129154 // Order
+      end
+
+      operation 129410 "Company"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 7
+	  param in name "id" type class_ref 128258 // usize
+	  param in name "_name" type class_ref 128386 // String
+	  param in name "_sym" type class_ref 128386 // String
+	  param in name "_financial_standing" type class_ref 129026 // f64
+	  param in name "_sector" type class_ref 129026 // f64
+	  param in name "_leadership_bias" type class_ref 129026 // f64
+	  param in name "_earnings_offset" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, ${t3} ${p3}${v3}, ${t4} ${p4}${v4}, ${t5} ${p5}${v5}, ${t6} ${p6}${v6}${)}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129538 "get_id"
+	preserve_cpp_body_indent const cpp_noexcept public return_type class_ref 128258 // usize
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129666 "print_debug"
+	preserve_cpp_body_indent const cpp_noexcept public explicit_return_type "void"
+	nparams 1
+	  param inout name "os" explicit_type "std::ostream"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129794 "get_symbol"
+	preserve_cpp_body_indent const constvalue cpp_noexcept public return_type class_ref 128386 // String
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129922 "get_name"
+	preserve_cpp_body_indent const constvalue cpp_noexcept public return_type class_ref 128386 // String
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} & ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 130050 "get_sector"
+	preserve_cpp_body_indent const cpp_noexcept public return_type class_ref 129026 // f64
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 129410 "CompanyName"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 129282 // name (<directional composition>)
+	relation 129282 *-->
+	  a role_name "name" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 129282 // name (<directional composition>)
+	  b parent class_ref 128386 // String
+      end
+
+      classrelation 129410 // symbol (<directional composition>)
+	relation 129410 *-->
+	  a role_name "symbol" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 129410 // symbol (<directional composition>)
+	  b parent class_ref 128386 // String
+      end
+    end
+
+    class 129538 "CompanyBuilder"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 129538 // rng (<directional composition>)
+	relation 129538 *-->
+	  stereotype "nhflib::Rc"
+	  a role_name "rng" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 129538 // rng (<directional composition>)
+	  b parent class_ref 129282 // RandomProvider
+      end
+
+      operation 130178 "get_random_name"
+	preserve_cpp_body_indent private return_type class_ref 129410 // CompanyName
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 130306 "CompanyBuilder"
+	cpp_inline public explicit_return_type ""
+	nparams 1
+	  param in name "_rng" explicit_type "nhflib::Rc<RandomProvider>"
+	cpp_decl "    ${comment}${inline}explicit ${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw}${abstract} {
+			this->rng = _rng;
+		};
+"
+	
+	
+	
+	
+      end
+
+      operation 130434 "build_random"
+	preserve_cpp_body_indent public explicit_return_type "nhflib::Rc<Company>"
+	nparams 1
+	  param in name "id" type class_ref 128258 // usize
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  deploymentview 128130 "company"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128130 "Company"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 128770 // Company
+      end
+    end
+
+    artifact 128258 "CompanyBuilder"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 129410 // CompanyName
+	class_ref 129538 // CompanyBuilder
+      end
+    end
+  end
+end
