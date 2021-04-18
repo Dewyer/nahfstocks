@@ -54,4 +54,8 @@ add_executable(nahfstocks
         src/events/EventDispatcher.cpp
         src/events/EventDispatcher.h
         src/events/Event.h
-        src/events/EventDispatchingContext.h src/cli/SimulationCli.cpp src/cli/SimulationCli.h)
+        src/events/EventDispatchingContext.h
+        src/cli/SimulationCli.cpp
+        src/cli/SimulationCli.h
+        src/company/CompanyAgent.cpp
+        src/company/CompanyAgent.h)

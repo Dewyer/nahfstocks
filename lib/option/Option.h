@@ -5,7 +5,7 @@
 namespace nhflib {
 	template<typename T>
 	class Option {
-		Rc<T> value;
+		Rc <T> value;
 
 	public:
 		Option() {
@@ -41,14 +41,14 @@ namespace nhflib {
 
 		T &unwrap_or(T &secondary) noexcept {
 			if (this->value == nullptr) {
-				throw secondary;
+				return secondary;
 			}
 			return *value;
 		}
 
-		const T &unwrap_or(T &secondary) const noexcept {
+		const T &unwrap_or(const T &secondary) const noexcept {
 			if (this->value == nullptr) {
-				throw secondary;
+				return secondary;
 			}
 			return *value;
 		}

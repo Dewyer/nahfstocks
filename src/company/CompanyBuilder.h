@@ -9,6 +9,8 @@
 
 using nhflib::RandomProvider;
 using nhflib::String;
+using nhflib::Rc;
+using config::Config;
 
 namespace company {
 
@@ -18,14 +20,16 @@ namespace company {
 	};
 
 	class CompanyBuilder {
-		nhflib::Rc<RandomProvider> rng;
+		Rc<RandomProvider> rng;
+		Rc<config::Config> config;
 
 	private:
 		CompanyName get_random_name();
 
 	public:
-		explicit CompanyBuilder(const nhflib::Rc<RandomProvider> &_rng) {
+		explicit CompanyBuilder(const nhflib::Rc<RandomProvider> &_rng, const Rc<config::Config> &_config) {
 			this->rng = _rng;
+			this->config = _config;
 		}
 
 		nhflib::Rc<Company> build_random(usize id);

@@ -20,8 +20,9 @@ void simulation::Simulation::setup() {
 	this->exchange = exchange_builder.build_random();
 }
 
-void simulation::Simulation::run() {
-	for (int ii = 0; ii < 10; ++ii) {
+void simulation::Simulation::run(nhflib::Option<usize> limit_cycles) {
+
+	for (usize ii = 0; ii < limit_cycles.unwrap_or(10); ++ii) {
 		this->exchange->cycle();
 	}
 

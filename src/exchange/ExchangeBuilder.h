@@ -5,11 +5,13 @@
 #include "../../lib/memory/Rc.h"
 #include "./Exchange.h"
 #include "../config/Config.h"
+#include "../company/CompanyAgent.h"
 
 using nhflib::RandomProvider;
 using nhflib::Rc;
 using exchange::Exchange;
 using config::Config;
+using company::CompanyAgent;
 
 namespace exchange {
 
@@ -22,8 +24,10 @@ namespace exchange {
 
 		Rc<Vector<TraderAgent>> build_trader_agents();
 
+		Rc<Vector<CompanyAgent>> build_trader_agents_for_companies(Rc<Vector<Company>> companies);
+
 	public:
-		explicit ExchangeBuilder(const nhflib::Rc<RandomProvider> &_rng,const nhflib::Rc<config::Config>& _config) {
+		explicit ExchangeBuilder(const nhflib::Rc<RandomProvider> &_rng, const nhflib::Rc<config::Config> &_config) {
 			this->rng = _rng;
 			this->config = _config;
 		}

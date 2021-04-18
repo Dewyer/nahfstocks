@@ -11,6 +11,7 @@ namespace simulation {
 		nhflib::Rc<nhflib::RandomProvider> rng;
 
 		void setup();
+
 	public:
 		Simulation();
 
@@ -18,6 +19,6 @@ namespace simulation {
 
 		void run(nhflib::Option<usize> limit_cycles);
 
-		void interupt();
+		// void interupt();
 	};
 }

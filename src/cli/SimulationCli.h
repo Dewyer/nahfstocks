@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../simulation/Simulation.h"
 #include "../../lib/option/Option.h"
 #include "../../lib/string/String.h"
@@ -9,7 +10,7 @@ namespace cli {
 	class SimulationCli {
 		simulation::Simulation sim;
 
-		usize ask_question(const nhflib::String& question, nhflib::Vector<nhflib::String> answers);
+		usize ask_question(const nhflib::String &question, nhflib::Vector<nhflib::String> answers);
 
 		void dump_simulation_data();
 
@@ -28,6 +29,7 @@ namespace cli {
 		void show_start_stop();
 
 		void show_main_menu();
+
 	public:
 		void start();
 	};

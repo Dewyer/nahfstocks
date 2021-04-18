@@ -20,7 +20,8 @@ namespace nhflib {
 			this->initialize(nullptr, nullptr);
 		}
 
-		void copy(T *dat, usize *rc) {
+	public:
+		void copy_dangerous(T *dat, usize *rc) {
 			this->initialize(dat, rc);
 			if (this->is_null()) {
 				return;
@@ -29,7 +30,6 @@ namespace nhflib {
 			(*this->ref_count)++;
 		}
 
-	public:
 		Rc() {
 			this->nullize();
 		}
@@ -43,7 +43,7 @@ namespace nhflib {
 		}
 
 		Rc(const Rc<T> &copy_from) {
-			this->copy(copy_from.data_ptr, copy_from.ref_count);
+			this->copy_dangerous(copy_from.data_ptr, copy_from.ref_count);
 		}
 
 		Rc<T> &operator=(const Rc<T> &rhs) {
@@ -55,7 +55,7 @@ namespace nhflib {
 				this->free();
 			}
 
-			this->copy(rhs.data_ptr, rhs.ref_count);
+			this->copy_dangerous(rhs.data_ptr, rhs.ref_count);
 
 			return *this;
 		}
@@ -106,8 +106,7 @@ namespace nhflib {
 			return this->data_ptr != rhs.data_ptr;
 		}
 
-		operator bool() const
-		{
+		operator bool() const {
 			return !this->is_null();
 		}
 
@@ -122,6 +121,17 @@ namespace nhflib {
 				delete this->ref_count;
 			}
 			this->nullize();
+		}
+
+		Rc<T> clone() const {
+			return Rc<T>::make_rc(*this->data_ptr);
+		}
+
+		template<typename BaseT>
+		Rc<BaseT> base_rc() {
+			Rc<BaseT> base_rc;
+			base_rc.copy_dangerous(static_cast<BaseT *>(this->data_ptr), this->ref_count);
+			return base_rc;
 		}
 
 		inline bool is_null() const {

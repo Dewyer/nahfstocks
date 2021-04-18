@@ -15,11 +15,13 @@ namespace trader {
 			this->name = name;
 		}
 
-		void print_debug(std::ostream &os) const noexcept;
+		virtual void print_debug(std::ostream &os) const noexcept;
 
-		const nhflib::String &get_name() const noexcept;
+		virtual const nhflib::String &get_name() const noexcept;
 
-		void on_cycle(const exchange::ExchangeApi& api);
+		virtual void on_cycle(exchange::ExchangeApi &api);
+
+		virtual ~TraderAgent() = default;
 	};
 }
 

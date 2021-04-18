@@ -9,3 +9,11 @@ exchange::Order exchange::ExchangeApi::open_order(exchange::OrderCreationPayload
 void exchange::ExchangeApi::cancel_order(usize order_id) {
 	this->exchange->cancel_order(this->trader, order_id);
 }
+
+Vector<exchange::Order> exchange::ExchangeApi::get_orders() {
+	return this->trader->open_orders.clone();
+}
+
+Vector<exchange::TraderStock> exchange::ExchangeApi::get_owned_stocks() {
+	return this->trader->stocks.clone();
+}

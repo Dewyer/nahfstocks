@@ -8,14 +8,17 @@ nhflib::Rc<company::Company> company::CompanyBuilder::build_random(usize id) {
 	f64 leadership = this->rng->next_f64(0, 1);
 	usize earnings = this->rng->next_usize_normal(0, 50, 25, 10);
 
-	Company cmp(id, cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings);
+	auto mean_sh = this->config->get_mean_company_outstanding_shares();
+	auto shares = this->rng->next_usize_normal(mean_sh * 0.1, mean_sh * 5, mean_sh, mean_sh);
+
+	Company cmp(id, cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings, shares);
 	return nhflib::make_rc(cmp);
 }
 
 company::CompanyName company::CompanyBuilder::get_random_name() {
 	CompanyName full_name;
 
-	usize name_count = this->rng->next_usize_normal(1, 8, 0.5, 0.25);
+	usize name_count = this->rng->next_usize_normal(1, 8, 3, 2);
 	for (usize ii = 0; ii < name_count; ++ii) {
 		usize name_ind = this->rng->next_usize(0, COMPANY_NAME_WORD_LIST_LENGTH);
 		if (full_name.name.len() > 0) {

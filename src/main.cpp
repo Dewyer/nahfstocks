@@ -1,10 +1,12 @@
 #include <iostream>
 #include "../tests/Tests.h"
 #include "./simulation/Simulation.h"
+#include "../lib/option/Option.h"
 
 int real_main() {
 	simulation::Simulation sim;
-	sim.run();
+	sim.run(nhflib::Option<usize>());
+
 	return 0;
 }
 

@@ -19,7 +19,7 @@ namespace nhflib {
 		}
 
 		void resize(usize to) {
-			auto temp = data;
+			auto temp = this->data;
 			this->data = new Rc<T>[to];
 			for (usize ii = 0; ii < std::min(this->size(), to); ii++) {
 				this->data[ii] = temp[ii];
@@ -31,10 +31,10 @@ namespace nhflib {
 			this->capacity = to;
 		}
 
-		void copy(const Vector<T>& rhs) {
+		void copy(const Vector<T> &rhs) {
 			this->null_init();
-			this->len = rhs.len;
 			this->resize(rhs.len);
+			this->len = rhs.len;
 			for (usize ii = 0; ii < this->size(); ii++) {
 				this->data[ii] = rhs.at(ii);
 			}
@@ -51,11 +51,11 @@ namespace nhflib {
 			this->null_init();
 		}
 
-		Vector(const Vector<T>& rhs) {
+		Vector(const Vector<T> &rhs) {
 			this->copy(rhs);
 		}
 
-		Vector<T> &operator=(const Vector<T>& rhs) {
+		Vector<T> &operator=(const Vector<T> &rhs) {
 			if (this == &rhs) {
 				return *this;
 			}
@@ -74,22 +74,22 @@ namespace nhflib {
 
 		void clear() {
 			if (this->data != nullptr) {
-				delete [] this->data;
+				delete[] this->data;
 			}
 
 			this->null_init();
 		}
 
-		void push_back(const Rc<T>& el) {
-			if (this->capacity < this->len+1) {
-				this->resize(this->len+1);
+		void push_back(const Rc<T> &el) {
+			if (this->capacity < this->len + 1) {
+				this->resize(this->len + 1);
 			}
 
 			this->data[this->len] = el;
 			this->len++;
 		}
 
-		void push_back(T* el) {
+		void push_back(T *el) {
 			this->push_back(make_rc(el));
 		}
 
@@ -104,8 +104,8 @@ namespace nhflib {
 			for (usize ii = 0; ii < ind; ii++) {
 				this->data[ii] = temp[ii];
 			}
-			for (usize ii = ind+1; ii < this->size(); ii++) {
-				this->data[ii-1] = temp[ii];
+			for (usize ii = ind + 1; ii < this->size(); ii++) {
+				this->data[ii - 1] = temp[ii];
 			}
 			delete[] temp;
 
@@ -113,20 +113,20 @@ namespace nhflib {
 			this->capacity = this->size() - 1;
 		}
 
-		void insert_at(usize idx, const Rc<T>& el) {
+		void insert_at(usize idx, const Rc<T> &el) {
 			if (this->len >= idx) {
 				this->push_back(el);
 				return;
 			}
 
 			auto temp = data;
-			this->data = new Rc<T>[this->size() +1];
+			this->data = new Rc<T>[this->size() + 1];
 			for (usize ii = 0; ii < idx; ii++) {
 				this->data[ii] = temp[ii];
 			}
 			this->data[idx] = el;
-			for (usize ii = idx+1; ii < this->size(); ii++) {
-				this->data[ii+1] = temp[ii];
+			for (usize ii = idx + 1; ii < this->size(); ii++) {
+				this->data[ii + 1] = temp[ii];
 			}
 			delete[] temp;
 
@@ -165,11 +165,11 @@ namespace nhflib {
 
 
 		template<typename S>
-		void sorted_push_back(const Rc<T>& el, S el_bigger) {
+		void sorted_push_back(const Rc<T> &el, S el_bigger) {
 			for (usize ii = 0; ii < this->size(); ii++) {
 				auto el_ii = this->at(ii);
 				if (el_bigger(el, el_ii)) {
-					this->insert_at(ii+1, el);
+					this->insert_at(ii + 1, el);
 					return;
 				}
 			}
@@ -218,6 +218,31 @@ namespace nhflib {
 
 		const Rc<T> operator[](usize idx) const {
 			return this->at(idx);
+		}
+
+		Vector<T> clone() const {
+			Vector<T> vec;
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto el = this->at(ii);
+				vec.push_back(el.clone());
+			}
+
+			return vec;
+		}
+
+		Vector<T> concat(const Vector<T> &second) const {
+			Vector<T> vec;
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto el = this->at(ii);
+				vec.push_back(el.clone());
+			}
+
+			for (usize kk = 0; kk < second.size(); kk++) {
+				auto el = second.at(kk);
+				vec.push_back(el.clone());
+			}
+
+			return vec;
 		}
 
 		template<typename S>

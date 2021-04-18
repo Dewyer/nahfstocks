@@ -18,11 +18,15 @@ namespace config {
 		}
 
 		usize get_fixed_income_interval() const noexcept {
-			return 24*30;
+			return 24 * 30;
 		}
 
 		usize get_median_starting_cash() const noexcept {
 			return 10000;
+		}
+
+		usize get_mean_company_outstanding_shares() const noexcept {
+			return 1200000;
 		}
 
 		void read_from_cin();

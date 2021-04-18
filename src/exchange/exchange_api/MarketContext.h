@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../../lib/memory/Rc.h"
 #include "../../../lib/collections/Vector.h"
 #include "../../company/Company.h"
@@ -11,6 +12,6 @@ namespace exchange {
 	public:
 		Rc<Vector<company::Company>> companies;
 
-		MarketContext(Rc<Vector<company::Company>> cc): companies(cc) {}
+		explicit MarketContext(const Rc<Vector<company::Company>> &cc) : companies(cc) {}
 	};
 }
