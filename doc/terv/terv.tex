@@ -9,6 +9,7 @@
 \usepackage{booktabs}
 \usepackage{subfiles}
 \usepackage{listings}
+\usepackage[margin=0.8in]{geometry}
 
 \hypersetup{
     colorlinks=true,
@@ -20,7 +21,7 @@
 \usepackage{graphicx}
 \graphicspath{ {./pngs/} }
 
-\title{Részvénypiac Szimuláció - Terv}
+\title{Részvénypiac Szimuláció - Specifikáció Skeleton Programhoz}
 \author{Rátki Barnabás}
 \date{2021.04.13}
 
@@ -78,7 +79,9 @@
     \end{lstlisting}
 
     Az itt definiált osztályok definícióját és egymáshoz való függőségeit az alábbi UML diagram ábárzolja:
-    \href{https://i.imgur.com/JLrMsF5.png}{UML Osztálydiagram}
+    \begin{center}
+        \includegraphics[scale=0.55]{nhflib2}
+    \end{center}
 
     \subsubsection{Rc<T> - Implementáció}
     Egy reference számolt, T tipusu dinamikusan tárolt pointert tartalmaz.
@@ -96,7 +99,12 @@
     Nem dobhat hibákat, és semmilyen "szenzitív" adathoz nem fér hozzá.
 
     Az osztálydiagram sokkal beszédesebben leírja a különböző kompozíciókat:
-    \href{https://i.imgur.com/FbvPRx0.png}{UML Osztálydiagram}
+    \begin{center}
+        \includegraphics[scale=0.20]{cli}
+    \end{center}
 
+    \subsection{Skeleton Program Jelenlegi Állása}
+    A program jelenleg előrehaladott az implementáció terén, ami még hátravan, az a kereskedői logika véglegesítése és a CLI interfész teljes lefejlesztése.
+    A testprogram még hiányosságokkal rendelkezik, a piac nem minden funkciójára van teljese lefedettség.
 
 \end{document}
