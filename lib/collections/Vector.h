@@ -99,7 +99,12 @@ namespace nhflib {
 
 		void remove_at(usize ind) {
 			this->assert_index_in_bound(ind);
-			auto temp = data;
+			if (this->size() == 1) {
+				this->clear();
+				return;
+			}
+
+			auto temp = this->data;
 			this->data = new Rc<T>[this->size() - 1];
 			for (usize ii = 0; ii < ind; ii++) {
 				this->data[ii] = temp[ii];

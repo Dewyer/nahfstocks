@@ -37,45 +37,27 @@
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/sub_spec.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/sub_spec.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128002" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128130" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128130" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128258" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128258" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128386" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128386" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/129282" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/129282" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/129538" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/129538" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/129666" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/129666" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/129794" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/129794" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/129922" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/129922" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/130050" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/130050" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/generation_settings" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/generation_settings" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/memory/Rc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/memory/Rc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/option/Option.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/CompanyAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyAgent.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/Event.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/Event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/EventDispatcher.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/EventDispatcher.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/events/EventDispatcher.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/EventDispatcher.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/events/EventDispatchingContext.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/EventDispatchingContext.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/MarketContext.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/MarketContext.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/Order.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/Order.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/company/company_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/company/company_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +67,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Test" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -127,6 +109,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Barna\Projects\nahfstocks\tests\config" />
       <recent name="C:\Users\Barna\Projects\nahfstocks\src\config" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>
@@ -143,9 +126,9 @@
       </texify-bibtex>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
@@ -271,7 +254,10 @@
       <workItem from="1618243322408" duration="23000" />
       <workItem from="1618246450905" duration="30029000" />
       <workItem from="1618754608879" duration="16000" />
-      <workItem from="1618755596286" duration="17010000" />
+      <workItem from="1618755596286" duration="19297000" />
+      <workItem from="1618858900114" duration="3446000" />
+      <workItem from="1618862687705" duration="3188000" />
+      <workItem from="1618865915856" duration="10967000" />
     </task>
     <servers />
   </component>
@@ -295,8 +281,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/exchange/Exchange.cpp</url>
-          <line>222</line>
-          <option name="timeStamp" value="22" />
+          <line>195</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/exchange/Exchange.cpp</url>
+          <line>199</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lib/collections/Vector.h</url>
+          <line>117</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lib/collections/Vector.h</url>
+          <line>100</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lib/collections/Vector.h</url>
+          <line>116</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -304,6 +310,8 @@
       <configuration name="CMakeRunConfiguration">
         <watch expression="this-&gt;capacity" language="ObjectiveC" />
         <watch expression="order" />
+        <watch expression="this-&gt;orders-&gt;len()" language="ObjectiveC" />
+        <watch expression="this-&gt;orders" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

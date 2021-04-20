@@ -2,7 +2,9 @@
 #include "../../lib/string/String.h"
 #include "../../lib/types.h"
 
+using nhflib::Vector;
 using nhflib::String;
+using exchange::Order;
 
 const String &company::Company::get_name() const noexcept {
 	return this->name;
@@ -31,6 +33,7 @@ company::Company::Company(usize id, const String &_name, const String &_sym, f64
 	this->bid = Option<usize>();
 	this->ask = Option<usize>();
 	this->outstanding_shares = _outstanding_shares;
+	this->orders = Vector<Order>();
 }
 
 void company::Company::print_debug(std::ostream &os) const noexcept {

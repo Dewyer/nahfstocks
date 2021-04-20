@@ -20,5 +20,9 @@ namespace nhflib {
 		f64 next_f64_normal(f64 min, f64 max, f64 mean, f64 devi);
 
 		usize next_usize_normal(usize min, usize max, f64 mean, f64 devi);
+
+		f64 next_normal();
+
+		bool next_bool(f64 chance_of_being_true);
 	};
 }

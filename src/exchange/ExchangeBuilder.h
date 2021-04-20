@@ -6,6 +6,7 @@
 #include "./Exchange.h"
 #include "../config/Config.h"
 #include "../company/CompanyAgent.h"
+#include "../../tests/exchange/exchange_tests.h"
 
 using nhflib::RandomProvider;
 using nhflib::Rc;
@@ -33,6 +34,8 @@ namespace exchange {
 		}
 
 		Rc<Exchange> build_random();
+
+		friend ExchangeTester;
 	};
 
 }

@@ -58,4 +58,19 @@ add_executable(nahfstocks
         src/cli/SimulationCli.cpp
         src/cli/SimulationCli.h
         src/company/CompanyAgent.cpp
-        src/company/CompanyAgent.h)
+        src/company/CompanyAgent.h
+        tests/cc_test.h
+        tests/events/events_tests.cpp
+        tests/events/events_tests.h
+        tests/lib/lib_mocks.h
+        tests/company/company_mock.h
+        tests/events/events_mock.h
+        tests/config/config_mock.h
+        tests/trader/trader_tests.cpp
+        tests/trader/trader_tests.h
+        tests/lib/lib_mocks.cpp
+        tests/exchange/exchange_tests.cpp
+        tests/exchange/exchange_tests.h
+        tests/exchange/exchange_mock.cpp
+        tests/exchange/exchange_mock.h
+        tests/config/config_mock.cpp)

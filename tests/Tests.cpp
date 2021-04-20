@@ -1,33 +1,30 @@
-#ifdef ETEST
-
 #include "../lib/external/gtest_lite.h"
 #include "./lib/lib_tests.h"
 #include "./company/company_tests.h"
+#include "./events/events_tests.h"
+#include "./trader/trader_tests.h"
+#include "./exchange/exchange_tests.h"
+
+#include "cc_test.h"
 
 #include "Tests.h"
 
-void Tests::sanity_test() {
+CC_TEST(void Tests::sanity_test(), {
 	TEST(SanityTest, SanityTest)
-		{
-			EXPECT_EQ(10, 10);
-		}
-			END
-}
+	{
+		EXPECT_EQ(10, 10);
+	}
+	END
+})
 
-void Tests::run_all() {
+
+CC_TEST(void Tests::run_all(), {
 	Tests::sanity_test();
 	run_lib_tests();
 	run_company_tests();
-}
+	run_events_tests();
+	run_trader_tests();
 
-#else
-
-#include "Tests.h"
-
-void Tests::sanity_test() {
-}
-
-void Tests::run_all() {
-}
-
-#endif
+	ExchangeTester et;
+	et.run_exchange_tests();
+})

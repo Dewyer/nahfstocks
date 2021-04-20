@@ -41,6 +41,7 @@ namespace exchange {
 			this->available_balance = starting_cash;
 			this->fixed_income = _fixed_income;
 			this->next_activation = 0;
+			this->open_orders = Vector<exchange::Order>();
 		}
 
 		void add_or_sub_stocks_and_free_stocks(usize company, i32 amount, i32 free_amount) {

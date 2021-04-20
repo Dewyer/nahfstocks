@@ -10,5 +10,10 @@ void trader::TraderAgent::print_debug(std::ostream &os) const noexcept {
 }
 
 void trader::TraderAgent::on_cycle(exchange::ExchangeApi &api) {
-	api.get_logger_stream() << "Trader activated: " << api.get_trader_id() << std::endl;
+	auto log_stream = api.get_logger_stream();
+	if (!log_stream) {
+		return;
+	}
+
+	*log_stream.unwrap() << "Trader activated: " << api.get_trader_id() << std::endl;
 }

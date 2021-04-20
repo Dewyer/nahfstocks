@@ -40,3 +40,12 @@ void nhflib::RandomProvider::seed(nhflib::Option<usize> seed) {
 		this->engine.seed(rd());
 	}
 }
+
+bool nhflib::RandomProvider::next_bool(f64 chance_of_being_true) {
+	auto norm = this->next_f64(0, 1);
+	return norm <= chance_of_being_true;
+}
+
+f64 nhflib::RandomProvider::next_normal() {
+	return this->next_f64(0, 1);
+}

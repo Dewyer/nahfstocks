@@ -7,6 +7,7 @@
 #include "../../lib/rand/RandomProvider.h"
 #include "../company/Company.h"
 #include "./exchange_api/TraderRecordInExchange.h"
+#include "../../tests/exchange/exchange_tests.h"
 
 #include "../config/Config.h"
 
@@ -34,6 +35,8 @@ namespace exchange {
 		usize mean_traders_per_cycle;
 
 		usize last_order_id;
+
+		bool runtime_exception_occured;
 
 		Rc<TraderRecordInExchange> create_trader_record(const Rc<TraderAgent> &trader, usize &trader_id);
 
@@ -67,5 +70,7 @@ namespace exchange {
 		exchange::Order open_order(Rc<TraderRecordInExchange> trader, exchange::OrderCreationPayload order);
 
 		void cancel_order(Rc<TraderRecordInExchange> trader, usize order_id);
+
+		friend ExchangeTester;
 	};
 }

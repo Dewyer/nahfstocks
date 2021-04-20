@@ -60,6 +60,11 @@ namespace nhflib {
 		explicit operator bool() const {
 			return this->is_some();
 		}
+
+		static Option<T> none() {
+			Option<T> m;
+			return m;
+		}
 	};
 }
 

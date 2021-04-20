@@ -26,8 +26,13 @@ namespace exchange {
 				context(_context),
 				logger_stream(_logger_stream) {}
 
-		std::ostream &get_logger_stream() const noexcept {
-			return *this->logger_stream;
+		Option<std::ostream *> get_logger_stream() const noexcept {
+			Option<std::ostream *> st;
+			if (logger_stream) {
+				st.swap(logger_stream);
+			}
+
+			return st;
 		}
 
 		const MarketContext &get_market_context() const noexcept {
