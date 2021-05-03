@@ -4,11 +4,15 @@
 #include "../../lib/option/Option.h"
 #include "../../lib/string/String.h"
 #include "../../lib/collections/Vector.h"
+#include "../config/Config.h"
 
+using config::Config;
+using simulation::Simulation;
 
 namespace cli {
 	class SimulationCli {
-		simulation::Simulation sim;
+		Rc<Simulation> sim;
+		Rc<Config> config;
 
 		usize ask_question(const nhflib::String &question, nhflib::Vector<nhflib::String> answers);
 
@@ -31,6 +35,10 @@ namespace cli {
 		void show_main_menu();
 
 	public:
+		SimulationCli() {
+			this->config = nhflib::make_rc_ctr<Config>();
+		}
+
 		void start();
 	};
 }

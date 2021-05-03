@@ -29,10 +29,10 @@ namespace config {
 		static String COMPANY_COUNT_KEY;
 		static String TRADER_COUNT_KEY;
 
-		void process_config_string_read(const String& line);
+		void process_config_string_read(const String &line);
 
 		template<typename TVal>
-		TVal get_config_with_default(const String& key, TVal default_val) {
+		TVal get_config_with_default(const String &key, TVal default_val) {
 			if (!this->configs.has(key)) {
 				return default_val;
 			}
@@ -47,11 +47,11 @@ namespace config {
 			this->definitions = Vector<ConfigKeyDefinition>();
 			this->configs = Map<String, ConfigValue>();
 
-			this->definitions.push_back(ConfigKeyDefinition {
-				Config::COMPANY_COUNT_KEY,
-				ConfigValueType::Int
+			this->definitions.push_back(ConfigKeyDefinition{
+					Config::COMPANY_COUNT_KEY,
+					ConfigValueType::Int
 			});
-			this->definitions.push_back(ConfigKeyDefinition {
+			this->definitions.push_back(ConfigKeyDefinition{
 					Config::TRADER_COUNT_KEY,
 					ConfigValueType::Int
 			});
@@ -65,7 +65,7 @@ namespace config {
 		}
 
 		virtual usize get_trader_count() {
-			auto trader_count = this->get_config_with_default<int>(Config::COMPANY_COUNT_KEY, 40);
+			auto trader_count = this->get_config_with_default<int>(Config::TRADER_COUNT_KEY, 40);
 			return trader_count;
 		}
 

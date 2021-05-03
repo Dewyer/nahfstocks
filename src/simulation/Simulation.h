@@ -5,17 +5,25 @@
 #include "../../lib/rand/RandomProvider.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/option/Option.h"
+#include "../config/Config.h"
+
+using nhflib::Rc;
+using config::Config;
 
 namespace simulation {
 	class Simulation {
-		nhflib::Rc<nhflib::RandomProvider> rng;
+
+		Rc<nhflib::RandomProvider> rng;
+		Rc<Config> config;
 
 		void setup();
 
 	public:
-		Simulation();
+		Simulation(const Rc<Config> &_config) : config(_config) {
+			this->setup();
+		}
 
-		nhflib::Rc<exchange::Exchange> exchange;
+		Rc<exchange::Exchange> exchange;
 
 		void run(nhflib::Option<usize> limit_cycles);
 

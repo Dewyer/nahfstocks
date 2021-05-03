@@ -67,11 +67,11 @@ String &nhflib::String::operator+=(const String &rhs_s) {
 	return *this;
 }
 
-Rc<Vector<String>> nhflib::String::split(char by_char) const  {
+Rc<Vector<String>> nhflib::String::split(char by_char) const {
 	auto res = nhflib::make_rc_ctr<Vector<String>>();
 	String last_buf = "";
 
-	if (this->len() == 0){
+	if (this->len() == 0) {
 		return res;
 	}
 
@@ -80,8 +80,7 @@ Rc<Vector<String>> nhflib::String::split(char by_char) const  {
 		if (at_chr == by_char) {
 			res->push_back(last_buf);
 			last_buf = "";
-		}
-		else {
+		} else {
 			last_buf += at_chr;
 		}
 	}
@@ -94,6 +93,44 @@ Rc<Vector<String>> nhflib::String::split(char by_char) const  {
 const char &nhflib::String::at(usize idx) const {
 	if (idx >= length) throw std::out_of_range("String index out of range");
 	return stringData[idx];
+}
+
+
+bool char_is_whitespace(char ch) {
+	return ch == '\r' || ch == '\n' || ch == ' ';
+}
+
+String nhflib::String::trim() const {
+	String res;
+	usize begin_idx = 0;
+	usize end_idx = 0;
+
+	for (usize ii = 0; ii < this->len(); ii++) {
+		auto at_chr = this->at(ii);
+		if (!char_is_whitespace(at_chr)) {
+			begin_idx = ii;
+			break;
+		}
+	}
+
+	for (usize ii = this->len() - 1;; ii--) {
+		auto at_chr = this->at(ii);
+		if (!char_is_whitespace(at_chr)) {
+			end_idx = ii;
+			break;
+		}
+
+		if (ii == 0) {
+			break;
+		}
+	}
+
+	for (usize ii = begin_idx; ii <= end_idx; ii++) {
+		auto at_chr = this->at(ii);
+		res += at_chr;
+	}
+
+	return res;
 }
 
 std::ostream &operator<<(std::ostream &os, const String &s0) {

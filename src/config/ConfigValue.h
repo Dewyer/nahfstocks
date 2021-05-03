@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/string/String.h"
 
 using nhflib::String;
@@ -16,8 +17,9 @@ namespace config {
 		ConfigValueType type;
 
 		void check_can_parse_string_into_expected_type() const;
+
 	public:
-		ConfigValue(const ConfigValueType& expected_type, const String& val) {
+		ConfigValue(const ConfigValueType &expected_type, const String &val) {
 			this->type = expected_type;
 			this->value = val;
 
@@ -25,7 +27,7 @@ namespace config {
 		}
 
 		template<typename TOut>
-		TOut get_val_into () const;
+		TOut get_val_into() const;
 	};
 
 }

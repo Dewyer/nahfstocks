@@ -2,10 +2,6 @@
 #include "../exchange/ExchangeBuilder.h"
 #include "../../lib/option/Option.h"
 
-simulation::Simulation::Simulation() {
-	this->setup();
-}
-
 void simulation::Simulation::setup() {
 	std::cout << "Building, World!" << std::endl;
 
@@ -13,9 +9,7 @@ void simulation::Simulation::setup() {
 	nhflib::RandomProvider rng_base(seed);
 	this->rng = nhflib::make_rc(rng_base);
 
-	auto config = nhflib::make_rc_ctr<config::Config>();
-
-	exchange::ExchangeBuilder exchange_builder(this->rng, config);
+	exchange::ExchangeBuilder exchange_builder(this->rng, this->config);
 
 	this->exchange = exchange_builder.build_random();
 }

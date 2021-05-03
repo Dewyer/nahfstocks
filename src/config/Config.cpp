@@ -4,7 +4,7 @@ namespace config {
 	String Config::COMPANY_COUNT_KEY = "COMPANY_COUNT";
 	String Config::TRADER_COUNT_KEY = "TRADER_COUNT";
 
-	void Config::process_config_string_read(const String &line)  {
+	void Config::process_config_string_read(const String &line) {
 		auto line_tokens = line.split('=');
 		if (line_tokens->size() != 2) {
 			throw std::runtime_error("Config key value pair is malformed!");
@@ -27,14 +27,16 @@ namespace config {
 	}
 
 	void Config::read_from_cin() {
+		this->configs.clear();
+
 		while (true) {
 			auto inp_str_opt = CliHelper::read_safe<String>();
 			if (!inp_str_opt) {
 				break;
 			}
 
-			auto inp_str = inp_str_opt.unwrap();
-			if (inp_str == "") {
+			auto inp_str = inp_str_opt.unwrap().trim();
+			if (inp_str == "END") {
 				break;
 			}
 

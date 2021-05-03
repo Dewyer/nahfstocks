@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../types.h"
 #include "../collections/Vector.h"
 #include "../memory/Rc.h"
@@ -37,7 +38,7 @@ namespace nhflib {
 				return *el == key;
 			});
 
-			if (!val_ind || this->values.size() >= val_ind.unwrap()) {
+			if (!val_ind || this->values.size() <= val_ind.unwrap()) {
 				return Option<Rc<TVal>>();
 			}
 

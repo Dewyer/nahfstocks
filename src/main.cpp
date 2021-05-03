@@ -1,11 +1,11 @@
 #include <iostream>
 #include "../tests/Tests.h"
-#include "./simulation/Simulation.h"
+#include "cli/SimulationCli.h"
 #include "../lib/option/Option.h"
 
 int real_main() {
-	simulation::Simulation sim;
-	sim.run(nhflib::Option<usize>());
+	cli::SimulationCli sim;
+	sim.start();
 
 	return 0;
 }

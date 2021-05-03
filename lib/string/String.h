@@ -39,6 +39,8 @@ namespace nhflib {
 
 		Rc<Vector<String>> split(char by_char) const;
 
+		String trim() const;
+
 		String &operator=(const String &rhs_s);
 
 		String operator+(const String &rhs_s) const;
@@ -47,7 +49,7 @@ namespace nhflib {
 
 		String &operator+=(const String &rhs_s);
 
-		const char& at(usize idx) const;
+		const char &at(usize idx) const;
 
 		char &operator[](unsigned int idx);
 
