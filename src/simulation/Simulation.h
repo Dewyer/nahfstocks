@@ -19,7 +19,7 @@ namespace simulation {
 		void setup();
 
 	public:
-		Simulation(const Rc<Config> &_config) : config(_config) {
+		explicit Simulation(const Rc<Config> &_config) : config(_config) {
 			this->setup();
 		}
 

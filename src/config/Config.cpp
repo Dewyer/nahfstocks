@@ -36,7 +36,7 @@ namespace config {
 			}
 
 			auto inp_str = inp_str_opt.unwrap().trim();
-			if (inp_str == "END") {
+			if (inp_str == "" || inp_str == "END") {
 				break;
 			}
 

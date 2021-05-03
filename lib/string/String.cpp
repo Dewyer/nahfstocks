@@ -105,6 +105,10 @@ String nhflib::String::trim() const {
 	usize begin_idx = 0;
 	usize end_idx = 0;
 
+	if (this->len() == 0) {
+		return res;
+	}
+
 	for (usize ii = 0; ii < this->len(); ii++) {
 		auto at_chr = this->at(ii);
 		if (!char_is_whitespace(at_chr)) {
@@ -143,7 +147,7 @@ std::istream &operator>>(std::istream &is, String &s0) {
 	unsigned char ch;
 	s0 = String("");
 	std::ios_base::fmtflags fl = is.flags();
-	is.setf(ios_base::skipws);
+	// is.setf(ios_base::skipws);
 	while (is >> ch) {
 		is.unsetf(ios_base::skipws);
 		if (isspace(ch)) {

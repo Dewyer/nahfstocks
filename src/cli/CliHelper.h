@@ -15,7 +15,7 @@ namespace cli {
 		template<typename TInp>
 		static Option<TInp> read_safe(std::istream &inp = std::cin) {
 			TInp inp_res;
-			auto failed = !(std::cin >> inp_res);
+			auto failed = !(inp >> std::noskipws >> inp_res);
 
 			if (inp.fail() || failed) {
 				inp.clear();
