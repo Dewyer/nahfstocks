@@ -16,4 +16,5 @@
 \contentsline {subsubsection}{\numberline {3.1.1}Könyvtár - Terv}{3}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Rc<T> - Implementáció}{6}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Implementációs - Terv}{6}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Skeleton Program Jelenlegi állása}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Skeleton Program Jelenlegi Állása}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Skeleton Program - Testprogram}{7}{subsection.3.4}%

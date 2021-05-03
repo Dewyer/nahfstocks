@@ -107,4 +107,10 @@
     A program jelenleg előrehaladott az implementáció terén, ami még hátravan, az a kereskedői logika véglegesítése és a CLI interfész teljes lefejlesztése.
     A testprogram még hiányosságokkal rendelkezik, a piac nem minden funkciójára van teljese lefedettség.
 
+    \subsection{Skeleton Program - Testprogram}
+    A testprogram amit mellékelek teljesen jól lefordul és lefut.
+    A Jporta hiányosságai miatt az összes forrásfájlt egy mappába kellett raknom ami megnehezíti bennük való keresést, a végleges program mappákat fog tartalmazni.
+    A tesztprogram részei a \textit{main.cpp} fileban kerülnek meghívásra, ehhez a beadáshoz NEM definiáltam a kódban az \textit{ETEST} szimbólumot (Ez kell ahhoz, hogy a tesztek feltételesen beleforduljanak a kódba).
+    Mivel ha a programom a \textit{gtest\_lite.h} filet próbálja használni akkor a Jporta azt is ellenőrzi és hibásnak találja, ezekbe a fileokba nem tudok belenyúlni tehát a hibákat se tudom kijavítani.
+    (A teszteléshez a javasolt \textit{gtest\_lite} könyvtárat használtam egy saját makróval, ami megkönnyíti a fejlesztést több Cmake profillal.)
 \end{document}

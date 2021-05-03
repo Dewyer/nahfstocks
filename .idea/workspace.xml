@@ -114,11 +114,6 @@
       </texify-bibtex>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -136,11 +131,6 @@
         <work-dir />
       </texify-external>
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Spec" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify>
@@ -246,6 +236,9 @@
       <workItem from="1618858900114" duration="3446000" />
       <workItem from="1618862687705" duration="3188000" />
       <workItem from="1618865915856" duration="13290000" />
+      <workItem from="1618879974159" duration="536000" />
+      <workItem from="1618881200749" duration="654000" />
+      <workItem from="1619215898104" duration="17000" />
     </task>
     <servers />
   </component>
