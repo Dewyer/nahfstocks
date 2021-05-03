@@ -13,7 +13,7 @@ void simulation::Simulation::setup() {
 	nhflib::RandomProvider rng_base(seed);
 	this->rng = nhflib::make_rc(rng_base);
 
-	Rc<config::Config> config;
+	auto config = nhflib::make_rc_ctr<config::Config>();
 
 	exchange::ExchangeBuilder exchange_builder(this->rng, config);
 

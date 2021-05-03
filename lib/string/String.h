@@ -3,6 +3,11 @@
 #include <iostream>
 #include <cstring>
 #include "../types.h"
+#include "../collections/Vector.h"
+#include "../memory/Rc.h"
+
+using nhflib::Vector;
+using nhflib::Rc;
 
 namespace nhflib {
 	class String {
@@ -32,6 +37,8 @@ namespace nhflib {
 					  << (stringData ? stringData : "(NULL)") << std::endl;
 		}
 
+		Rc<Vector<String>> split(char by_char) const;
+
 		String &operator=(const String &rhs_s);
 
 		String operator+(const String &rhs_s) const;
@@ -39,6 +46,8 @@ namespace nhflib {
 		String operator+(char rhs_c) const { return *this + String(rhs_c); }
 
 		String &operator+=(const String &rhs_s);
+
+		const char& at(usize idx) const;
 
 		char &operator[](unsigned int idx);
 

@@ -2,19 +2,71 @@
 
 #include "../../lib/types.h"
 #include "../../lib/option/Option.h"
+#include "../../lib/string/String.h"
+#include "../../lib/collections/Map.h"
+#include "../../lib/collections/Vector.h"
+#include "./ConfigValue.h"
+#include "../cli/CliHelper.h"
 
+using cli::CliHelper;
 using nhflib::Option;
+using nhflib::Map;
+using nhflib::Vector;
+using nhflib::String;
 
 namespace config {
-	class Config {
-	public:
 
-		virtual usize get_company_count() const noexcept {
-			return 40;
+	struct ConfigKeyDefinition {
+		String key;
+		ConfigValueType type;
+	};
+
+	class Config {
+	private:
+		Map<String, ConfigValue> configs;
+		Vector<ConfigKeyDefinition> definitions;
+
+		static String COMPANY_COUNT_KEY;
+		static String TRADER_COUNT_KEY;
+
+		void process_config_string_read(const String& line);
+
+		template<typename TVal>
+		TVal get_config_with_default(const String& key, TVal default_val) {
+			if (!this->configs.has(key)) {
+				return default_val;
+			}
+
+			auto config_val = this->configs.get(key).unwrap();
+			return config_val->template get_val_into<TVal>();
 		}
 
-		virtual usize get_trader_count() const noexcept {
-			return 40;
+	public:
+
+		Config() {
+			this->definitions = Vector<ConfigKeyDefinition>();
+			this->configs = Map<String, ConfigValue>();
+
+			this->definitions.push_back(ConfigKeyDefinition {
+				Config::COMPANY_COUNT_KEY,
+				ConfigValueType::Int
+			});
+			this->definitions.push_back(ConfigKeyDefinition {
+					Config::TRADER_COUNT_KEY,
+					ConfigValueType::Int
+			});
+		}
+
+		virtual void read_from_cin();
+
+		virtual usize get_company_count() {
+			auto comp_count = this->get_config_with_default<int>(Config::COMPANY_COUNT_KEY, 40);
+			return comp_count;
+		}
+
+		virtual usize get_trader_count() {
+			auto trader_count = this->get_config_with_default<int>(Config::COMPANY_COUNT_KEY, 40);
+			return trader_count;
 		}
 
 		virtual usize get_fixed_income_interval() const noexcept {
@@ -47,6 +99,5 @@ namespace config {
 
 		virtual ~Config() {}
 
-		virtual void read_from_cin() {}
 	};
 }

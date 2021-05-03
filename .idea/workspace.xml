@@ -36,13 +36,13 @@
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.aux" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.log" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.out" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.toc" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -96,13 +97,14 @@
       <recent name="C:\Users\Barna\Projects\nahfstocks\doc\terv\pngs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Barna\Projects\nahfstocks\lib\collections" />
       <recent name="C:\Users\Barna\Projects\nahfstocks\doc\terv\pngs" />
       <recent name="C:\Users\Barna\Projects\nahfstocks\tests\config" />
       <recent name="C:\Users\Barna\Projects\nahfstocks\src\config" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="LaTeX.Terv">
+  <component name="RunManager" selected="CMake Application.nahfstocks">
     <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
         <compiler />
@@ -113,6 +115,11 @@
         <aux-dir>$APPLICATION_HOME_DIR$/jbr/bin</aux-dir>
       </texify-bibtex>
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
     </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
       <method v="2">
@@ -131,6 +138,11 @@
         <work-dir />
       </texify-external>
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Spec" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify>
@@ -239,6 +251,7 @@
       <workItem from="1618879974159" duration="536000" />
       <workItem from="1618881200749" duration="654000" />
       <workItem from="1619215898104" duration="17000" />
+      <workItem from="1620070592840" duration="8918000" />
     </task>
     <servers />
   </component>

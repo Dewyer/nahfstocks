@@ -48,7 +48,7 @@ Rc<Vector<TraderAgent>> exchange::ExchangeBuilder::build_trader_agents() {
 	if (this->config->should_log())
 		std::cout << "Creating traders: " << std::endl;
 
-	for (usize ii = 0; ii < this->config->get_company_count(); ii++) {
+	for (usize ii = 0; ii < this->config->get_trader_count(); ii++) {
 		auto agent = trader_builder.build_random();
 
 		if (this->config->should_log())

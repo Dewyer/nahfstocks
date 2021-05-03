@@ -42,8 +42,7 @@ char &String::operator[](unsigned int idx) {
 }
 
 const char &String::operator[](unsigned int idx) const {
-	if (idx >= length) throw std::out_of_range("String index out of range");
-	return stringData[idx];
+	return this->at(idx);
 }
 
 String String::operator+(const String &rhs_s) const {
@@ -66,6 +65,35 @@ String &nhflib::String::operator+=(const String &rhs_s) {
 	delete[] saved_own_data;
 
 	return *this;
+}
+
+Rc<Vector<String>> nhflib::String::split(char by_char) const  {
+	auto res = nhflib::make_rc_ctr<Vector<String>>();
+	String last_buf = "";
+
+	if (this->len() == 0){
+		return res;
+	}
+
+	for (usize ii = 0; ii < this->len(); ii++) {
+		auto at_chr = this->at(ii);
+		if (at_chr == by_char) {
+			res->push_back(last_buf);
+			last_buf = "";
+		}
+		else {
+			last_buf += at_chr;
+		}
+	}
+
+	res->push_back(last_buf);
+
+	return res;
+}
+
+const char &nhflib::String::at(usize idx) const {
+	if (idx >= length) throw std::out_of_range("String index out of range");
+	return stringData[idx];
 }
 
 std::ostream &operator<<(std::ostream &os, const String &s0) {

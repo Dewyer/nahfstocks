@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "../memory/Rc.h"
+#include "../option/Option.h"
 #include "../types.h"
 
 namespace nhflib {
@@ -180,6 +181,17 @@ namespace nhflib {
 			}
 
 			this->push_back(el);
+		}
+
+		template<typename S>
+		Option<usize> index_of(S index_fn) {
+			for (usize ii = 0; ii < this->size(); ii++) {
+				if (index_fn(this->at(ii))) {
+					return Option<usize>(ii);
+				}
+			}
+
+			return Option<usize>();
 		}
 
 		template<typename S>
