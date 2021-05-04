@@ -20,7 +20,7 @@ namespace config {
 
 	template<>
 	bool ConfigValue::get_val_into<bool>() const {
-		if (this->type != ConfigValueType::Int) {
+		if (this->type != ConfigValueType::Bool) {
 			throw std::runtime_error("Config value is not a bool.");
 		}
 

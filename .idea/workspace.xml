@@ -36,10 +36,10 @@
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliHelper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/Config.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/ConfigValue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/ConfigValue.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,9 +113,9 @@
       </texify-bibtex>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
@@ -248,7 +248,8 @@
       <workItem from="1618879974159" duration="536000" />
       <workItem from="1618881200749" duration="654000" />
       <workItem from="1619215898104" duration="17000" />
-      <workItem from="1620070592840" duration="12917000" />
+      <workItem from="1620070592840" duration="13512000" />
+      <workItem from="1620152012465" duration="1762000" />
     </task>
     <servers />
   </component>
