@@ -1,7 +1,7 @@
 #include "config_mock.h"
 
 class MockConfig : public config::Config {
-	bool should_log() const noexcept override {
+	bool should_log() override {
 		return false;
 	}
 };

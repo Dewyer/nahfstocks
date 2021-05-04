@@ -13,8 +13,7 @@ namespace cli {
 	class SimulationCli {
 		Rc<Simulation> sim;
 		Rc<Config> config;
-
-		usize ask_question(const nhflib::String &question, nhflib::Vector<nhflib::String> answers);
+		Rc<CliHelper> cli;
 
 		void dump_simulation_data();
 
@@ -32,11 +31,18 @@ namespace cli {
 
 		void show_start_stop();
 
-		void show_main_menu();
+		void show_simulation_stats();
+
+		bool show_main_menu();
+
+		void show_startup_screen();
+
+		void start_interactive();
 
 	public:
 		SimulationCli() {
 			this->config = nhflib::make_rc_ctr<Config>();
+			this->cli = nhflib::make_rc(this->config->should_log() ? CliHelper(&std::cout) : CliHelper(nullptr));
 		}
 
 		void start();

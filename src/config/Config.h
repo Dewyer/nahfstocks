@@ -114,8 +114,13 @@ namespace config {
 			return 0.01;
 		}
 
-		virtual bool should_log() const noexcept {
-			return true;
+		virtual bool should_log() {
+			auto log_lvl = this->get_config_with_default<int>(Config::LOG_LEVEL_KEY, 1);
+			return log_lvl != 0;
+		}
+
+		virtual bool get_is_interactive() {
+			return this->get_config_with_default<bool>(Config::INTERACTIVE_MODE_KEY, false);
 		}
 
 		virtual ~Config() {}
