@@ -216,6 +216,25 @@ namespace nhflib {
 			return Rc<T>(nullptr);
 		}
 
+		template<typename S>
+		Rc<T> max(S max_fn) {
+			auto max_now = nhflib::make_rc<T>();
+
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto el = this->at(ii);
+				if (!max_now) {
+					max_now = el;
+					continue;;
+				}
+
+				if (max_fn(el) > max_fn(max_now)) {
+					max_now = el;
+				}
+			}
+
+			return max_now;
+		}
+
 		usize size() const noexcept {
 			return this->len;
 		}

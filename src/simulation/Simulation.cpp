@@ -9,7 +9,7 @@ void simulation::Simulation::setup() {
 	nhflib::RandomProvider rng_base(seed);
 	this->rng = nhflib::make_rc(rng_base);
 
-	exchange::ExchangeBuilder exchange_builder(this->rng, this->config);
+	exchange::ExchangeBuilder exchange_builder(this->rng, this->config, this->cli);
 
 	this->exchange = exchange_builder.build_random();
 }

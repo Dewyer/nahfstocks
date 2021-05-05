@@ -78,4 +78,8 @@ add_executable(nahfstocks
         lib/collections/Map.h
         src/config/ConfigValue.cpp
         src/config/ConfigValue.h
-        src/cli/CliHelper.h src/cli/CliQuestioner.cpp src/cli/CliQuestioner.h src/cli/CliHelper.cpp)
+        src/cli/CliHelper.h
+        src/cli/CliQuestioner.cpp
+        src/cli/CliQuestioner.h
+        src/cli/CliHelper.cpp
+        src/exchange/ExchangeStats.h tests/cli/cli_mock.h)

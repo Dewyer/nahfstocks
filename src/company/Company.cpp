@@ -36,11 +36,12 @@ company::Company::Company(usize id, const String &_name, const String &_sym, f64
 	this->orders = Vector<Order>();
 }
 
-void company::Company::print_debug(std::ostream &os) const noexcept {
-	os << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str() << "]"
-	   << std::endl;
-	os << "Sector: " << this->get_sector() << ", Financials: " << this->financial_standing << ", Leadership: "
-	   << this->leadership_bias << std::endl;
+void company::Company::print_to(Rc<CliHelper> cli) const noexcept {
+	cli->os() << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str() << "] Cap: " << this->get_market_cap() << "$, Price: " << this->get_stock_price() << "$";
+	cli->print_ln();
+	cli->os() << "Sector: " << this->get_sector() << ", Financials: " << this->financial_standing << ", Leadership: "
+	   << this->leadership_bias;
+	cli->print_ln();
 }
 
 usize company::Company::get_id() const noexcept {
@@ -86,4 +87,18 @@ const Option<usize> &company::Company::get_ask() const {
 
 usize company::Company::get_outstanding_shares() const noexcept {
 	return this->outstanding_shares;
+}
+
+usize company::Company::get_market_cap() const {
+	auto price = this->get_stock_price();
+
+	return this->outstanding_shares * price;
+}
+
+usize company::Company::get_stock_price() const {
+	auto ask_pr = this->get_ask().unwrap_or(0);
+	auto bid_pr = this->get_bid().unwrap_or(0);
+	auto price_mid = ask_pr+bid_pr / 2;
+
+	return price_mid;
 }

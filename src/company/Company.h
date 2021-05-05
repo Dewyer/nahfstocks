@@ -6,7 +6,9 @@
 #include "../exchange/Exchange.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/option/Option.h"
+#include "../cli/CliHelper.h"
 
+using cli::CliHelper;
 using nhflib::String;
 using nhflib::Option;
 using nhflib::Rc;
@@ -48,7 +50,11 @@ namespace company {
 
 		usize get_id() const noexcept;
 
-		void print_debug(std::ostream &os) const noexcept;
+		void print_to(Rc<CliHelper> cli) const noexcept;
+
+		usize get_market_cap() const;
+
+		usize get_stock_price() const;
 
 		const String &get_symbol() const noexcept;
 

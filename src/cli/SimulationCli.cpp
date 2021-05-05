@@ -6,13 +6,14 @@ void cli::SimulationCli::start() {
 		this->config->read_config();
 		this->show_startup_screen();
 
+		this->sim = nhflib::make_rc(Simulation(this->config, this->cli));
+
 		if (this->config->get_is_interactive()) {
 			this->start_interactive();
 		} else {
 			this->cli->print_ln("TO Impl. non interactive");
 		}
 
-		// this->sim = nhflib::make_rc(Simulation(this->config));
 		// this->sim->run(Option<usize>(100));
 	} catch (std::runtime_error &err) {
 		std::cout << "Runtime error: " << err.what() << std::endl;
@@ -55,7 +56,16 @@ bool cli::SimulationCli::show_main_menu() {
 }
 
 void cli::SimulationCli::show_simulation_stats() {
+	auto stats = this->sim->exchange->get_stats();
+
 	this->cli->print_ln("Simulation stats:");
-	this->cli->os() << "\t Cylces: " << 0;
+	this->cli->os() << "\t Cylces: " << stats.get_at_cycles();
 	this->cli->print_ln();
+	this->cli->os() << "\t Total Money: " << stats.get_total_money();
+	this->cli->print_ln();
+
+	this->cli->os() << "\t Biggest company: ";
+	stats.get_biggest_company()->print_to(this->cli);
+	this->cli->print_ln();
+
 }

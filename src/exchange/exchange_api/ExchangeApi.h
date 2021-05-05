@@ -40,7 +40,7 @@ namespace exchange {
 		}
 
 		usize get_trader_balance() const noexcept {
-			return this->trader->cash_balance;
+			return this->trader->total_balance;
 		}
 
 		usize get_trader_id() const noexcept {

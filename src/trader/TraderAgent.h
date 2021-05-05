@@ -1,6 +1,9 @@
 #pragma once
 
 #include "../../lib/string/String.h"
+#include "../cli/CliHelper.h"
+
+using cli::CliHelper;
 
 namespace exchange {
 	class ExchangeApi;
@@ -15,7 +18,7 @@ namespace trader {
 			this->name = name;
 		}
 
-		virtual void print_debug(std::ostream &os) const noexcept;
+		virtual void print_to(Rc<CliHelper> cli) const noexcept;
 
 		virtual const nhflib::String &get_name() const noexcept;
 

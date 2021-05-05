@@ -6,8 +6,10 @@
 #include "../../../lib/memory/Rc.h"
 #include "../../../lib/rand/RandomProvider.h"
 #include "../../../lib/types.h"
+#include "../../cli/CliHelper.h"
 #include "./Order.h"
 
+using cli::CliHelper;
 using nhflib::String;
 using nhflib::Vector;
 using nhflib::Rc;
@@ -24,7 +26,7 @@ namespace exchange {
 	public:
 		usize trader_id;
 		Rc<TraderAgent> trader;
-		usize cash_balance;
+		usize total_balance;
 		usize available_balance;
 		usize fixed_income;
 		Vector<TraderStock> stocks;
@@ -37,7 +39,7 @@ namespace exchange {
 							   usize _fixed_income) {
 			this->trader_id = _trader_id;
 			this->trader = trader;
-			this->cash_balance = starting_cash;
+			this->total_balance = starting_cash;
 			this->available_balance = starting_cash;
 			this->fixed_income = _fixed_income;
 			this->next_activation = 0;
@@ -82,9 +84,10 @@ namespace exchange {
 			this->next_activation = at + rng->next_usize_normal(1, max, max / 2, max * 0.25);
 		}
 
-		void print_debug(std::ostream &os) const noexcept {
-			this->trader->print_debug(os);
-			os << "| Bal: " << this->cash_balance << ", Inc: " << this->fixed_income << std::endl;
+		void print_to(Rc<CliHelper> cli) const noexcept {
+			this->trader->print_to(cli);
+			cli->os() << "| Bal: " << this->total_balance << ", Inc: " << this->fixed_income;
+			cli->print_ln();
 		}
 	};
 }

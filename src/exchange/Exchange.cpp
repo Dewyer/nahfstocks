@@ -15,14 +15,17 @@ exchange::Exchange::Exchange(const Rc<nhflib::RandomProvider> &rng,
 							 const Rc<config::Config> &config,
 							 const Rc<Vector<Company>> &companies,
 							 const Rc<Vector<TraderAgent>> &trader_agents,
-							 const Rc<Vector<company::CompanyAgent>> &company_agents) {
+							 const Rc<Vector<company::CompanyAgent>> &company_agents,
+							 const Rc<CliHelper> &_cli) {
 	this->rng = rng;
 	this->config = config;
+	this->cli = _cli;
 	this->companies = companies;
 	this->mean_traders_per_cycle = trader_agents->size() / 5;
 	this->setup_traders(trader_agents, company_agents);
 	this->last_order_id = 0;
 	this->runtime_exception_occured = false;
+	this->cycle_count = 0;
 }
 
 void exchange::Exchange::setup_traders(
@@ -64,8 +67,7 @@ Rc<TraderRecordInExchange> exchange::Exchange::create_trader_record(const Rc<Tra
 	TraderRecordInExchange rec(trader_id++, trader, cash, income);
 	rec.next_random_activation(this->rng, 0, this->mean_traders_per_cycle);
 
-	if (this->config->should_log())
-		rec.print_debug(std::cout);
+	rec.print_to(this->cli);
 
 	return nhflib::make_rc(rec);
 }
@@ -90,7 +92,7 @@ void exchange::Exchange::handle_fixed_income_on_cycle() {
 	}
 
 	this->traders->for_each([](Rc<TraderRecordInExchange> trader_rec) {
-		trader_rec->cash_balance += trader_rec->fixed_income;
+		trader_rec->total_balance += trader_rec->fixed_income;
 	});
 }
 
@@ -248,9 +250,9 @@ void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_orde
 
 	buy_order->amount -= exchanged_am;
 	buy_order->trader->available_balance += buy_target - total_sale_price;
-	buy_order->trader->cash_balance -= total_sale_price;
+	buy_order->trader->total_balance -= total_sale_price;
 	sell_order->amount -= exchanged_am;
-	sell_order->trader->cash_balance += total_sale_price;
+	sell_order->trader->total_balance += total_sale_price;
 	sell_order->trader->available_balance += total_sale_price;
 
 	buy_order->trader->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am);
@@ -274,5 +276,36 @@ void exchange::Exchange::clear_executed_orders() {
 void exchange::Exchange::recalculate_prices_on_cycle() {
 	this->companies->for_each([](Rc<Company> cmp) {
 		cmp->recalculate_bid_ask();
+	});
+}
+
+ExchangeStats exchange::Exchange::get_stats() {
+	auto total_money = (usize)0;
+	auto at_cycles = this->get_cycle_count();
+	auto biggest_cmp = this->get_biggest_company();
+	auto richest_trader = this->get_richest_trader();
+
+	for (usize ii = 0; ii < this->traders->size(); ii++) {
+		auto trader = this->traders->at(ii);
+		total_money += trader->total_balance;
+	}
+
+	return ExchangeStats {
+		total_money,
+		biggest_cmp,
+		richest_trader,
+		at_cycles
+	};
+}
+
+Rc<Company> exchange::Exchange::get_biggest_company() {
+	return this->companies->max([](Rc<Company> cmp){
+		return cmp->get_market_cap();
+	});
+}
+
+Rc<TraderRecordInExchange> exchange::Exchange::get_richest_trader() {
+	return this->traders->max([](Rc<TraderRecordInExchange> trader){
+		return trader->total_balance;
 	});
 }

@@ -18,7 +18,7 @@ Rc<Exchange> exchange::ExchangeBuilder::build_random() {
 	auto traders = this->build_trader_agents();
 	auto company_agents = ExchangeBuilder::build_trader_agents_for_companies(companies);
 
-	Exchange exch(this->rng, this->config, companies, traders, company_agents);
+	Exchange exch(this->rng, this->config, companies, traders, company_agents, this->cli);
 	return nhflib::make_rc(exch);
 }
 
@@ -32,8 +32,7 @@ Rc<Vector<Company>> exchange::ExchangeBuilder::build_companies() {
 	for (usize ii = 0; ii < this->config->get_company_count(); ii++) {
 		auto cmp = company_builder.build_random(ii);
 
-		if (this->config->should_log())
-			cmp->print_debug(std::cout);
+		cmp->print_to(this->cli);
 
 		companies->push_back(cmp);
 	}
@@ -51,8 +50,7 @@ Rc<Vector<TraderAgent>> exchange::ExchangeBuilder::build_trader_agents() {
 	for (usize ii = 0; ii < this->config->get_trader_count(); ii++) {
 		auto agent = trader_builder.build_random();
 
-		if (this->config->should_log())
-			agent->print_debug(std::cout);
+		agent->print_to(this->cli);
 
 		traders->push_back(agent);
 	}
@@ -69,8 +67,7 @@ Rc<Vector<CompanyAgent>> exchange::ExchangeBuilder::build_trader_agents_for_comp
 		auto per_share = this->rng->next_usize_normal(1, 5000, 120, 3000);
 		auto agent = new company::CompanyAgent(cmp->get_id(), cmp->get_name() + " Trader", per_share);
 
-		if (this->config->should_log())
-			agent->print_debug(std::cout);
+		agent->print_to(this->cli);
 
 		auto agent_rc = nhflib::make_rc<CompanyAgent>(agent);
 		traders->push_back(agent_rc);

@@ -35,13 +35,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/nahfstocks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nahfstocks.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliHelper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml/lib.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml/lib.mdj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128514" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128514" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128770.bodies" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128770.bodies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128898" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128898" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/128898.bodies" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/128898.bodies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/129154" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/129154" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/130434.bodies" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/130434.bodies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/terv/uml2/asd/131074.bodies" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/uml2/asd/131074.bodies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/config/config_mock.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/config/config_mock.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/exchange/exchange_mock.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/exchange/exchange_mock.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +135,11 @@
       </texify-bibtex>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -137,11 +162,6 @@
         <work-dir />
       </texify-external>
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Spec" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify>
@@ -252,6 +272,8 @@
       <workItem from="1619215898104" duration="17000" />
       <workItem from="1620070592840" duration="13512000" />
       <workItem from="1620152012465" duration="8720000" />
+      <workItem from="1620245101452" duration="19000" />
+      <workItem from="1620245163609" duration="5386000" />
     </task>
     <servers />
   </component>

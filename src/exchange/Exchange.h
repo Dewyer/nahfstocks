@@ -8,6 +8,8 @@
 #include "../company/Company.h"
 #include "./exchange_api/TraderRecordInExchange.h"
 #include "../../tests/exchange/exchange_tests.h"
+#include "./ExchangeStats.h"
+#include "../cli/CliHelper.h"
 
 #include "../config/Config.h"
 
@@ -17,19 +19,23 @@ namespace company {
 	class CompanyAgent;
 }
 
+using cli::CliHelper;
 using company::Company;
+using config::Config;
 using nhflib::Rc;
 using nhflib::Vector;
 using nhflib::String;
 using nhflib::Option;
+using nhflib::RandomProvider;
 
 namespace exchange {
 	class Exchange {
 	private:
-		Rc<nhflib::RandomProvider> rng;
-		Rc<config::Config> config;
+		Rc<RandomProvider> rng;
+		Rc<Config> config;
 		Rc<Vector<Company>> companies;
 		Rc<Vector<TraderRecordInExchange>> traders;
+		Rc<CliHelper> cli;
 
 		usize cycle_count;
 		usize mean_traders_per_cycle;
@@ -55,14 +61,33 @@ namespace exchange {
 
 		void execute_open_auction();
 
+		Rc<Company> get_biggest_company();
+
+		Rc<TraderRecordInExchange> get_richest_trader();
+
 	public:
 		Exchange(const Rc<nhflib::RandomProvider> &rng,
 				 const Rc<config::Config> &config,
 				 const Rc<Vector<Company>> &companies,
 				 const Rc<Vector<TraderAgent>> &traders,
-				 const Rc<Vector<company::CompanyAgent>> &company_agents);
+				 const Rc<Vector<company::CompanyAgent>> &company_agents,
+				 const Rc<CliHelper> &_cli);
 
 		void cycle();
+
+		usize get_cycle_count() const noexcept {
+			return this->cycle_count;
+		}
+
+		const Rc<Vector<TraderRecordInExchange>>& get_trader_records() const {
+			return this->traders;
+		}
+
+		const Rc<Vector<Company>>& get_companies() const {
+			return this->companies;
+		}
+
+		ExchangeStats get_stats();
 
 		static Option<String>
 		get_order_validation_error(Rc<TraderRecordInExchange> trader, const exchange::OrderCreationPayload &order);
