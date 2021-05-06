@@ -82,4 +82,4 @@ add_executable(nahfstocks
         src/cli/CliQuestioner.cpp
         src/cli/CliQuestioner.h
         src/cli/CliHelper.cpp
-        src/exchange/ExchangeStats.h tests/cli/cli_mock.h)
+        src/exchange/ExchangeStats.h tests/cli/cli_mock.h src/utils/format_money.h src/utils/format_money.cpp)

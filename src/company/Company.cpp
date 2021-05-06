@@ -1,6 +1,7 @@
 #include "Company.h"
 #include "../../lib/string/String.h"
 #include "../../lib/types.h"
+#include "../utils/format_money.h"
 
 using nhflib::Vector;
 using nhflib::String;
@@ -37,7 +38,10 @@ company::Company::Company(usize id, const String &_name, const String &_sym, f64
 }
 
 void company::Company::print_to(Rc<CliHelper> cli) const noexcept {
-	cli->os() << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str() << "] Cap: " << this->get_market_cap() << "$, Price: " << this->get_stock_price() << "$";
+	auto cap_str = utils::format_money(this->get_market_cap());
+	auto price_str = utils::format_money(this->get_stock_price());
+
+	cli->os() << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str() << "] Cap: " << cap_str << ", Price: " << price_str;
 	cli->print_ln();
 	cli->os() << "Sector: " << this->get_sector() << ", Financials: " << this->financial_standing << ", Leadership: "
 	   << this->leadership_bias;

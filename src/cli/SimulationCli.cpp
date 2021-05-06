@@ -1,5 +1,6 @@
 #include "SimulationCli.h"
 #include "./CliQuestioner.h"
+#include "../utils/format_money.h"
 
 void cli::SimulationCli::start() {
 	try {
@@ -59,13 +60,23 @@ void cli::SimulationCli::show_simulation_stats() {
 	auto stats = this->sim->exchange->get_stats();
 
 	this->cli->print_ln("Simulation stats:");
-	this->cli->os() << "\t Cylces: " << stats.get_at_cycles();
+	this->cli->set_tabs(1);
+
+	this->cli->os() << "Cylces: " << stats.get_at_cycles();
 	this->cli->print_ln();
-	this->cli->os() << "\t Total Money: " << stats.get_total_money();
+	this->cli->os() << "Total Money: " << utils::format_money(stats.get_total_money());
 	this->cli->print_ln();
 
-	this->cli->os() << "\t Biggest company: ";
+	this->cli->print_ln("Biggest company: ");
+	this->cli->set_tabs(2);
 	stats.get_biggest_company()->print_to(this->cli);
 	this->cli->print_ln();
 
+	this->cli->set_tabs(1);
+	this->cli->print_ln("Richest trader: ");
+	this->cli->set_tabs(2);
+
+	stats.get_richest_trader()->print_to(this->cli);
+	this->cli->print_ln();
+	this->cli->clear_tabs();
 }
