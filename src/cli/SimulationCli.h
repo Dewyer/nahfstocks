@@ -19,15 +19,24 @@ namespace cli {
 
 		void start_sim(nhflib::Option<usize> limit);
 
-		void show_trader_details(usize trader_id);
+		template<typename T>
+		void show_list_of_printables(const Rc<Vector<T>>& to_list, const String& what) {
+			this->cli->os() << "All (" << to_list->size() << ") " << what << ":";
+			this->cli->print_ln();
 
-		void list_traders();
+			this->cli->set_tabs(1);
 
-		void show_company_details(nhflib::String company_symbol);
+			for (usize ii = 0; ii < to_list->size(); ii++) {
+				auto tt = to_list->at(ii);
+				tt->print_to(this->cli);
+			}
 
-		void list_companies();
+			this->cli->clear_tabs();
+		}
 
-		void show_global_sim_stats();
+		void show_list_of_companies();
+
+		void show_list_of_traders();
 
 		void show_start_stop();
 
@@ -36,6 +45,14 @@ namespace cli {
 		bool show_main_menu();
 
 		void show_startup_screen();
+
+		void show_trader_details();
+
+		void show_trader_details_by_id(usize trader_id);
+
+		void show_company_details();
+
+		void show_company_details_by_symbol(nhflib::String company_symbol);
 
 		void start_interactive();
 

@@ -1,0 +1,1 @@
+sloc -e "cmake-build-debug|cmake-build-release|cmake-build-test|doc" ./
