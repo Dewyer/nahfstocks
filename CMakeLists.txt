@@ -91,6 +91,6 @@ add_executable(nahfstocks
         src/cli/CliTableBuilder.cpp
         src/cli/CliTableBuilder.h
         tests/cli/cli_mock.cpp
-        src/exchange/exchange_api/Order.cpp src/utils/to_string.cpp src/utils/to_string.h)
+        src/exchange/exchange_api/Order.cpp src/utils/to_string.cpp src/utils/to_string.h src/trader/last_names_data.h src/trader/first_names_data.h)
 
 target_link_libraries(nahfstocks ${CMAKE_THREAD_LIBS_INIT})

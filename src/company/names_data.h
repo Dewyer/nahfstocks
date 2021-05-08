@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/string/String.h"
 #include "../../lib/types.h"
 

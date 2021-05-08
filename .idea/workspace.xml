@@ -37,17 +37,8 @@
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyAgent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/format_money.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/format_money.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/names_data.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/names_data.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +257,7 @@
       <workItem from="1620414066654" duration="236000" />
       <workItem from="1620416734400" duration="924000" />
       <workItem from="1620459633190" duration="8587000" />
-      <workItem from="1620478825286" duration="11707000" />
+      <workItem from="1620478825286" duration="13459000" />
     </task>
     <servers />
   </component>
