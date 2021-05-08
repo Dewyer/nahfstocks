@@ -11,6 +11,8 @@
 using cli::CliHelper;
 using nhflib::String;
 using nhflib::Option;
+using nhflib::Vector;
+using exchange::Order;
 using nhflib::Rc;
 
 namespace exchange {
@@ -18,6 +20,12 @@ namespace exchange {
 }
 
 namespace company {
+	struct CompanyPriceRecord {
+		usize cycle;
+		usize bid;
+		usize ask;
+	};
+
 	class Company {
 	private:
 		friend class exchange::Exchange;
@@ -32,7 +40,7 @@ namespace company {
 
 		usize outstanding_shares;
 
-		nhflib::Vector<exchange::Order> orders;
+		Vector<Order> orders;
 
 		Option<usize> cached_bid;
 		Option<usize> cached_ask;
@@ -40,9 +48,15 @@ namespace company {
 		Option<usize> bid;
 		Option<usize> ask;
 
+		Vector<CompanyPriceRecord> price_records;
+
 		void add_order(nhflib::Rc<exchange::Order> ord_rc);
 
 		void recalculate_bid_ask();
+
+		void view_price_table_in_range(Rc<CliHelper> cli, usize from_idx, usize to_idx);
+
+		void view_price_table(Rc<CliHelper> cli);
 
 	public:
 		Company(usize id, const String &_name, const String &_sym, f64 _financial_standing, f64 _sector,
@@ -50,7 +64,9 @@ namespace company {
 
 		usize get_id() const noexcept;
 
-		void print_to(Rc<CliHelper> cli) const noexcept;
+		void print_to(Rc<CliHelper> cli) const;
+
+		void detailed_print_to(Rc<CliHelper> cli);
 
 		usize get_market_cap() const;
 
@@ -67,5 +83,7 @@ namespace company {
 		f64 get_sector() const noexcept;
 
 		usize get_outstanding_shares() const noexcept;
+
+		void take_price_sample(usize cycle);
 	};
 }

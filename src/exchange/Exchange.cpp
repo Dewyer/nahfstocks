@@ -81,6 +81,7 @@ void exchange::Exchange::cycle() {
 
 	this->handle_fixed_income_on_cycle();
 	this->recalculate_prices_on_cycle();
+	this->handle_company_price_sampling();
 	this->handle_trader_agent_activation();
 
 	this->execute_open_auction();
@@ -308,4 +309,14 @@ Rc<TraderRecordInExchange> exchange::Exchange::get_richest_trader() {
 	return this->traders->max([](Rc<TraderRecordInExchange> trader) {
 		return trader->total_balance;
 	});
+}
+
+void exchange::Exchange::handle_company_price_sampling() {
+	if (this->cycle_count % this->config->get_price_sampling_rate() != 0) {
+		return;
+	}
+
+	for (auto cmp : *this->companies) {
+		cmp->take_price_sample(this->cycle_count);
+	}
 }

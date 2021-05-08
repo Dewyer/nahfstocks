@@ -2,6 +2,7 @@
 #include "../../lib/string/String.h"
 #include "../../lib/types.h"
 #include "../utils/format_money.h"
+#include "../cli/CliQuestioner.h"
 
 using nhflib::Vector;
 using nhflib::String;
@@ -35,9 +36,10 @@ company::Company::Company(usize id, const String &_name, const String &_sym, f64
 	this->ask = Option<usize>();
 	this->outstanding_shares = _outstanding_shares;
 	this->orders = Vector<Order>();
+	this->price_records = Vector<CompanyPriceRecord>();
 }
 
-void company::Company::print_to(Rc<CliHelper> cli) const noexcept {
+void company::Company::print_to(Rc<CliHelper> cli) const {
 	auto cap_str = utils::format_money(this->get_market_cap());
 	auto price_str = utils::format_money(this->get_stock_price());
 
@@ -106,4 +108,85 @@ usize company::Company::get_stock_price() const {
 	auto price_mid = ask_pr + bid_pr / 2;
 
 	return price_mid;
+}
+
+void company::Company::detailed_print_to(Rc<CliHelper> cli) {
+	this->print_to(cli);
+
+	cli->os() << "Bid: " << utils::format_money(this->bid.unwrap_or(0))
+		<< ", Ask: " << utils::format_money(this->ask.unwrap_or(0));
+	cli->print_ln();
+
+	this->view_price_table(cli);
+}
+
+void company::Company::take_price_sample(usize cycle) {
+	this->price_records.push_back(CompanyPriceRecord {
+		cycle,
+		this->bid.unwrap_or(0),
+		this->ask.unwrap_or(0),
+	});
+}
+
+void company::Company::view_price_table(Rc<CliHelper> cli) {
+	if (this->price_records.size() == 0) {
+		cli->print_ln("No pricing records to show.");
+		return;
+	}
+	auto last_record_idx = this->price_records.size()-1;
+	const usize step = 50;
+	usize from = 0;
+	usize to = std::min(step, last_record_idx);
+
+	while (true) {
+		this->view_price_table_in_range(cli, from, to);
+
+		if (to == last_record_idx) {
+			break;
+		}
+
+		auto qst = cli->build_question()
+				.question("Do you want to view the next page?")
+				.option("Yes")
+				.option("No")
+				.ask();
+
+		if (qst.unwrap_or(2) != 1) {
+			break;
+		}
+
+		auto next_to = std::min(to+step, last_record_idx);
+		from += next_to-to;
+		to = next_to;
+	}
+}
+
+void company::Company::view_price_table_in_range(Rc<CliHelper> cli, usize from_idx, usize to_idx) {
+	auto record_count = this->price_records.size();
+	if (record_count == 0) {
+		throw std::runtime_error("No pricing records to show.");
+	}
+
+	auto range_ok = record_count-1 >= from_idx && to_idx <= from_idx && to_idx <= record_count-1;
+	if (!range_ok) {
+		throw std::runtime_error("Invalid view for price table.");
+	}
+
+	auto price_table = cli->build_table();
+
+	price_table
+			.padding(1)
+			.add_column("Cycle")
+			.add_column("Bid")
+			.add_column("Ask");
+
+	for (usize ii = from_idx; ii <= to_idx ; ii++) {
+		auto pr_el = this->price_records.at(record_count-ii-1);
+		price_table
+			.add_cell(pr_el->cycle)
+			.add_cell(pr_el->bid)
+			.add_cell(pr_el->ask);
+	}
+
+	price_table.print();
 }

@@ -114,6 +114,11 @@ namespace config {
 			return 0.01;
 		}
 
+		virtual usize get_price_sampling_rate() {
+			auto sampling = this->get_config_with_default<int>(Config::PRICE_SAMPLING_RATE_KEY, 20);
+			return sampling;
+		}
+
 		virtual bool should_log() {
 			auto log_lvl = this->get_config_with_default<int>(Config::LOG_LEVEL_KEY, 1);
 			return log_lvl != 0;

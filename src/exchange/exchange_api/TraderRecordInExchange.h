@@ -24,6 +24,20 @@ namespace exchange {
 		usize free_amount;
 	};
 
+	struct CompanyDto {
+		String symbol;
+		String name;
+		usize price;
+
+		static CompanyDto empty() {
+			return CompanyDto {
+				"N/A",
+				"N/A",
+				0
+			};
+		}
+	};
+
 	class TraderRecordInExchange {
 	public:
 		usize trader_id;
@@ -36,6 +50,8 @@ namespace exchange {
 		usize next_activation;
 
 		Vector<Order> open_orders;
+
+		typedef std::function<CompanyDto (usize)> CompanyDtoLookupFn;
 
 		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash,
 							   usize _fixed_income) {
@@ -97,8 +113,16 @@ namespace exchange {
 			cli->print_ln();
 		}
 
-		void detailed_print_to(Rc<CliHelper> cli) {
+
+		void detailed_print_to(Rc<CliHelper> cli, const CompanyDtoLookupFn& lookup_company_dto) {
 			this->print_to(cli);
+			this->detailed_print_orders(cli, lookup_company_dto);
+			this->detailed_print_portfolio(cli, lookup_company_dto);
+		}
+
+	private:
+
+		void detailed_print_orders(Rc<CliHelper> cli, const CompanyDtoLookupFn& lookup_company_data) {
 			cli->os() << "Locked balance: " << utils::format_money(this->get_locked_balance()) << ", Orders: ";
 			cli->print_ln();
 
@@ -114,16 +138,46 @@ namespace exchange {
 			orders_table.padding(1);
 
 			for (auto order : this->open_orders) {
+				auto company_dto = lookup_company_data(order->company_id);
 				orders_table
 						.add_cell(order->id, cli::CliTableCellAlignment::Right)
 						.add_cell(exchange::order_type_to_string(order->type))
-						.add_cell(order->company_id)
+						.add_cell(company_dto.symbol)
 						.add_cell(order->amount)
 						.add_cell(utils::format_money(order->target_price))
 						.add_cell(utils::format_money(order->get_total_price()));
 			}
 
 			orders_table.print();
+			cli->print_ln();
 		}
+
+		void detailed_print_portfolio(Rc<CliHelper> cli, const CompanyDtoLookupFn& lookup_company_data) {
+			auto portfolio_worth = 0;
+			auto portfolio_table = cli->build_table();
+			portfolio_table
+				.padding(1)
+				.default_align(cli::CliTableCellAlignment::Right)
+				.add_column("Company", cli::CliTableCellAlignment::Center)
+				.add_column("Shares")
+				.add_column("Total Value");
+
+			for (auto stock : this->stocks) {
+				auto company_dto = lookup_company_data(stock->company_id);
+				auto shares_value = stock->amount * company_dto.price;
+				portfolio_table
+					.add_cell(company_dto.symbol)
+					.add_cell(stock->amount)
+					.add_cell(shares_value);
+
+				portfolio_worth += shares_value;
+			}
+
+			cli->os() << "Portfolio's worth: " << utils::format_money(portfolio_worth);
+			cli->print_ln();
+			portfolio_table.print();
+			cli->print_ln();
+		}
+
 	};
 }

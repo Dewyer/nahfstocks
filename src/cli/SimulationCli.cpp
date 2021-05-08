@@ -1,6 +1,9 @@
 #include "SimulationCli.h"
 #include "./CliQuestioner.h"
 #include "../utils/format_money.h"
+#include "../exchange/exchange_api/TraderRecordInExchange.h"
+
+using exchange::CompanyDto;
 
 void cli::SimulationCli::start() {
 	try {
@@ -117,7 +120,17 @@ void cli::SimulationCli::show_trader_details_by_id(usize trader_id) {
 	}
 
 	this->cli->set_tabs(1);
-	trader->detailed_print_to(this->cli);
+	trader->detailed_print_to(this->cli, [this](usize company_id) {
+		auto cmp = this->sim->exchange->get_companies()->find([&company_id](Rc<Company> cmp) {
+			return cmp->get_id() == company_id;
+		});
+		return cmp ? CompanyDto {
+			cmp->get_symbol(),
+			cmp->get_name(),
+			cmp->get_stock_price()
+		} : CompanyDto::empty();
+	});
+
 	this->cli->clear_tabs();
 }
 
@@ -159,6 +172,6 @@ void cli::SimulationCli::show_company_details_by_symbol(nhflib::String company_s
 	}
 
 	this->cli->set_tabs(1);
-	company->print_to(this->cli);
+	company->detailed_print_to(this->cli);
 	this->cli->clear_tabs();
 }

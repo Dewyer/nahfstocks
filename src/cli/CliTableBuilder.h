@@ -77,21 +77,21 @@ namespace cli {
 		}
 
 		String pad_cell_to_align(CliTableContent content) {
-			auto width = content.width + 2 * this->universal_padding;
+			auto width = content.width;
 			auto cell = content.cell.left_pad(' ', this->universal_padding).right_pad(' ', this->universal_padding);
 			auto alignment = content.alignment;
 
 			auto width_diff = width - cell.len();
-			auto center_pad_right = cell.len() % 2 == 0 ? width_diff / 2 : (width_diff - 1) / 2;
+			auto center_pad_right = width_diff % 2 == 0 ? width_diff / 2 : (width_diff - 1) / 2;
 			auto center_pad_left = width_diff - center_pad_right;
 
 			switch (alignment) {
 				case CliTableCellAlignment::Center:
-					return cell.left_pad(' ', center_pad_left).right_pad(' ', center_pad_right);
+					return cell.right_pad(' ', center_pad_left).left_pad(' ', center_pad_right);
 				case CliTableCellAlignment::Right:
-					return cell.right_pad(' ', width_diff);
-				default:
 					return cell.left_pad(' ', width_diff);
+				default:
+					return cell.right_pad(' ', width_diff);
 			}
 		}
 
@@ -122,13 +122,14 @@ namespace cli {
 				return CliTableContent{
 						col->header,
 						col->alignment.unwrap_or(this->default_alignment),
-						col->get_width(),
+						col->get_width() + 2 * this->universal_padding,
 				};
 			}));
 		}
 
 		void print_rows() {
 			auto widths = this->get_column_widths();
+			this->print_column_width_decorator_row();
 
 			for (auto row : this->rows) {
 				this->print_content_row(row->map<CliTableContent>([this, &widths](Rc<CliTableCell> cell, usize ii) {
@@ -139,10 +140,6 @@ namespace cli {
 							*widths.at(ii),
 					};
 				}));
-				this->print_column_width_decorator_row();
-			}
-
-			if (this->rows.size() == 0) {
 				this->print_column_width_decorator_row();
 			}
 		}

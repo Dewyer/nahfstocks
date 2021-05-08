@@ -35,21 +35,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cli/CliTableBuilder.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cli/CliTableBuilder.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliHelper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliHelper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliHelper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/CliTableBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliTableBuilder.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/Order.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/Order.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/cli/cli_mock.h" beforeDir="false" afterPath="$PROJECT_DIR$/tests/cli/cli_mock.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/exchange/exchange_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/exchange/exchange_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,11 +116,6 @@
         <aux-dir>$APPLICATION_HOME_DIR$/jbr/bin</aux-dir>
       </texify-bibtex>
       <method v="2" />
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
     </configuration>
     <configuration name="nahfstocks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="nahfstocks" TARGET_NAME="nahfstocks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="nahfstocks" RUN_TARGET_NAME="nahfstocks">
       <method v="2">
@@ -267,7 +256,8 @@
       <workItem from="1620413440378" duration="527000" />
       <workItem from="1620414066654" duration="236000" />
       <workItem from="1620416734400" duration="924000" />
-      <workItem from="1620459633190" duration="8124000" />
+      <workItem from="1620459633190" duration="8587000" />
+      <workItem from="1620478825286" duration="5463000" />
     </task>
     <servers />
   </component>
@@ -287,26 +277,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cli/CliTableBuilder.h</url>
-          <line>92</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/cli/CliTableBuilder.h</url>
-          <line>90</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="this-&gt;capacity" language="ObjectiveC" />
         <watch expression="order" />
         <watch expression="this-&gt;orders-&gt;len()" language="ObjectiveC" />
         <watch expression="this-&gt;orders" language="ObjectiveC" />
+        <watch expression="cell-&gt;len()" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

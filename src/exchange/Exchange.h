@@ -49,6 +49,8 @@ namespace exchange {
 		void setup_traders(const Rc<Vector<TraderAgent>> &trader_agents,
 						   const Rc<Vector<company::CompanyAgent>> &company_agents);
 
+		void handle_company_price_sampling();
+
 		void handle_fixed_income_on_cycle();
 
 		void recalculate_prices_on_cycle();
@@ -83,7 +85,7 @@ namespace exchange {
 			return this->traders;
 		}
 
-		const Rc<Vector<Company>> &get_companies() const {
+		Rc<Vector<Company>> &get_companies() {
 			return this->companies;
 		}
 
