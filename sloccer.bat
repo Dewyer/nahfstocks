@@ -1,1 +1,1 @@
-sloc -e "cmake-build-debug|cmake-build-release|cmake-build-test|doc" ./
+sloc -e ".git|.idea|cmake-build-debug|cmake-build-release|cmake-build-test|doc" ./
