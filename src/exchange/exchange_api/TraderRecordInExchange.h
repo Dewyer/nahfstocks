@@ -30,10 +30,10 @@ namespace exchange {
 		usize price;
 
 		static CompanyDto empty() {
-			return CompanyDto {
-				"N/A",
-				"N/A",
-				0
+			return CompanyDto{
+					"N/A",
+					"N/A",
+					0
 			};
 		}
 	};
@@ -51,7 +51,7 @@ namespace exchange {
 
 		Vector<Order> open_orders;
 
-		typedef std::function<CompanyDto (usize)> CompanyDtoLookupFn;
+		typedef std::function<CompanyDto(usize)> CompanyDtoLookupFn;
 
 		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash,
 							   usize _fixed_income) {
@@ -114,7 +114,7 @@ namespace exchange {
 		}
 
 
-		void detailed_print_to(Rc<CliHelper> cli, const CompanyDtoLookupFn& lookup_company_dto) {
+		void detailed_print_to(Rc<CliHelper> cli, const CompanyDtoLookupFn &lookup_company_dto) {
 			this->print_to(cli);
 			this->detailed_print_orders(cli, lookup_company_dto);
 			this->detailed_print_portfolio(cli, lookup_company_dto);
@@ -122,7 +122,7 @@ namespace exchange {
 
 	private:
 
-		void detailed_print_orders(Rc<CliHelper> cli, const CompanyDtoLookupFn& lookup_company_data) {
+		void detailed_print_orders(Rc<CliHelper> cli, const CompanyDtoLookupFn &lookup_company_data) {
 			cli->os() << "Locked balance: " << utils::format_money(this->get_locked_balance()) << ", Orders: ";
 			cli->print_ln();
 
@@ -152,23 +152,23 @@ namespace exchange {
 			cli->print_ln();
 		}
 
-		void detailed_print_portfolio(Rc<CliHelper> cli, const CompanyDtoLookupFn& lookup_company_data) {
+		void detailed_print_portfolio(Rc<CliHelper> cli, const CompanyDtoLookupFn &lookup_company_data) {
 			auto portfolio_worth = 0;
 			auto portfolio_table = cli->build_table();
 			portfolio_table
-				.padding(1)
-				.default_align(cli::CliTableCellAlignment::Right)
-				.add_column("Company", cli::CliTableCellAlignment::Center)
-				.add_column("Shares")
-				.add_column("Total Value");
+					.padding(1)
+					.default_align(cli::CliTableCellAlignment::Right)
+					.add_column("Company", cli::CliTableCellAlignment::Center)
+					.add_column("Shares")
+					.add_column("Total Value");
 
 			for (auto stock : this->stocks) {
 				auto company_dto = lookup_company_data(stock->company_id);
 				auto shares_value = stock->amount * company_dto.price;
 				portfolio_table
-					.add_cell(company_dto.symbol)
-					.add_cell(stock->amount)
-					.add_cell(shares_value);
+						.add_cell(company_dto.symbol)
+						.add_cell(stock->amount)
+						.add_cell(shares_value);
 
 				portfolio_worth += shares_value;
 			}

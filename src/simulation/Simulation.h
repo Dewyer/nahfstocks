@@ -32,7 +32,7 @@ namespace simulation {
 
 		Rc<Exchange> exchange;
 
-		void run(Option<usize> limit_cycles);
+		void run_for(usize cycles);
 
 		// void interupt();
 	};

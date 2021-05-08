@@ -9,7 +9,9 @@ else ()
     add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif ()
 
-add_definitions(-D"${TEST_VAR}")
+add_definitions(-D"${TEST_VAR}" -DETHREAD)
+
+find_package( Threads )
 
 add_executable(nahfstocks
         src/main.cpp
@@ -82,4 +84,13 @@ add_executable(nahfstocks
         src/cli/CliQuestioner.cpp
         src/cli/CliQuestioner.h
         src/cli/CliHelper.cpp
-        src/exchange/ExchangeStats.h tests/cli/cli_mock.h src/utils/format_money.h src/utils/format_money.cpp src/cli/CliTableBuilder.cpp src/cli/CliTableBuilder.h tests/cli/cli_mock.cpp src/exchange/exchange_api/Order.cpp)
+        src/exchange/ExchangeStats.h
+        tests/cli/cli_mock.h
+        src/utils/format_money.h
+        src/utils/format_money.cpp
+        src/cli/CliTableBuilder.cpp
+        src/cli/CliTableBuilder.h
+        tests/cli/cli_mock.cpp
+        src/exchange/exchange_api/Order.cpp src/utils/to_string.cpp src/utils/to_string.h)
+
+target_link_libraries(nahfstocks ${CMAKE_THREAD_LIBS_INIT})

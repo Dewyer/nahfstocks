@@ -3,7 +3,7 @@
 #include "../../lib/option/Option.h"
 
 void simulation::Simulation::setup() {
-	std::cout << "Building, World!" << std::endl;
+	this->cli->print_ln("Building, World!");
 
 	nhflib::Option<usize> seed;
 	nhflib::RandomProvider rng_base(seed);
@@ -14,11 +14,8 @@ void simulation::Simulation::setup() {
 	this->exchange = exchange_builder.build_random();
 }
 
-void simulation::Simulation::run(nhflib::Option<usize> limit_cycles) {
-
-	for (usize ii = 0; ii < limit_cycles.unwrap_or(10); ++ii) {
+void simulation::Simulation::run_for(usize cycles) {
+	for (usize ii = 0; ii < cycles; ++ii) {
 		this->exchange->cycle();
 	}
-
-	std::cout << "End, World!" << std::endl;
 }

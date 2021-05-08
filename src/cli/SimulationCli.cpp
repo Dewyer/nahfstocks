@@ -3,6 +3,14 @@
 #include "../utils/format_money.h"
 #include "../exchange/exchange_api/TraderRecordInExchange.h"
 
+constexpr bool THREADING_ENABLED =
+#ifdef ETHREAD
+		true
+#elif
+false
+#endif
+;
+
 using exchange::CompanyDto;
 
 void cli::SimulationCli::start() {
@@ -20,7 +28,8 @@ void cli::SimulationCli::start() {
 
 		// this->sim->run(Option<usize>(100));
 	} catch (std::runtime_error &err) {
-		std::cout << "Runtime error: " << err.what() << std::endl;
+		this->cli->os() << "Runtime error: " << err.what();
+		this->cli->print_ln();
 	}
 }
 
@@ -40,7 +49,7 @@ void cli::SimulationCli::start_interactive() {
 }
 
 bool cli::SimulationCli::show_main_menu() {
-	const auto exit_ans = 6;
+	const auto exit_ans = 7;
 	auto menu_ans = this->cli->build_question()
 			.question("Menu")
 			.option("Statistics")
@@ -48,6 +57,7 @@ bool cli::SimulationCli::show_main_menu() {
 			.option("List trader records")
 			.option("Trader's details")
 			.option("Company's details")
+			.option("Start/Stop Simulation")
 			.option("Exit")
 			.ask();
 	if (!menu_ans || menu_ans.unwrap() == exit_ans) {
@@ -69,6 +79,9 @@ bool cli::SimulationCli::show_main_menu() {
 			break;
 		case 5:
 			this->show_company_details();
+			break;
+		case 6:
+			this->show_start_stop();
 			break;
 	}
 
@@ -124,10 +137,10 @@ void cli::SimulationCli::show_trader_details_by_id(usize trader_id) {
 		auto cmp = this->sim->exchange->get_companies()->find([&company_id](Rc<Company> cmp) {
 			return cmp->get_id() == company_id;
 		});
-		return cmp ? CompanyDto {
-			cmp->get_symbol(),
-			cmp->get_name(),
-			cmp->get_stock_price()
+		return cmp ? CompanyDto{
+				cmp->get_symbol(),
+				cmp->get_name(),
+				cmp->get_stock_price()
 		} : CompanyDto::empty();
 	});
 
@@ -174,4 +187,40 @@ void cli::SimulationCli::show_company_details_by_symbol(nhflib::String company_s
 	this->cli->set_tabs(1);
 	company->detailed_print_to(this->cli);
 	this->cli->clear_tabs();
+}
+
+void cli::SimulationCli::show_start_stop() {
+	auto run_type_qst = this->cli->build_question()
+			.question("How do you want to run the simulation ?")
+			.cancelable()
+			.option("Limit mode (For a specific number of iterations)");
+
+	if (THREADING_ENABLED) {
+		run_type_qst.option("Threaded mode (Until user input is given)");
+	}
+
+	auto run_type_ans = run_type_qst.ask();
+	if (!run_type_ans || run_type_ans.unwrap() == 0) {
+		return;
+	}
+
+	auto run_type = run_type_ans.unwrap();
+	if (run_type == 1) {
+		this->run_simulation_in_limit_mode();
+	} else {
+		this->cli->print_ln("Other modes not implemented!");
+	}
+}
+
+void cli::SimulationCli::run_simulation_in_limit_mode() {
+	this->cli->print_ln("How many iterations do you want to run?: ");
+	auto iters = this->cli->read_safe_inst<usize>();
+	if (!iters) {
+		this->cli->print_ln("Invalid iteration count!");
+	}
+
+	auto iters_number = iters.unwrap();
+	this->cli->print_ln("Starting running the iterations...");
+	this->sim->run_for(iters_number);
+	this->cli->print_ln("Running finished.");
 }

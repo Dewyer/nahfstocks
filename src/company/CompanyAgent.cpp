@@ -3,10 +3,6 @@
 #include "../exchange/exchange_api/Order.h"
 
 void company::CompanyAgent::on_cycle(exchange::ExchangeApi &api) {
-	auto log_stream = api.get_logger_stream();
-	if (log_stream)
-		*log_stream.unwrap() << "CA:" << this->get_name() << "[" << api.get_trader_id() << "]" << std::endl;
-
 	auto orders = api.get_orders();
 	if (orders.size())
 		return;
@@ -25,9 +21,9 @@ void company::CompanyAgent::on_cycle(exchange::ExchangeApi &api) {
 			Option<usize>()
 	});
 
-	if (log_stream)
-		*log_stream.unwrap() << my_company_stock->amount << " shares for comp:" << my_company_stock->company_id << ", "
-							 << (my_company_stock->amount * this->per_share_starter) << "$ worth, listed." << std::endl;
+	api.get_cli()->os() << my_company_stock->amount << " shares for comp:" << my_company_stock->company_id << ", "
+						<< (my_company_stock->amount * this->per_share_starter) << "$ worth, listed.";
+	api.get_cli()->print_ln();
 }
 
 usize company::CompanyAgent::get_company() const noexcept {

@@ -2,9 +2,14 @@
 
 #include "../../../lib/types.h"
 #include "../../../lib/memory/Rc.h"
+#include "../../cli/CliHelper.h"
 #include "TraderRecordInExchange.h"
 #include "MarketContext.h"
 #include "Order.h"
+
+using nhflib::Rc;
+using exchange::TraderRecordInExchange;
+using cli::CliHelper;
 
 namespace exchange {
 
@@ -13,26 +18,20 @@ namespace exchange {
 	class ExchangeApi {
 	private:
 		exchange::Exchange *exchange;
-		nhflib::Rc<exchange::TraderRecordInExchange> trader;
-		nhflib::Rc<MarketContext> context;
-		std::ostream *logger_stream;
-
+		Rc<TraderRecordInExchange> trader;
+		Rc<MarketContext> context;
+		Rc<CliHelper> cli;
 
 	public:
 		ExchangeApi(exchange::Exchange *_exchange, const nhflib::Rc<MarketContext> &_context,
-					const nhflib::Rc<exchange::TraderRecordInExchange> &_trader, std::ostream *_logger_stream) :
+					const nhflib::Rc<exchange::TraderRecordInExchange> &_trader, const Rc<CliHelper> &_cli) :
 				exchange(_exchange),
 				trader(_trader),
 				context(_context),
-				logger_stream(_logger_stream) {}
+				cli(_cli) {}
 
-		Option<std::ostream *> get_logger_stream() const noexcept {
-			Option<std::ostream *> st;
-			if (logger_stream) {
-				st.swap(logger_stream);
-			}
-
-			return st;
+		Rc<CliHelper> get_cli() {
+			return this->cli;
 		}
 
 		const MarketContext &get_market_context() const noexcept {

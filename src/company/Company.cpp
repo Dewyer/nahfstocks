@@ -114,17 +114,17 @@ void company::Company::detailed_print_to(Rc<CliHelper> cli) {
 	this->print_to(cli);
 
 	cli->os() << "Bid: " << utils::format_money(this->bid.unwrap_or(0))
-		<< ", Ask: " << utils::format_money(this->ask.unwrap_or(0));
+			  << ", Ask: " << utils::format_money(this->ask.unwrap_or(0));
 	cli->print_ln();
 
 	this->view_price_table(cli);
 }
 
 void company::Company::take_price_sample(usize cycle) {
-	this->price_records.push_back(CompanyPriceRecord {
-		cycle,
-		this->bid.unwrap_or(0),
-		this->ask.unwrap_or(0),
+	this->price_records.push_back(CompanyPriceRecord{
+			cycle,
+			this->bid.unwrap_or(0),
+			this->ask.unwrap_or(0),
 	});
 }
 
@@ -133,7 +133,7 @@ void company::Company::view_price_table(Rc<CliHelper> cli) {
 		cli->print_ln("No pricing records to show.");
 		return;
 	}
-	auto last_record_idx = this->price_records.size()-1;
+	auto last_record_idx = this->price_records.size() - 1;
 	const usize step = 50;
 	usize from = 0;
 	usize to = std::min(step, last_record_idx);
@@ -155,8 +155,8 @@ void company::Company::view_price_table(Rc<CliHelper> cli) {
 			break;
 		}
 
-		auto next_to = std::min(to+step, last_record_idx);
-		from += next_to-to;
+		auto next_to = std::min(to + step, last_record_idx);
+		from += next_to - to;
 		to = next_to;
 	}
 }
@@ -167,7 +167,7 @@ void company::Company::view_price_table_in_range(Rc<CliHelper> cli, usize from_i
 		throw std::runtime_error("No pricing records to show.");
 	}
 
-	auto range_ok = record_count-1 >= from_idx && to_idx <= from_idx && to_idx <= record_count-1;
+	auto range_ok = record_count - 1 >= from_idx && to_idx > from_idx && to_idx <= record_count - 1;
 	if (!range_ok) {
 		throw std::runtime_error("Invalid view for price table.");
 	}
@@ -180,12 +180,12 @@ void company::Company::view_price_table_in_range(Rc<CliHelper> cli, usize from_i
 			.add_column("Bid")
 			.add_column("Ask");
 
-	for (usize ii = from_idx; ii <= to_idx ; ii++) {
-		auto pr_el = this->price_records.at(record_count-ii-1);
+	for (usize ii = from_idx; ii <= to_idx; ii++) {
+		auto pr_el = this->price_records.at(record_count - ii - 1);
 		price_table
-			.add_cell(pr_el->cycle)
-			.add_cell(pr_el->bid)
-			.add_cell(pr_el->ask);
+				.add_cell(pr_el->cycle)
+				.add_cell(pr_el->bid)
+				.add_cell(pr_el->ask);
 	}
 
 	price_table.print();

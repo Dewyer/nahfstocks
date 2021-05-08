@@ -32,9 +32,6 @@ void exchange::Exchange::setup_traders(
 		const Rc<Vector<TraderAgent>> &trader_agents,
 		const Rc<Vector<company::CompanyAgent>> &company_agents) {
 
-	if (this->config->should_log())
-		std::cout << "Generating Trader Records:" << std::endl;
-
 	usize trader_id = 0;
 	this->traders = nhflib::make_rc_ctr<Vector<TraderRecordInExchange>>();
 
@@ -67,17 +64,12 @@ Rc<TraderRecordInExchange> exchange::Exchange::create_trader_record(const Rc<Tra
 	TraderRecordInExchange rec(trader_id++, trader, cash, income);
 	rec.next_random_activation(this->rng, 0, this->mean_traders_per_cycle);
 
-	rec.print_to(this->cli);
-
 	return nhflib::make_rc(rec);
 }
 
 
 void exchange::Exchange::cycle() {
 	this->cycle_count++;
-
-	if (this->config->should_log())
-		std::cout << "cycle" << std::endl;
 
 	this->handle_fixed_income_on_cycle();
 	this->recalculate_prices_on_cycle();
@@ -105,13 +97,14 @@ void exchange::Exchange::handle_trader_agent_activation() {
 		if (this->cycle_count < trader_rec->next_activation)
 			return;
 
-		ExchangeApi api(this, m_rc, trader_rec, this->config->should_log() ? &std::cout : nullptr);
+		ExchangeApi api(this, m_rc, trader_rec, this->cli);
 
 		try {
 			trader_rec->trader->on_cycle(api);
 		} catch (std::runtime_error &err) {
 			this->runtime_exception_occured = true;
-			std::cout << "Uncaught exception thrown to trader: " << err.what() << std::endl;
+			this->cli->os() << "Uncaught exception thrown to trader: " << err.what();
+			this->cli->print_ln();
 		}
 
 		trader_rec->next_random_activation(this->rng, this->cycle_count, this->mean_traders_per_cycle);

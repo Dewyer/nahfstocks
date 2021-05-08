@@ -56,6 +56,8 @@ namespace cli {
 
 		void start_interactive();
 
+		void run_simulation_in_limit_mode();
+
 	public:
 		SimulationCli() {
 			this->config = nhflib::make_rc_ctr<Config>();

@@ -12,9 +12,6 @@ using company::CompanyAgent;
 Rc<Exchange> exchange::ExchangeBuilder::build_random() {
 	auto companies = this->build_companies();
 
-	if (this->config->should_log())
-		std::cout << std::endl;
-
 	auto traders = this->build_trader_agents();
 	auto company_agents = ExchangeBuilder::build_trader_agents_for_companies(companies);
 
@@ -24,16 +21,11 @@ Rc<Exchange> exchange::ExchangeBuilder::build_random() {
 
 Rc<Vector<Company>> exchange::ExchangeBuilder::build_companies() {
 	CompanyBuilder company_builder(this->rng, this->config);
-	if (this->config->should_log())
-		std::cout << "Creating companies: " << std::endl;
 
 	auto companies = nhflib::make_rc_ctr<Vector<Company>>();
 
 	for (usize ii = 0; ii < this->config->get_company_count(); ii++) {
 		auto cmp = company_builder.build_random(ii);
-
-		cmp->print_to(this->cli);
-
 		companies->push_back(cmp);
 	}
 
@@ -44,14 +36,9 @@ Rc<Vector<TraderAgent>> exchange::ExchangeBuilder::build_trader_agents() {
 	trader::TraderAgentBuilder trader_builder(this->rng);
 
 	auto traders = nhflib::make_rc_ctr<Vector<TraderAgent>>();
-	if (this->config->should_log())
-		std::cout << "Creating traders: " << std::endl;
 
 	for (usize ii = 0; ii < this->config->get_trader_count(); ii++) {
 		auto agent = trader_builder.build_random();
-
-		agent->print_to(this->cli);
-
 		traders->push_back(agent);
 	}
 
@@ -60,14 +47,10 @@ Rc<Vector<TraderAgent>> exchange::ExchangeBuilder::build_trader_agents() {
 
 Rc<Vector<CompanyAgent>> exchange::ExchangeBuilder::build_trader_agents_for_companies(Rc<Vector<Company>> companies) {
 	auto traders = nhflib::make_rc_ctr<Vector<CompanyAgent>>();
-	if (this->config->should_log())
-		std::cout << "Creating traders for companies: " << std::endl;
 
 	companies->for_each([this, &traders](Rc<Company> cmp) {
 		auto per_share = this->rng->next_usize_normal(1, 5000, 120, 3000);
 		auto agent = new company::CompanyAgent(cmp->get_id(), cmp->get_name() + " Trader", per_share);
-
-		agent->print_to(this->cli);
 
 		auto agent_rc = nhflib::make_rc<CompanyAgent>(agent);
 		traders->push_back(agent_rc);
