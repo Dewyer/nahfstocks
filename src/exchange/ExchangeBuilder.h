@@ -31,7 +31,8 @@ namespace exchange {
 		Rc<Vector<CompanyAgent>> build_trader_agents_for_companies(Rc<Vector<Company>> companies);
 
 	public:
-		explicit ExchangeBuilder(const nhflib::Rc<RandomProvider> &_rng, const nhflib::Rc<config::Config> &_config, const Rc<CliHelper>& _cli) {
+		explicit ExchangeBuilder(const nhflib::Rc<RandomProvider> &_rng, const nhflib::Rc<config::Config> &_config,
+								 const Rc<CliHelper> &_cli) {
 			this->rng = _rng;
 			this->config = _config;
 			this->cli = _cli;

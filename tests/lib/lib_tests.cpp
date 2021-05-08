@@ -55,6 +55,21 @@ CC_TEST(void run_lib_tests(), {
 	}
 	END
 
+	TEST(LibTests, VectorIterator) {
+		Vector<int> vec;
+		vec.push_back(10);
+		vec.push_back(20);
+		int i[2];
+		int kk = 0;
+
+		for (auto ii : vec) {
+			i[kk++] = *ii;
+		}
+		EXPECT_EQ(i[0], 10);
+		EXPECT_EQ(i[01], 20);
+	}
+	END
+
 	TEST(LibTests, ForEach) {
 		Vector<int> vec;
 		vec.push_back(10);

@@ -79,11 +79,11 @@ namespace exchange {
 			return this->cycle_count;
 		}
 
-		const Rc<Vector<TraderRecordInExchange>>& get_trader_records() const {
+		const Rc<Vector<TraderRecordInExchange>> &get_trader_records() const {
 			return this->traders;
 		}
 
-		const Rc<Vector<Company>>& get_companies() const {
+		const Rc<Vector<Company>> &get_companies() const {
 			return this->companies;
 		}
 

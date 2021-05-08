@@ -137,6 +137,27 @@ String nhflib::String::trim() const {
 	return res;
 }
 
+String nhflib::String::left_pad(char cc, usize count) const {
+	String temp = "";
+	for (usize ii = 0; ii < count; ii++) {
+		temp += cc;
+	}
+
+	temp += this->c_str();
+	return temp;
+}
+
+String nhflib::String::right_pad(char cc, usize count) const {
+	String temp = "";
+	temp += this->c_str();
+
+	for (usize ii = 0; ii < count; ii++) {
+		temp += cc;
+	}
+
+	return temp;
+}
+
 std::ostream &operator<<(std::ostream &os, const String &s0) {
 	os << s0.c_str();
 	return os;

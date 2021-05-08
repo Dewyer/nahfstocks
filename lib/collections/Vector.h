@@ -9,7 +9,7 @@ namespace nhflib {
 	template<typename T>
 	class Vector {
 	private:
-		Rc<T> *data;
+		Rc <T> *data;
 		usize len;
 		usize capacity;
 
@@ -81,7 +81,7 @@ namespace nhflib {
 			this->null_init();
 		}
 
-		void push_back(const Rc<T> &el) {
+		void push_back(const Rc <T> &el) {
 			if (this->capacity < this->len + 1) {
 				this->resize(this->len + 1);
 			}
@@ -119,7 +119,7 @@ namespace nhflib {
 			this->capacity = this->size() - 1;
 		}
 
-		void insert_at(usize idx, const Rc<T> &el) {
+		void insert_at(usize idx, const Rc <T> &el) {
 			if (this->len >= idx) {
 				this->push_back(el);
 				return;
@@ -171,7 +171,7 @@ namespace nhflib {
 
 
 		template<typename S>
-		void sorted_push_back(const Rc<T> &el, S el_bigger) {
+		void sorted_push_back(const Rc <T> &el, S el_bigger) {
 			for (usize ii = 0; ii < this->size(); ii++) {
 				auto el_ii = this->at(ii);
 				if (el_bigger(el, el_ii)) {
@@ -184,7 +184,7 @@ namespace nhflib {
 		}
 
 		template<typename S>
-		Option<usize> index_of(S index_fn) {
+		Option <usize> index_of(S index_fn) {
 			for (usize ii = 0; ii < this->size(); ii++) {
 				if (index_fn(this->at(ii))) {
 					return Option<usize>(ii);
@@ -206,7 +206,7 @@ namespace nhflib {
 		}
 
 		template<typename S>
-		Rc<T> find(S find_fn) {
+		Rc <T> find(S find_fn) {
 			for (usize ii = 0; ii < this->size(); ii++) {
 				if (find_fn(this->at(ii))) {
 					return this->at(ii);
@@ -217,7 +217,7 @@ namespace nhflib {
 		}
 
 		template<typename S>
-		Rc<T> max(S max_fn) {
+		Rc <T> max(S max_fn) {
 			auto max_now = nhflib::make_rc<T>();
 
 			for (usize ii = 0; ii < this->size(); ii++) {
@@ -239,20 +239,20 @@ namespace nhflib {
 			return this->len;
 		}
 
-		Rc<T> at(usize idx) {
+		Rc <T> at(usize idx) {
 			this->assert_index_in_bound(idx);
 			return this->data[idx];
 		}
 
-		const Rc<T> at(usize idx) const {
+		const Rc <T> at(usize idx) const {
 			return this->data[idx];
 		}
 
-		Rc<T> operator[](usize idx) {
+		Rc <T> operator[](usize idx) {
 			return this->at(idx);
 		}
 
-		const Rc<T> operator[](usize idx) const {
+		const Rc <T> operator[](usize idx) const {
 			return this->at(idx);
 		}
 
@@ -286,6 +286,118 @@ namespace nhflib {
 			for (usize ii = 0; ii < this->size(); ii++) {
 				fn(this->at(ii));
 			}
+		}
+
+		template<typename K>
+		Vector<K> map(const std::function<K(Rc < T > )> &fn) {
+			Vector<K> tmp;
+			for (usize ii = 0; ii < this->size(); ii++) {
+				tmp.push_back(fn(this->at(ii)));
+			}
+
+			return tmp;
+		}
+
+		template<typename K>
+		Vector<K> map(const std::function<K(Rc < T > , usize)> &fn) {
+			Vector<K> tmp;
+			for (usize ii = 0; ii < this->size(); ii++) {
+				tmp.push_back(fn(this->at(ii), ii));
+			}
+
+			return tmp;
+		}
+
+		bool deep_equal(const Vector<T> &rhs) const {
+			if (&rhs == this) {
+				return true;
+			}
+
+			if (this->size() != rhs.size()) {
+				return false;
+			}
+
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto el = this->at(ii);
+				auto rhs_el = rhs.at(ii);
+
+				if (el != rhs_el) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		class VectorIterator : public std::iterator<std::random_access_iterator_tag, Rc < T>>
+
+		{
+			Rc <Vector<T>> vec;
+			usize idx;
+
+			const Rc <Vector<T>> &get_vec() const {
+				return vec;
+			}
+
+			public:
+			VectorIterator(
+			const Rc <Vector<T>> &_vec, usize
+			ii) :
+			vec(_vec),
+					idx(ii)
+			{}
+
+			VectorIterator &operator++() {
+				++idx;
+				return *this;
+			}
+
+			VectorIterator &operator--() {
+				--idx;
+				return *this;
+			}
+
+			VectorIterator operator++(int) {
+				VectorIterator cpy(*this);
+				operator++();
+
+				return cpy;
+			}
+
+			VectorIterator operator--(int) {
+				VectorIterator cpy(*this);
+				operator--();
+
+				return cpy;
+			}
+
+			bool operator==(const VectorIterator &rhs) const {
+				auto fp = idx == rhs.idx;
+				auto dp = vec->deep_equal(*rhs.get_vec());
+				return fp && dp;
+			}
+
+			bool operator!=(const VectorIterator &rhs) const {
+				return !operator==(rhs);
+			}
+
+			Rc <T> operator*() {
+				return vec->at(idx);
+			}
+
+			Rc <T> operator->() {
+				return vec->at(idx);
+			}
+		};
+
+		VectorIterator begin() {
+			Vector<T> cpy(*this);
+			return VectorIterator(nhflib::make_rc(cpy), 0);
+		}
+
+		VectorIterator end() {
+			Vector<T> cpy(*this);
+			return VectorIterator(nhflib::make_rc(cpy), this->size());
 		}
 	};
 }

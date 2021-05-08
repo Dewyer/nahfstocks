@@ -10,18 +10,19 @@ using nhflib::Option;
 namespace cli {
 	class CliQuestioner;
 
+	class CliTableBuilder;
+
 	class CliHelper {
-		std::ostream* out_stream;
-		std::istream* in_stream;
+		std::ostream *out_stream;
+		std::istream *in_stream;
 
 		bool last_print_new_ln;
 		usize tabbed_context_size;
 
 	public:
-		CliHelper(std::ostream* _out_stream=&std::cout, std::istream* _in_stream=&std::cin) :
-		out_stream(_out_stream),
-		in_stream(_in_stream)
-		{
+		CliHelper(std::ostream *_out_stream = &std::cout, std::istream *_in_stream = &std::cin) :
+				out_stream(_out_stream),
+				in_stream(_in_stream) {
 			last_print_new_ln = false;
 			tabbed_context_size = 0;
 		}
@@ -52,8 +53,10 @@ namespace cli {
 
 		CliQuestioner build_question();
 
+		CliTableBuilder build_table();
+
 		template<typename TOut>
-		void print(const TOut& dat) {
+		void print(const TOut &dat) {
 			if (this->out_stream) {
 				if (this->last_print_new_ln) {
 					for (usize ii = 0; ii < this->tabbed_context_size; ++ii) {
@@ -67,7 +70,7 @@ namespace cli {
 		}
 
 		template<typename TOut>
-		void print_ln(const TOut& dat) {
+		void print_ln(const TOut &dat) {
 			this->print(dat);
 			this->print_ln();
 		}
@@ -87,12 +90,12 @@ namespace cli {
 			this->tabbed_context_size = 0;
 		}
 
-		CliHelper& os() {
+		CliHelper &os() {
 			return *this;
 		}
 
 		template<typename TOut>
-		CliHelper& operator<<(TOut tt) {
+		CliHelper &operator<<(TOut tt) {
 			this->print(tt);
 			return *this;
 		}

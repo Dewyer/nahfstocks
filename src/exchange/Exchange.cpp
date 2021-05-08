@@ -280,7 +280,7 @@ void exchange::Exchange::recalculate_prices_on_cycle() {
 }
 
 ExchangeStats exchange::Exchange::get_stats() {
-	auto total_money = (usize)0;
+	auto total_money = (usize) 0;
 	auto at_cycles = this->get_cycle_count();
 	auto biggest_cmp = this->get_biggest_company();
 	auto richest_trader = this->get_richest_trader();
@@ -290,22 +290,22 @@ ExchangeStats exchange::Exchange::get_stats() {
 		total_money += trader->total_balance;
 	}
 
-	return ExchangeStats {
-		total_money,
-		biggest_cmp,
-		richest_trader,
-		at_cycles
+	return ExchangeStats{
+			total_money,
+			biggest_cmp,
+			richest_trader,
+			at_cycles
 	};
 }
 
 Rc<Company> exchange::Exchange::get_biggest_company() {
-	return this->companies->max([](Rc<Company> cmp){
+	return this->companies->max([](Rc<Company> cmp) {
 		return cmp->get_market_cap();
 	});
 }
 
 Rc<TraderRecordInExchange> exchange::Exchange::get_richest_trader() {
-	return this->traders->max([](Rc<TraderRecordInExchange> trader){
+	return this->traders->max([](Rc<TraderRecordInExchange> trader) {
 		return trader->total_balance;
 	});
 }

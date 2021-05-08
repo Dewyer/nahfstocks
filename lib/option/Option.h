@@ -5,7 +5,7 @@
 namespace nhflib {
 	template<typename T>
 	class Option {
-		Rc <T> value;
+		Rc<T> value;
 
 	public:
 		Option() {

@@ -52,7 +52,7 @@ namespace config {
 			return config_val->get_val_into<TVal>();
 		}
 
-		void cumulative_read_config_from_stream(std::istream& in);
+		void cumulative_read_config_from_stream(std::istream &in);
 
 		void create_config_definitions();
 

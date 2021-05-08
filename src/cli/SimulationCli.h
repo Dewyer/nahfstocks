@@ -20,7 +20,7 @@ namespace cli {
 		void start_sim(nhflib::Option<usize> limit);
 
 		template<typename T>
-		void show_list_of_printables(const Rc<Vector<T>>& to_list, const String& what) {
+		void show_list_of_printables(const Rc<Vector<T>> &to_list, const String &what) {
 			this->cli->os() << "All (" << to_list->size() << ") " << what << ":";
 			this->cli->print_ln();
 

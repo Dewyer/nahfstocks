@@ -11,7 +11,7 @@ using nhflib::String;
 
 namespace cli {
 	class CliQuestioner {
-		CliHelper& cli;
+		CliHelper &cli;
 		Vector<String> options;
 
 		bool is_cancelable;
@@ -21,26 +21,25 @@ namespace cli {
 	public:
 		static usize CANCELED_OPTION;
 
-		explicit CliQuestioner(CliHelper& _cli):
-			cli(_cli),
-			options(Vector<String>()),
-			is_cancelable(false),
-			question_val("")
-		{
+		explicit CliQuestioner(CliHelper &_cli) :
+				cli(_cli),
+				options(Vector<String>()),
+				is_cancelable(false),
+				question_val("") {
 		}
 
-		CliQuestioner& question(const String& qst) {
+		CliQuestioner &question(const String &qst) {
 			this->question_val = qst;
 			return *this;
 		}
 
-		CliQuestioner& cancelable() {
+		CliQuestioner &cancelable() {
 			this->is_cancelable = true;
 
 			return *this;
 		}
 
-		CliQuestioner& option(const String& opt_val) {
+		CliQuestioner &option(const String &opt_val) {
 			this->options.push_back(opt_val);
 			return *this;
 		}
@@ -65,7 +64,7 @@ namespace cli {
 			for (usize ii = 0; ii < this->options.size(); ii++) {
 				auto at_qst = this->options.at(ii);
 
-				this->cli.os() << "- [" << (ii+1) << "] " << at_qst->c_str();
+				this->cli.os() << "- [" << (ii + 1) << "] " << at_qst->c_str();
 				this->cli.print_ln();
 			}
 
@@ -84,9 +83,9 @@ namespace cli {
 			}
 			auto res = res_opt.unwrap();
 
-			auto res_lower_then_max = res <= (int)this->options.size();
+			auto res_lower_then_max = res <= (int) this->options.size();
 			if (res_lower_then_max && ((this->is_cancelable && res >= 0) || res > 0)) {
-				return Option<usize>((usize)res);
+				return Option<usize>((usize) res);
 			}
 
 			this->cli.print_ln("Option picked was invalid.");

@@ -26,7 +26,7 @@ namespace simulation {
 		void setup();
 
 	public:
-		explicit Simulation(const Rc<Config> &_config, const Rc<CliHelper>& _cli) : config(_config), cli(_cli) {
+		explicit Simulation(const Rc<Config> &_config, const Rc<CliHelper> &_cli) : config(_config), cli(_cli) {
 			this->setup();
 		}
 

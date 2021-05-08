@@ -70,6 +70,10 @@ namespace nhflib {
 		bool operator!=(const char *rsd) const {
 			return !String::str_cmp(this->c_str(), rsd);
 		}
+
+		String left_pad(char cc, usize count) const;
+
+		String right_pad(char cc, usize count) const;
 	};
 }
 

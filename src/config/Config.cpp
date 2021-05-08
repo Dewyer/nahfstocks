@@ -43,7 +43,7 @@ namespace config {
 		this->cumulative_read_config_from_stream(std::cin);
 	}
 
-	void Config::create_config_definitions()  {
+	void Config::create_config_definitions() {
 		this->definitions.push_back(ConfigKeyDefinition{
 				Config::INTERACTIVE_MODE_KEY,
 				ConfigValueType::Bool

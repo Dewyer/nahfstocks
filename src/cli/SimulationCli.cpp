@@ -107,7 +107,7 @@ void cli::SimulationCli::show_list_of_traders() {
 
 void cli::SimulationCli::show_trader_details_by_id(usize trader_id) {
 	auto traders = this->sim->exchange->get_trader_records();
-	auto trader = traders->find([&trader_id](Rc<TraderRecordInExchange> trader_rec){
+	auto trader = traders->find([&trader_id](Rc<TraderRecordInExchange> trader_rec) {
 		return trader_rec->trader_id == trader_id;
 	});
 
@@ -117,12 +117,12 @@ void cli::SimulationCli::show_trader_details_by_id(usize trader_id) {
 	}
 
 	this->cli->set_tabs(1);
-	trader->print_to(this->cli);
+	trader->detailed_print_to(this->cli);
 	this->cli->clear_tabs();
 }
 
 void cli::SimulationCli::show_trader_details() {
-	this->cli->os() << "Enter the trader's id (0.." << this->sim->exchange->get_trader_records()->size() <<"): ";
+	this->cli->os() << "Enter the trader's id (0.." << this->sim->exchange->get_trader_records()->size() << "): ";
 	auto id = this->cli->read_safe_inst<usize>();
 	this->cli->print_ln();
 
@@ -149,7 +149,7 @@ void cli::SimulationCli::show_company_details() {
 
 void cli::SimulationCli::show_company_details_by_symbol(nhflib::String company_symbol) {
 	auto companies = this->sim->exchange->get_companies();
-	auto company = companies->find([&company_symbol](Rc<Company> cmp){
+	auto company = companies->find([&company_symbol](Rc<Company> cmp) {
 		return cmp->get_symbol() == company_symbol;
 	});
 

@@ -3,6 +3,9 @@
 #include "../../../lib/types.h"
 #include "../../../lib/memory/Rc.h"
 #include "../../../lib/option/Option.h"
+#include "../../../lib/string/String.h"
+
+using nhflib::String;
 
 namespace exchange {
 
@@ -13,6 +16,7 @@ namespace exchange {
 		Sell,
 	};
 
+	String order_type_to_string(const OrderType &type);
 
 	class OrderCreationPayload {
 	public:

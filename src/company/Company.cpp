@@ -41,10 +41,11 @@ void company::Company::print_to(Rc<CliHelper> cli) const noexcept {
 	auto cap_str = utils::format_money(this->get_market_cap());
 	auto price_str = utils::format_money(this->get_stock_price());
 
-	cli->os() << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str() << "] Cap: " << cap_str << ", Price: " << price_str;
+	cli->os() << "=[" << this->id << "]= " << this->get_name().c_str() << " - [" << this->get_symbol().c_str()
+			  << "] Cap: " << cap_str << ", Price: " << price_str;
 	cli->print_ln();
 	cli->os() << "Sector: " << this->get_sector() << ", Financials: " << this->financial_standing << ", Leadership: "
-	   << this->leadership_bias;
+			  << this->leadership_bias;
 	cli->print_ln();
 }
 
@@ -102,7 +103,7 @@ usize company::Company::get_market_cap() const {
 usize company::Company::get_stock_price() const {
 	auto ask_pr = this->get_ask().unwrap_or(0);
 	auto bid_pr = this->get_bid().unwrap_or(0);
-	auto price_mid = ask_pr+bid_pr / 2;
+	auto price_mid = ask_pr + bid_pr / 2;
 
 	return price_mid;
 }

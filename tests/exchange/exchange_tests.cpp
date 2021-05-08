@@ -1,12 +1,14 @@
 #include "exchange_tests.h"
 #include "../cc_test.h"
 #include "../../lib/external/gtest_lite.h"
+#include "../cli/cli_mock.h"
 #include "./exchange_mock.h"
 #include "../../src/exchange/Exchange.h"
 #include "../../src/exchange/exchange_api/ExchangeApi.h"
 #include "../../lib/collections/Vector.h"
 #include "../../src/trader/TraderAgent.h"
 #include "../../lib/memory/Rc.h"
+
 
 using nhflib::Rc;
 using nhflib::Vector;
@@ -76,7 +78,7 @@ CC_TEST(void ExchangeTester::run_exchange_tests(), {
 		trader_agents->push_back(mock_agent_rc.base_rc<TraderAgent>());
 
 		Exchange exchange(mock_rng(), mock_config(), companies, trader_agents,
-						  exchange_builder->build_trader_agents_for_companies(companies));
+						  exchange_builder->build_trader_agents_for_companies(companies), mock_cli());
 
 		for (int ii = 0; ii < 100; ++ii) {
 			exchange.cycle();

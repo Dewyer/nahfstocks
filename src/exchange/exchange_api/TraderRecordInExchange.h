@@ -8,6 +8,8 @@
 #include "../../../lib/types.h"
 #include "../../cli/CliHelper.h"
 #include "./Order.h"
+#include "../../utils/format_money.h"
+#include "../../cli/CliTableBuilder.h"
 
 using cli::CliHelper;
 using nhflib::String;
@@ -33,7 +35,7 @@ namespace exchange {
 
 		usize next_activation;
 
-		nhflib::Vector<exchange::Order> open_orders;
+		Vector<Order> open_orders;
 
 		TraderRecordInExchange(usize _trader_id, const Rc<TraderAgent> &trader, usize starting_cash,
 							   usize _fixed_income) {
@@ -44,6 +46,10 @@ namespace exchange {
 			this->fixed_income = _fixed_income;
 			this->next_activation = 0;
 			this->open_orders = Vector<exchange::Order>();
+		}
+
+		usize get_locked_balance() const {
+			return this->total_balance - this->available_balance;
 		}
 
 		void add_or_sub_stocks_and_free_stocks(usize company, i32 amount, i32 free_amount) {
@@ -86,8 +92,38 @@ namespace exchange {
 
 		void print_to(Rc<CliHelper> cli) const noexcept {
 			this->trader->print_to(cli);
-			cli->os() << "| Bal: " << this->total_balance << ", Inc: " << this->fixed_income;
+			cli->os() << "| Bal: " << utils::format_money(this->total_balance) << ", Inc: "
+					  << utils::format_money(this->fixed_income);
 			cli->print_ln();
+		}
+
+		void detailed_print_to(Rc<CliHelper> cli) {
+			this->print_to(cli);
+			cli->os() << "Locked balance: " << utils::format_money(this->get_locked_balance()) << ", Orders: ";
+			cli->print_ln();
+
+			auto orders_table = cli->build_table();
+			orders_table
+					.add_column("ID")
+					.add_column("Type")
+					.add_column("Company")
+					.add_column("Amount")
+					.add_column("Price")
+					.add_column("Total Price");
+
+			orders_table.padding(1);
+
+			for (auto order : this->open_orders) {
+				orders_table
+						.add_cell(order->id, cli::CliTableCellAlignment::Right)
+						.add_cell(exchange::order_type_to_string(order->type))
+						.add_cell(order->company_id)
+						.add_cell(order->amount)
+						.add_cell(utils::format_money(order->target_price))
+						.add_cell(utils::format_money(order->get_total_price()));
+			}
+
+			orders_table.print();
 		}
 	};
 }
