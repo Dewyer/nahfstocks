@@ -49,6 +49,8 @@ namespace exchange {
 		void setup_traders(const Rc<Vector<TraderAgent>> &trader_agents,
 						   const Rc<Vector<company::CompanyAgent>> &company_agents);
 
+		void init_traders();
+
 		void handle_company_price_sampling();
 
 		void handle_fixed_income_on_cycle();

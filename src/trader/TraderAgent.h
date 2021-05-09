@@ -10,17 +10,25 @@ namespace exchange {
 }
 
 namespace trader {
+	struct TraderAgentInitPayload {
+		usize agent_id;
+	};
+
 	class TraderAgent {
 		nhflib::String name;
+		usize id;
 	public:
 
 		explicit TraderAgent(const nhflib::String &name) {
 			this->name = name;
+			this->id = 0;
 		}
 
 		virtual void print_to(Rc<CliHelper> cli) const noexcept;
 
 		virtual const nhflib::String &get_name() const noexcept;
+
+		virtual void init(TraderAgentInitPayload payload);
 
 		virtual void on_cycle(exchange::ExchangeApi &api);
 

@@ -10,6 +10,7 @@
 using nhflib::Rc;
 using nhflib::Vector;
 using exchange::TraderRecordInExchange;
+using trader::TraderAgentInitPayload;
 
 exchange::Exchange::Exchange(const Rc<nhflib::RandomProvider> &rng,
 							 const Rc<config::Config> &config,
@@ -52,6 +53,8 @@ void exchange::Exchange::setup_traders(
 
 		this->traders->push_back(rec);
 	}
+
+	this->init_traders();
 }
 
 
@@ -311,5 +314,13 @@ void exchange::Exchange::handle_company_price_sampling() {
 
 	for (auto cmp : *this->companies) {
 		cmp->take_price_sample(this->cycle_count);
+	}
+}
+
+void exchange::Exchange::init_traders() {
+	for (auto trader: *this->traders) {
+		trader->trader->init(TraderAgentInitPayload {
+			trader->trader_id,
+		});
 	}
 }
