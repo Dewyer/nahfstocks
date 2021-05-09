@@ -74,9 +74,7 @@ namespace nhflib {
 				return *this;
 			}
 
-			if (rhs.is_null()) {
-				this->fre_ptr();
-			}
+			this->liberate_ptr();
 
 			this->copy_dangerous(rhs.data_ptr, rhs.ref_count);
 
@@ -84,7 +82,7 @@ namespace nhflib {
 		}
 
 		~Rc() {
-			this->fre_ptr();
+			this->liberate_ptr();
 		}
 
 		static Rc<T> make_rc(T from_t) {
@@ -133,7 +131,7 @@ namespace nhflib {
 			return !this->is_null();
 		}
 
-		void fre_ptr() {
+		void liberate_ptr() {
 			if (this->is_null()) {
 				return;
 			}

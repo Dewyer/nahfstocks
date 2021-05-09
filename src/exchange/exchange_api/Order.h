@@ -1,5 +1,7 @@
 #pragma once
 
+#include <utility>
+
 #include "../../../lib/types.h"
 #include "../../../lib/memory/Rc.h"
 #include "../../../lib/option/Option.h"
@@ -31,6 +33,17 @@ namespace exchange {
 		usize get_total_price() const noexcept {
 			return this->amount * this->target_price;
 		}
+
+		OrderCreationPayload(OrderType type, usize i, usize i1, usize i2, nhflib::Option<usize> option)
+		: type(type),
+		company_id(i),
+		amount(i1),
+		target_price(i2),
+		expires_at(option)
+		{
+		}
+
+		virtual ~OrderCreationPayload() = default;
 	};
 
 	class Order : public OrderCreationPayload {
@@ -38,15 +51,9 @@ namespace exchange {
 		usize id;
 		usize trader_id;
 
-		nhflib::Rc<TraderRecordInExchange> trader;
+		Order(usize _id, usize _trader_id, const OrderCreationPayload &payload);
 
-		Order(usize _id, usize _trader_id, const nhflib::Rc<TraderRecordInExchange> &_trader,
-			  const OrderCreationPayload &payload) :
-				OrderCreationPayload(payload),
-				id(_id),
-				trader_id(_trader_id),
-				trader(_trader) {
-		}
+		virtual ~Order() = default;
 	};
 
 }

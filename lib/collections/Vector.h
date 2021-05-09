@@ -120,24 +120,24 @@ namespace nhflib {
 		}
 
 		void insert_at(usize idx, const Rc <T> &el) {
-			if (this->len >= idx) {
-				this->push_back(el);
-				return;
-			}
+			Vector<T> temp;
 
-			auto temp = data;
-			this->data = new Rc<T>[this->size() + 1];
 			for (usize ii = 0; ii < idx; ii++) {
-				this->data[ii] = temp[ii];
+				auto el_at = this->at(ii);
+				temp.push_back(el_at);
 			}
-			this->data[idx] = el;
-			for (usize ii = idx + 1; ii < this->size(); ii++) {
-				this->data[ii + 1] = temp[ii];
-			}
-			delete[] temp;
 
-			this->len++;
-			this->capacity = this->size() + 1;
+			temp.push_back(el);
+
+			for (usize ii = idx + 1; ii < this->size(); ii++) {
+				auto el_at = this->at(ii);
+				temp.push_back(el_at);
+			}
+
+			this->clear();
+			for (auto kk : temp) {
+				this->push_back(kk);
+			}
 		}
 
 		template<typename S>
@@ -151,10 +151,10 @@ namespace nhflib {
 			}
 
 			this->clear();
-			this->data = matches.data;
-			this->len = matches.len;
-			this->capacity = matches.capacity;
-			matches.null_init();
+
+			for (auto el : matches) {
+				this->push_back(el);
+			}
 		}
 
 		template<typename S>

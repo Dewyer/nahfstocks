@@ -64,7 +64,7 @@ namespace exchange {
 
 		void handle_trader_agent_activation();
 
-		static void execute_orders(Rc<Order> buy, Rc<Order> sell);
+		static void execute_orders(Rc<Order> buy, Rc<Order> sell, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller);
 
 		void clear_executed_orders();
 

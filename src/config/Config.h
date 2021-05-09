@@ -128,6 +128,5 @@ namespace config {
 		}
 
 		virtual ~Config() {}
-
 	};
 }

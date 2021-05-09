@@ -12,7 +12,6 @@ namespace nhflib {
 			this->reset();
 		}
 
-
 		explicit Option(T value) {
 			this->swap(value);
 		}

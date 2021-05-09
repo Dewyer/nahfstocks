@@ -17,13 +17,13 @@ namespace exchange {
 
 	class ExchangeApi {
 	private:
-		exchange::Exchange *exchange;
+		exchange::Exchange& exchange;
 		Rc<TraderRecordInExchange> trader;
 		Rc<MarketContext> context;
 		Rc<CliHelper> cli;
 
 	public:
-		ExchangeApi(exchange::Exchange *_exchange, const nhflib::Rc<MarketContext> &_context,
+		ExchangeApi(exchange::Exchange& _exchange, const nhflib::Rc<MarketContext> &_context,
 					const nhflib::Rc<exchange::TraderRecordInExchange> &_trader, const Rc<CliHelper> &_cli) :
 				exchange(_exchange),
 				trader(_trader),

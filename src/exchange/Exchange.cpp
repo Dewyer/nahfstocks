@@ -76,6 +76,7 @@ Rc<TraderRecordInExchange> exchange::Exchange::create_trader_record(const Rc<Tra
 
 
 void exchange::Exchange::cycle() {
+	this->cli->print_ln("Cycle");
 	this->cycle_count++;
 
 	this->handle_fixed_income_on_cycle();
@@ -106,7 +107,7 @@ void exchange::Exchange::handle_trader_agent_activation() {
 		if (this->cycle_count < trader_rec->next_activation)
 			return;
 
-		ExchangeApi api(this, m_rc, trader_rec, this->cli);
+		ExchangeApi api(*this, m_rc, trader_rec, this->cli);
 
 		try {
 			trader_rec->trader->on_cycle(api);
@@ -163,22 +164,25 @@ exchange::Exchange::open_order(Rc<TraderRecordInExchange> trader, exchange::Orde
 	if (validation_err)
 		throw std::runtime_error(validation_err.unwrap().c_str());
 
+	auto ord = exchange::Order{
+			++this->last_order_id,
+			trader->trader_id,
+			order,
+	};
+
 	if (order.type == OrderType::Buy) {
 		trader->available_balance -= order.get_total_price();
 	} else {
 		trader->add_or_sub_stocks_and_free_stocks(order.company_id, 0, -static_cast<i32>(order.amount));
 	}
 
-	auto ord = exchange::Order{
-			++this->last_order_id,
-			trader->trader_id,
-			trader,
-			order
-	};
-
 	auto ord_rc = nhflib::make_rc(ord);
 	comp_target->add_order(ord_rc);
-	trader->open_orders.push_back(ord_rc);
+	trader->open_orders.push_back(exchange::Order {
+		ord.id,
+		ord.trader_id,
+		order
+	});
 
 	return ord;
 }
@@ -214,7 +218,7 @@ void exchange::Exchange::cancel_order(Rc<TraderRecordInExchange> trader, usize o
 }
 
 void exchange::Exchange::execute_open_auction() {
-	this->companies->for_each([](Rc<Company> cmp) {
+	this->companies->for_each([this](Rc<Company> cmp) {
 		for (usize ii = 1; ii < cmp->orders.size(); ii++) {
 			auto at_order = cmp->orders[ii];
 
@@ -224,12 +228,19 @@ void exchange::Exchange::execute_open_auction() {
 
 			for (usize kk = ii - 1;; kk--) {
 				auto sell_order = cmp->orders[kk];
+				auto buyer = this->traders->find([&at_order](Rc<TraderRecordInExchange> tr) {
+					return tr->trader_id == at_order->trader_id;
+				});
+				auto seller = this->traders->find([&sell_order](Rc<TraderRecordInExchange> tr) {
+					return tr->trader_id == sell_order->trader_id;
+				});
+
 				if (sell_order->type == exchange::OrderType::Buy || sell_order->amount == 0 ||
-					at_order->trader->trader_id == sell_order->trader->trader_id) {
+					buyer->trader_id == seller->trader_id) {
 					continue;
 				}
 
-				Exchange::execute_orders(at_order, sell_order);
+				Exchange::execute_orders(at_order, sell_order, buyer, seller);
 				if (at_order->amount == 0) {
 					break;
 				}
@@ -244,7 +255,7 @@ void exchange::Exchange::execute_open_auction() {
 	this->clear_executed_orders();
 }
 
-void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_order) {
+void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_order, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller) {
 	usize exchanged_am = std::min(sell_order->amount, buy_order->amount);
 	usize exchange_price = (sell_order->target_price + buy_order->target_price) / 2;
 	usize total_sale_price = exchange_price * exchanged_am;
@@ -253,14 +264,14 @@ void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_orde
 	usize buy_target = buy_order->get_total_price();
 
 	buy_order->amount -= exchanged_am;
-	buy_order->trader->available_balance += buy_target - total_sale_price;
-	buy_order->trader->total_balance -= total_sale_price;
+	buyer->available_balance += buy_target - total_sale_price;
+	buyer->total_balance -= total_sale_price;
 	sell_order->amount -= exchanged_am;
-	sell_order->trader->total_balance += total_sale_price;
-	sell_order->trader->available_balance += total_sale_price;
+	seller->total_balance += total_sale_price;
+	seller->available_balance += total_sale_price;
 
-	buy_order->trader->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am);
-	sell_order->trader->add_or_sub_stocks_and_free_stocks(exchanged_company, -exchanged_am, -exchanged_am);
+	buyer->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am);
+	seller->add_or_sub_stocks_and_free_stocks(exchanged_company, -exchanged_am, -exchanged_am);
 }
 
 void exchange::Exchange::clear_executed_orders() {
