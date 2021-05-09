@@ -1,11 +1,11 @@
 #include "Exchange.h"
-
 #include <utility>
 #include "../../lib/types.h"
 #include "exchange_api/MarketContext.h"
 #include "exchange_api/ExchangeApi.h"
 #include "exchange_api/TraderRecordInExchange.h"
 #include "../company/CompanyAgent.h"
+#include "../events/EventDispatcher.h"
 
 using nhflib::Rc;
 using nhflib::Vector;
@@ -27,6 +27,9 @@ exchange::Exchange::Exchange(const Rc<nhflib::RandomProvider> &rng,
 	this->last_order_id = 0;
 	this->runtime_exception_occured = false;
 	this->cycle_count = 0;
+
+	EventDispatcher event_dis(this->rng, this->config);
+	this->event_dispatcher = nhflib::make_rc(event_dis);
 }
 
 void exchange::Exchange::setup_traders(
@@ -77,6 +80,8 @@ void exchange::Exchange::cycle() {
 	this->handle_fixed_income_on_cycle();
 	this->recalculate_prices_on_cycle();
 	this->handle_company_price_sampling();
+
+	this->handle_event_generation();
 	this->handle_trader_agent_activation();
 
 	this->execute_open_auction();
@@ -110,6 +115,7 @@ void exchange::Exchange::handle_trader_agent_activation() {
 			this->cli->print_ln();
 		}
 
+		trader_rec->events_to_see.clear();
 		trader_rec->next_random_activation(this->rng, this->cycle_count, this->mean_traders_per_cycle);
 
 	});
@@ -322,5 +328,18 @@ void exchange::Exchange::init_traders() {
 		trader->trader->init(TraderAgentInitPayload {
 			trader->trader_id,
 		});
+	}
+}
+
+void exchange::Exchange::handle_event_generation() {
+	auto new_events = this->event_dispatcher->dispatch_events(EventDispatchingContext {
+		this->cycle_count,
+		this->companies
+	});
+
+	for (auto trader : *this->traders) {
+		for (auto ev: *new_events) {
+			trader->events_to_see.push_back(ev.clone());
+		}
 	}
 }

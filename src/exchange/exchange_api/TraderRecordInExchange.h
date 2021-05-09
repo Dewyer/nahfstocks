@@ -10,12 +10,14 @@
 #include "./Order.h"
 #include "../../utils/format_money.h"
 #include "../../cli/CliTableBuilder.h"
+#include "../../events/Event.h"
 
 using cli::CliHelper;
 using nhflib::String;
 using nhflib::Vector;
 using nhflib::Rc;
 using trader::TraderAgent;
+using event::Event;
 
 namespace exchange {
 	struct TraderStock {
@@ -50,6 +52,7 @@ namespace exchange {
 		usize next_activation;
 
 		Vector<Order> open_orders;
+		Vector<Event> events_to_see;
 
 		typedef std::function<CompanyDto(usize)> CompanyDtoLookupFn;
 
@@ -62,6 +65,7 @@ namespace exchange {
 			this->fixed_income = _fixed_income;
 			this->next_activation = 0;
 			this->open_orders = Vector<exchange::Order>();
+			this->events_to_see = Vector<Event>();
 		}
 
 		usize get_locked_balance() const {

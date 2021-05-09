@@ -6,10 +6,7 @@ const nhflib::String &trader::TraderAgent::get_name() const noexcept {
 }
 
 void trader::TraderAgent::on_cycle(exchange::ExchangeApi &api) {
-	// TODO: Implement
-	if (0 == 1) {
-		api.get_orders();
-	}
+	api.get_unseen_events();
 }
 
 void trader::TraderAgent::print_to(Rc<CliHelper> cli) const noexcept {

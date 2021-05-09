@@ -1,7 +1,6 @@
 #include "events_tests.h"
 #include "../cc_test.h"
 #include "../../lib/external/gtest_lite.h"
-#include "../../src/events/EventDispatcher.h"
 #include "../../src/company/CompanyBuilder.h"
 #include "../../src/company/Company.h"
 #include "../../lib/memory/Rc.h"
@@ -10,6 +9,7 @@
 #include "../../src/config/Config.h"
 #include "./events_mock.h"
 #include "../company/company_mock.h"
+#include "../../src/events/EventDispatcher.h"
 
 using nhflib::RandomProvider;
 using nhflib::Rc;

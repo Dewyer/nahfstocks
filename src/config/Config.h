@@ -103,15 +103,15 @@ namespace config {
 		}
 
 		virtual f64 get_global_event_chance() const noexcept {
-			return 0.01;
+			return 0.10;
 		}
 
 		virtual f64 get_sector_event_chance() const noexcept {
-			return 0.01;
+			return 0.20;
 		}
 
 		virtual f64 get_company_event_chance() const noexcept {
-			return 0.01;
+			return 0.30;
 		}
 
 		virtual usize get_price_sampling_rate() {

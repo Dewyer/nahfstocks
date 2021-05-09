@@ -17,3 +17,7 @@ Vector<exchange::Order> exchange::ExchangeApi::get_orders() {
 Vector<exchange::TraderStock> exchange::ExchangeApi::get_owned_stocks() {
 	return this->trader->stocks.clone();
 }
+
+Vector<Event> exchange::ExchangeApi::get_unseen_events() {
+	return this->trader->events_to_see;
+}

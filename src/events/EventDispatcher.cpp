@@ -17,6 +17,8 @@ void EventDispatcher::generate_events_for_target(const EventDispatchingContext &
 		if (!generated_event)
 			return;
 		auto ev = nhflib::make_rc_ctr<Event>();
+		ev->id = this->next_event_id++;
+		ev->created_at = context.at_cycle;
 		ev->target = target;
 		this->generate_target_specific_event_parts(context, ev, target);
 		ev->nonce = this->rng->next_normal();

@@ -56,6 +56,8 @@ namespace exchange {
 
 		Vector<TraderStock> get_owned_stocks();
 
+		Vector<Event> get_unseen_events();
+
 		void cancel_order(usize order_id);
 	};
 }

@@ -8,6 +8,7 @@
 #include "../config/Config.h"
 #include "../exchange/exchange_api/TraderRecordInExchange.h"
 #include "../cli/CliHelper.h"
+#include "../events/EventDispatcher.h"
 
 using nhflib::Option;
 using nhflib::Rc;

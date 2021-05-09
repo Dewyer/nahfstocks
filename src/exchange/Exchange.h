@@ -10,8 +10,9 @@
 #include "../../tests/exchange/exchange_tests.h"
 #include "./ExchangeStats.h"
 #include "../cli/CliHelper.h"
-
 #include "../config/Config.h"
+#include "../events/EventDispatcher.h"
+#include "../events/Event.h"
 
 namespace company {
 	class Company;
@@ -27,6 +28,8 @@ using nhflib::Vector;
 using nhflib::String;
 using nhflib::Option;
 using nhflib::RandomProvider;
+using event::Event;
+using event::EventDispatcher;
 
 namespace exchange {
 	class Exchange {
@@ -36,6 +39,7 @@ namespace exchange {
 		Rc<Vector<Company>> companies;
 		Rc<Vector<TraderRecordInExchange>> traders;
 		Rc<CliHelper> cli;
+		Rc<EventDispatcher> event_dispatcher;
 
 		usize cycle_count;
 		usize mean_traders_per_cycle;
@@ -50,6 +54,8 @@ namespace exchange {
 						   const Rc<Vector<company::CompanyAgent>> &company_agents);
 
 		void init_traders();
+
+		void handle_event_generation();
 
 		void handle_company_price_sampling();
 

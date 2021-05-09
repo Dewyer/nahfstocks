@@ -6,12 +6,12 @@
 
 using nhflib::Rc;
 using nhflib::Vector;
+using company::Company;
 
 namespace exchange {
 	class MarketContext {
 	public:
-		Rc<Vector<company::Company>> companies;
-
+		Rc<Vector<Company>> companies;
 		explicit MarketContext(const Rc<Vector<company::Company>> &cc) : companies(cc) {}
 	};
 }
