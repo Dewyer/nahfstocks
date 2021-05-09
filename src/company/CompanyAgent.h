@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../../lib/prelude.h"
 #include "../trader/TraderAgent.h"
 #include "../../lib/string/String.h"
 

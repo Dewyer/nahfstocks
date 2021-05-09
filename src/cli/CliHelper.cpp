@@ -1,3 +1,4 @@
+#include "../../lib/prelude.h"
 #include "CliHelper.h"
 #include "./CliQuestioner.h"
 #include "./CliTableBuilder.h"

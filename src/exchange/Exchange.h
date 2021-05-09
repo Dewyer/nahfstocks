@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/collections/Vector.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/option/Option.h"

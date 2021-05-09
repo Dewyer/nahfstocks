@@ -1,3 +1,4 @@
+#include "../../lib/prelude.h"
 #include "Company.h"
 #include "../../lib/string/String.h"
 #include "../../lib/types.h"

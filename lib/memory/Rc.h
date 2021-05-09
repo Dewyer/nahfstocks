@@ -1,7 +1,28 @@
 #pragma once
-
-#include "../types.h"
+// Kurwa anyádat memtrace hogy nem tudnak bazmeg az IIT ben programozni összefosom magam
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <cmath>
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <list>
+#include <map>
+#include <algorithm>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <ctype.h>
+#include <utility>
+#include <memory>
+#include <limits>
+#include <functional>
+#include "../prelude.h"
+#include "../types.h"
+#include "../external/memtrace.h"
 
 namespace nhflib {
 	template<typename T>
@@ -52,7 +73,7 @@ namespace nhflib {
 			}
 
 			if (rhs.is_null()) {
-				this->free();
+				this->fre_ptr();
 			}
 
 			this->copy_dangerous(rhs.data_ptr, rhs.ref_count);
@@ -61,7 +82,7 @@ namespace nhflib {
 		}
 
 		~Rc() {
-			this->free();
+			this->fre_ptr();
 		}
 
 		static Rc<T> make_rc(T from_t) {
@@ -110,7 +131,7 @@ namespace nhflib {
 			return !this->is_null();
 		}
 
-		void free() {
+		void fre_ptr() {
 			if (this->is_null()) {
 				return;
 			}

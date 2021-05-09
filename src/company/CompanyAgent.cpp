@@ -1,3 +1,4 @@
+#include "../../lib/prelude.h"
 #include "CompanyAgent.h"
 #include "../exchange/exchange_api/ExchangeApi.h"
 #include "../exchange/exchange_api/Order.h"

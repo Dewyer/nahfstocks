@@ -1,3 +1,4 @@
+#include "../../lib/prelude.h"
 #include "CompanyBuilder.h"
 #include "names_data.h"
 

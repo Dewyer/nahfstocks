@@ -1,6 +1,5 @@
 #include "exchange_tests.h"
 #include "../cc_test.h"
-#include "../../lib/external/gtest_lite.h"
 #include "../cli/cli_mock.h"
 #include "./exchange_mock.h"
 #include "../../src/exchange/Exchange.h"
@@ -8,7 +7,7 @@
 #include "../../lib/collections/Vector.h"
 #include "../../src/trader/TraderAgent.h"
 #include "../../lib/memory/Rc.h"
-
+#include "../../lib/external/gtest_lite.h"
 
 using nhflib::Rc;
 using nhflib::Vector;

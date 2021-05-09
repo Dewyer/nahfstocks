@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/memory/Rc.h"
 #include "../../lib/rand/RandomProvider.h"
 #include "TraderAgent.h"

@@ -1,3 +1,4 @@
+#include "../../lib/prelude.h"
 #include "SimulationCli.h"
 #include "./CliQuestioner.h"
 #include "../utils/format_money.h"

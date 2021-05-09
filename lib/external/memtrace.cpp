@@ -13,7 +13,7 @@ typo:       2019.
 /*#define MEMTRACE */
 
 #ifdef _MSC_VER
-#define _CRT_SECURE_NO_WARNINGS 1
+	#define _CRT_SECURE_NO_WARNINGS 1
 #endif
 
 #include <stdio.h>
@@ -43,20 +43,20 @@ typo:       2019.
 /* Segedfuggvenyek es egyebek */
 /*******************************************************************/
 START_NAMESPACE
-	static FILE *fperror;
-#ifdef MEMTRACE_TO_MEMORY
-		static const unsigned int CANARY_LEN = 64;
-#else
-		static const unsigned int CANARY_LEN = 0;
-#endif
-	static const unsigned char canary_byte1 = 'k';
-	static const unsigned char canary_byte2 = 'K';
-	static unsigned char random_byte;
+    static FILE *fperror;
+    #ifdef MEMTRACE_TO_MEMORY
+    	static const unsigned int CANARY_LEN = 64;
+    #else
+    	static const unsigned int CANARY_LEN = 0;
+    #endif
+    static const unsigned char canary_byte1 = 'k';
+    static const unsigned char canary_byte2 = 'K';
+    static unsigned char random_byte;
 
 	typedef enum {FALSE,TRUE} BOOL;
 
 	static const char * pretty[] = {"malloc(", "calloc(", "realloc(", "free(",
-										"new", "delete", "new[]", "delete[]"};
+                                        "new", "delete", "new[]", "delete[]"};
 
 	static const char * basename(const char * s) {
 		const char *s1,*s2;
@@ -68,13 +68,13 @@ START_NAMESPACE
 	}
 
 	static char *StrCpy(char ** to, const char * from) {
-			if(from == NULL) {
+        	if(from == NULL) {
 			*to = NULL;
-			} else {
-					*to = (char*)malloc(strlen(from)+1);
-					if(*to) strcpy(*to, from);
-			}
-			return *to;
+        	} else {
+            		*to = (char*)malloc(strlen(from)+1);
+            		if(*to) strcpy(*to, from);
+        	}
+        	return *to;
 	}
 
 	static void *canary_malloc(size_t size, unsigned char data) {
@@ -130,10 +130,10 @@ START_NAMESPACE
 		unsigned char const *m=(unsigned char const *) mem;
 		unsigned int s, o;
 
-		if (can_len > 0)
-			fprintf(fp, "Dump (addr: %p kanari hossz: %d):\n", m+can_len, (int)can_len);
-		else
-			fprintf(fp, "Dump: (addr: %p) \n", m);
+        if (can_len > 0)
+            fprintf(fp, "Dump (addr: %p kanari hossz: %d):\n", m+can_len, (int)can_len);
+        else
+            fprintf(fp, "Dump: (addr: %p) \n", m);
 		size += 2*can_len;
 		for (s = 0; s < (size+15)/16; s++) {
 			fprintf(fp, "%04x:%c ", s*16, s*16 < can_len || s*16 >= size-can_len ? ' ' : '*');
@@ -156,15 +156,15 @@ START_NAMESPACE
 	}
 
 	void mem_dump(void const *mem, size_t size, FILE* fp) {
-		dump_memory(mem, size, 0, fp);
-	}
+	    dump_memory(mem, size, 0, fp);
+    }
 
 	static BOOL dying;
 
 	static void die(const char * msg, void * p, size_t size, call_t * a, call_t * d) {
-#ifdef MEMTRACE_ERRFILE
-			fperror = fopen(XSTR(MEMTRACE_ERRFILE), "w");
-#endif
+		#ifdef MEMTRACE_ERRFILE
+            fperror = fopen(XSTR(MEMTRACE_ERRFILE), "w");
+        #endif
 		fprintf(fperror,"%s\n",msg);
 		if (p) {
 			fprintf(fperror, "\tPointer:\t%p", PU(p));
@@ -173,7 +173,7 @@ START_NAMESPACE
 		}
 		if (a) print_call("\tFoglalas:\t", *a);
 		if (d) print_call("\tFelszabaditas:\t", *d);
-				if (p) dump_memory(p, size, CANARY_LEN, fperror);
+                if (p) dump_memory(p, size, CANARY_LEN, fperror);
 
 		dying = TRUE;
 		exit(120);
@@ -215,15 +215,15 @@ START_NAMESPACE
 
 		if(registry.next) {
 			/*szivarog*/
-#ifdef MEMTRACE_ERRFILE
-				fperror = fopen(XSTR(MEMTRACE_ERRFILE), "w");
-#endif
+		    #ifdef MEMTRACE_ERRFILE
+                fperror = fopen(XSTR(MEMTRACE_ERRFILE), "w");
+            #endif
 			fprintf(fperror, "Szivargas:\n");
 			print_registry_item(registry.next);
 			registry.next = NULL;
 			return 1;           /* memória fogyás */
 		}
-		return 0;
+        return 0;
 	}
 END_NAMESPACE
 #endif/*MEMTRACE_TO_MEMORY*/
@@ -245,18 +245,18 @@ END_NAMESPACE
 START_NAMESPACE
 	static int allocated_blks;
 
-	int allocated_blocks() { return allocated_blks; }
+    int allocated_blocks() { return allocated_blks; }
 
 	static BOOL register_memory(void * p, size_t size, call_t call) {
 		initialize();
 		allocated_blks++;
-#ifdef MEMTRACE_TO_FILE
+		#ifdef MEMTRACE_TO_FILE
 			fprintf(trace_file, "%p\t%d\t%s%s", PU(p), (int)size, pretty[call.f], call.par_txt ? call.par_txt : "?");
 			if (call.f <= 3) fprintf(trace_file, ")");
 			fprintf(trace_file, "\t%d\t%s\n", call.line, call.file ? call.file : "?");
 			fflush(trace_file);
-#endif
-#ifdef MEMTRACE_TO_MEMORY
+		#endif
+		#ifdef MEMTRACE_TO_MEMORY
 		{/*C-blokk*/
 			registry_item * n = (registry_item*)malloc(sizeof(registry_item));
 			if(n==NULL) return FALSE;
@@ -266,40 +266,40 @@ START_NAMESPACE
 			n->next = registry.next;
 			registry.next = n;
 		}/*C-blokk*/
-#endif
+		#endif
 
 		return TRUE;
 	}
 
-#ifdef MEMTRACE_TO_MEMORY
+	#ifdef MEMTRACE_TO_MEMORY
 	static registry_item *find_registry_item(void * p) {
-				registry_item *n = &registry;
-				for(; n->next && n->next->p != p ; n=n->next);
-				return n;
-		}
-#endif
+            	registry_item *n = &registry;
+            	for(; n->next && n->next->p != p ; n=n->next);
+            	return n;
+    	}
+    	#endif
 
 	static void unregister_memory(void * p, call_t call) {
 		initialize();
-#ifdef MEMTRACE_TO_FILE
-						fprintf(trace_file, "%p\t%d\t%s%s", PU(p), -1, pretty[call.f], call.par_txt ? call.par_txt : "?");
-						if (call.f <= 3) fprintf(trace_file, ")");
+		#ifdef MEMTRACE_TO_FILE
+                        fprintf(trace_file, "%p\t%d\t%s%s", PU(p), -1, pretty[call.f], call.par_txt ? call.par_txt : "?");
+                        if (call.f <= 3) fprintf(trace_file, ")");
 			fprintf(trace_file,"\t%d\t%s\n",call.line, call.file ? call.file : "?");
 			fflush(trace_file);
-#endif
-#ifdef MEMTRACE_TO_MEMORY
+		#endif
+		#ifdef MEMTRACE_TO_MEMORY
 		{ /*C-blokk*/
 			registry_item * n = find_registry_item(p);
 			if(n->next) {
-				allocated_blks--;
+                allocated_blks--;
 				registry_item * r = n->next;
 				n->next = r->next;
 				if(COMP(r->call.f,call.f)) {
-					int chk = chk_canary(r->p, r->size);
-					if (chk < 0)
+                    int chk = chk_canary(r->p, r->size);
+                    if (chk < 0)
 						die("Blokk elott serult a memoria:", r->p,r->size,&r->call,&call);
-					if (chk > 0)
-						die("Blokk utan serult a memoria", r->p,r->size,&r->call,&call);
+                    if (chk > 0)
+                        die("Blokk utan serult a memoria", r->p,r->size,&r->call,&call);
 					/*rendben van minden*/
 					if(call.par_txt) free(call.par_txt);
 					if(r->call.par_txt) free(r->call.par_txt);
@@ -310,13 +310,13 @@ START_NAMESPACE
 					free(r);
 				} else {
 					/*hibas felszabaditas*/
-					die("Hibas felszabaditas:",r->p,r->len,&r->call,&call);
+					die("Hibas felszabaditas:",r->p,r->size,&r->call,&call);
 				}
 			} else {
 				die("Nem letezo, vagy mar felszabaditott adat felszabaditasa:", p, 0,NULL,&call);
 			}
 		} /*C-blokk*/
-#endif
+		#endif
 	}
 END_NAMESPACE
 
@@ -335,22 +335,22 @@ START_NAMESPACE
 				free(p);
 				return NULL;
 			}
-			return PU(p);
+		    return PU(p);
 		}
-		return NULL;
+        return NULL;
 	}
 
 	void * traced_calloc(size_t count, size_t size, const char * par_txt, int line, const char * file) {
 		void * p;
 		initialize();
-				size *= count;
-				p = canary_malloc(size, 0);
+                size *= count;
+                p = canary_malloc(size, 0);
 		if(p) {
 			if(!register_memory(p,size,pack(FCALLOC,par_txt,line,file))) {
 				free(p);
 				return NULL;
 			}
-			return PU(p);
+		    return PU(p);
 		}
 		return NULL;
 	}
@@ -362,53 +362,53 @@ START_NAMESPACE
 			free(P(pu));
 		} else {
 			/*free(NULL) eset*/
-#ifdef MEMTRACE_TO_FILE
+			#ifdef MEMTRACE_TO_FILE
 				fprintf(trace_file,"%s\t%d\t%10s\t","NULL",-1,pretty[FFREE]);
 				fprintf(trace_file,"%d\t%s\n",line,file ? file : "?");
 				fflush(trace_file);
-#endif
-#ifndef ALLOW_FREE_NULL
+			#endif
+			#ifndef ALLOW_FREE_NULL
 			{/*C-blokk*/
 				call_t call;
 				call = pack(FFREE,par_txt,line,file);
 				die("free(NULL) hivasa:",NULL,0,NULL,&call);
 			}/*C-blokk*/
-#endif
+			#endif
 		}
 	}
 
 	void * traced_realloc(void * old, size_t size, const char * par_txt, int line, const char * file) {
 		void * p;
-		size_t oldsize = 0;
+        size_t oldsize = 0;
 		registry_item * n;
 		initialize();
 
-#ifdef MEMTRACE_TO_MEMORY
-				n = find_registry_item(P(old));
-				if (n) oldsize = n->next->size;
+		#ifdef MEMTRACE_TO_MEMORY
+        		n = find_registry_item(P(old));
+        		if (n) oldsize = n->next->size;
 			p = canary_malloc(size, random_byte);
-#else
-				p = realloc(old, size);
-#endif
+        	#else
+        		p = realloc(old, size);
+        	#endif
 		if (p) {
 			/*Ha sikerult a foglalas, regisztraljuk*/
 			register_memory(p,size,pack(FREALLOC, par_txt, line,file));
-					if (old) {
-#ifdef MEMTRACE_TO_MEMORY
+            		if (old) {
+				#ifdef MEMTRACE_TO_MEMORY
 					int cpsize = 2*CANARY_LEN;
-							if (oldsize < size) cpsize += oldsize;
-							else cpsize += size;
-							memcpy(p, P(old), cpsize);
-#endif
-						unregister_memory(P(old), pack(FREALLOC, par_txt, line, file));
-#ifdef MEMTRACE_TO_MEMORY
-							free P(old);
-#endif
-					}
-					return PU(p);
+                			if (oldsize < size) cpsize += oldsize;
+                			else cpsize += size;
+                			memcpy(p, P(old), cpsize);
+				#endif
+		    			unregister_memory(P(old), pack(FREALLOC, par_txt, line, file));
+				#ifdef MEMTRACE_TO_MEMORY
+                			free P(old);
+            			#endif
+            		}
+            		return PU(p);
 		} else {
-				return NULL;
-			}
+	    		return NULL;
+        	}
 	}
 
 END_NAMESPACE
@@ -461,7 +461,7 @@ START_NAMESPACE
 			free(P(pu));
 		}
 		delete_called=FALSE;
-	 }
+ 	}
 END_NAMESPACE
 
 void * operator new(size_t size, int line, const char * file) THROW_BADALLOC {
@@ -488,13 +488,6 @@ void operator delete[](void * p) THROW_NOTHING {
 	memtrace::traced_delete(p,FDELETEARR);
 }
 
-void operator delete(void * p, size_t) THROW_NOTHING {
-	memtrace::traced_delete(p,FDELETE);
-}
-
-void operator delete[](void * p, size_t) THROW_NOTHING {
-	memtrace::traced_delete(p,FDELETEARR);
-}
 
 /* Visual C++ 2012 miatt kell, mert háklis, hogy nincs megfelelő delete, bár senki sem használja */
 void operator delete(void * p, int, const char *) THROW_NOTHING {
@@ -515,30 +508,30 @@ START_NAMESPACE
 	static void initialize() {
 		static BOOL first = TRUE;
 		if(first) {
-			fperror = stderr;
-			random_byte = (unsigned char)time(NULL);
+            fperror = stderr;
+            random_byte = (unsigned char)time(NULL);
 			first = FALSE;
 			dying = FALSE;
-#ifdef MEMTRACE_TO_MEMORY
+			#ifdef MEMTRACE_TO_MEMORY
 				registry.next = NULL;
-#if !defined(USE_ATEXIT_OBJECT) && defined(MEMTRACE_AUTO)
+				#if !defined(USE_ATEXIT_OBJECT) && defined(MEMTRACE_AUTO)
 					atexit((void(*)(void))mem_check);
-#endif
-#endif
-#ifdef MEMTRACE_TO_FILE
+				#endif
+			#endif
+			#ifdef MEMTRACE_TO_FILE
 				trace_file = fopen("memtrace.dump","w");
-#endif
-#ifdef MEMTRACE_CPP
+			#endif
+			#ifdef MEMTRACE_CPP
 				_new_handler = NULL;
 				delete_called = FALSE;
 				delete_call = pack(0,NULL,0,NULL);
-#endif
+			#endif
 		}
 	}
 
 #if defined(MEMTRACE_TO_MEMORY) && defined(USE_ATEXIT_OBJECT)
-	int atexit_class::counter = 0;
-	int atexit_class::err = 0;
+    int atexit_class::counter = 0;
+    int atexit_class::err = 0;
 #endif
 END_NAMESPACE
 #endif

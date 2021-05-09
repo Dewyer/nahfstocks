@@ -1,10 +1,10 @@
 #include "lib_tests.h"
-#include "../../lib/external/gtest_lite.h"
 #include "../../lib/option/Option.h"
 #include "../../lib/collections/Vector.h"
 #include "../../lib/string/String.h"
 #include "../../lib/memory/Rc.h"
 #include "../cc_test.h"
+#include "../../lib/external/gtest_lite.h"
 
 using namespace nhflib;
 

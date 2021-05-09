@@ -1,6 +1,9 @@
-#include "String.h"
+#include "../prelude.h"
 #include <iostream>
 #include <cstring>
+#include <streambuf>
+#include <string.h>
+#include "String.h"
 
 using std::cin;
 using std::ios_base;

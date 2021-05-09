@@ -4,25 +4,27 @@ project(nahfstocks)
 set(CMAKE_CXX_STANDARD 11)
 
 if (MSVC)
-    add_compile_options(/W4 /WX)
+    add_compile_options(/W4 /WX /EHa)
 else ()
     add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif ()
 
-add_definitions(-D"${TEST_VAR}" -DETHREAD)
+add_definitions(-D"${TEST_VAR}" -DETHREAD -DMEMTRACE)
+
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 
 find_package( Threads )
 
 add_executable(nahfstocks
         src/main.cpp
+        lib/external/memtrace.h
+        lib/external/memtrace.cpp
         lib/string/String.h
         lib/string/String.cpp
         lib/option/Option.h
         tests/Tests.cpp
         tests/Tests.h
         lib/external/gtest_lite.h
-        lib/external/memtrace.h
-        lib/external/memtrace.cpp
         src/exchange/Exchange.cpp
         src/exchange/Exchange.h
         lib/types.h
@@ -91,6 +93,18 @@ add_executable(nahfstocks
         src/cli/CliTableBuilder.cpp
         src/cli/CliTableBuilder.h
         tests/cli/cli_mock.cpp
-        src/exchange/exchange_api/Order.cpp src/utils/to_string.cpp src/utils/to_string.h src/trader/last_names_data.h src/trader/first_names_data.h src/events/Event.cpp)
+        src/exchange/exchange_api/Order.cpp
+        src/utils/to_string.cpp
+        src/utils/to_string.h
+        src/trader/last_names_data.h
+        src/trader/first_names_data.h
+        src/events/Event.cpp
+        src/trader/NormalTraderAgent.cpp
+        src/trader/NormalTraderAgent.h
+        lib/prelude.h lib/memory/remove.cpp lib/memory/remove.h)
 
-target_link_libraries(nahfstocks ${CMAKE_THREAD_LIBS_INIT})
+# target_link_libraries(nahfstocks ${CMAKE_THREAD_LIBS_INIT})
+# target_compile_options(nahfstocks PRIVATE -fsanitize=address)
+# target_link_directories(nahfstocks PRIVATE "$ENV{ProgramFiles\(x86\)}/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/lib/clang/11.0.0/lib/windows")
+# target_link_libraries(nahfstocks PRIVATE clang_rt.asan_dynamic-x86_64 clang_rt.asan_dynamic_runtime_thunk-x86_64)
+# target_link_options(nahfstocks PRIVATE /wholearchive:clang_rt.asan_dynamic_runtime_thunk-x86_64.lib)

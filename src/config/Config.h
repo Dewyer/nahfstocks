@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/types.h"
 #include "../../lib/option/Option.h"
 #include "../../lib/string/String.h"
@@ -26,19 +25,19 @@ namespace config {
 		Map<String, ConfigValue> configs;
 		Vector<ConfigKeyDefinition> definitions;
 
-		static String SKIP_CIN_CONFIG_KEY;
-		static String INTERACTIVE_MODE_KEY;
-		static String CYCLE_LIMITS_KEY;
-		static String SEED_KEY;
-		static String LOG_LEVEL_KEY;
-		static String COMPANY_COUNT_KEY;
-		static String TRADER_COUNT_KEY;
-		static String EARNINGS_CYCLES_KEY;
-		static String DIVIDEND_CYCLES_KEY;
-		static String TRADER_MONEY_KEY;
-		static String TRADER_INCOME_KEY;
-		static String MEDIAN_IPO_KEY;
-		static String PRICE_SAMPLING_RATE_KEY;
+		static const char* SKIP_CIN_CONFIG_KEY;
+		static const char* INTERACTIVE_MODE_KEY;
+		static const char* CYCLE_LIMITS_KEY;
+		static const char* SEED_KEY;
+		static const char* LOG_LEVEL_KEY;
+		static const char* COMPANY_COUNT_KEY;
+		static const char* TRADER_COUNT_KEY;
+		static const char* EARNINGS_CYCLES_KEY;
+		static const char* DIVIDEND_CYCLES_KEY;
+		static const char* TRADER_MONEY_KEY;
+		static const char* TRADER_INCOME_KEY;
+		static const char* MEDIAN_IPO_KEY;
+		static const char* PRICE_SAMPLING_RATE_KEY;
 
 		void process_config_string_read(const String &line);
 

@@ -1,5 +1,6 @@
 #include "Exchange.h"
 #include <utility>
+#include <algorithm>
 #include "../../lib/types.h"
 #include "exchange_api/MarketContext.h"
 #include "exchange_api/ExchangeApi.h"
@@ -327,6 +328,7 @@ void exchange::Exchange::init_traders() {
 	for (auto trader: *this->traders) {
 		trader->trader->init(TraderAgentInitPayload {
 			trader->trader_id,
+			this->get_companies(),
 		});
 	}
 }

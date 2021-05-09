@@ -1,17 +1,25 @@
 #pragma once
-
+#include "../../lib/collections/Vector.h"
 #include "../../lib/string/String.h"
 #include "../cli/CliHelper.h"
 
-using cli::CliHelper;
+namespace company {
+	class Company;
+}
 
 namespace exchange {
 	class ExchangeApi;
 }
 
+using company::Company;
+using nhflib::Vector;
+using cli::CliHelper;
+
+
 namespace trader {
 	struct TraderAgentInitPayload {
 		usize agent_id;
+		const Rc<Vector<Company>>& companies;
 	};
 
 	class TraderAgent {

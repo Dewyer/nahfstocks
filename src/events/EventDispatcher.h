@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/rand/RandomProvider.h"
 #include "../../lib/collections/Vector.h"
 #include "../../lib/memory/Rc.h"

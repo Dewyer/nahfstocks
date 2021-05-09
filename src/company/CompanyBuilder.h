@@ -1,11 +1,12 @@
 #pragma once
-
+#include <memory>
+#include <utility>
+#include "../../lib/prelude.h"
 #include "../../lib/rand/RandomProvider.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/string/String.h"
 #include "./Company.h"
-#include <memory>
-#include <utility>
+
 
 using nhflib::RandomProvider;
 using nhflib::String;

@@ -1,7 +1,4 @@
-//
-// Created by Barna on 2021. 05. 03..
-//
-
+#include <string>
 #include "ConfigValue.h"
 
 namespace config {

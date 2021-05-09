@@ -23,9 +23,9 @@ typedef long double f128;
 
 namespace nhflib {
 	namespace constants {
-		constexpr double PI() { return std::atan(1) * 4; }
+		constexpr double PI() { return 3.14159265358979323846; }
 
-		constexpr double E() { return std::exp(1); }
+		constexpr double E() { return 2.718281828459045235360; }
 	}
 }
 

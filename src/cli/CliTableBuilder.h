@@ -1,6 +1,6 @@
 #pragma once
-
 #include <sstream>
+#include "../../lib/prelude.h"
 #include "./CliHelper.h"
 #include "../../lib/collections/Vector.h"
 #include "../../lib/string/String.h"

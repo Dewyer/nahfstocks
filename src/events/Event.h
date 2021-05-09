@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/option/Option.h"
 #include "../../lib/types.h"
 #include "../../lib/string/String.h"

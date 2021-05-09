@@ -1,5 +1,5 @@
 #pragma once
-
+#include <algorithm>
 #include "../../trader/TraderAgent.h"
 #include "../../../lib/string/String.h"
 #include "../../../lib/collections/Vector.h"

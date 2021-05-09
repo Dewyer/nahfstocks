@@ -1,10 +1,11 @@
 #pragma once
-
+#include "../prelude.h"
 #include <iostream>
 #include <cstring>
 #include "../types.h"
 #include "../collections/Vector.h"
 #include "../memory/Rc.h"
+#include "../external/memtrace.h"
 
 using nhflib::Vector;
 using nhflib::Rc;
@@ -31,11 +32,6 @@ namespace nhflib {
 		String(const String &s1);
 
 		virtual ~String() { delete[] stringData; }
-
-		void print_debug(const char *txt = "") const {
-			std::cout << txt << "[" << length << "], "
-					  << (stringData ? stringData : "(NULL)") << std::endl;
-		}
 
 		Rc<Vector<String>> split(char by_char) const;
 

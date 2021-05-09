@@ -1,9 +1,9 @@
 #pragma once
-
-#include <vector>
+#include "../prelude.h"
 #include "../memory/Rc.h"
 #include "../option/Option.h"
 #include "../types.h"
+#include "../external/memtrace.h"
 
 namespace nhflib {
 	template<typename T>

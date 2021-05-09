@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../../lib/string/String.h"
 
 using nhflib::String;

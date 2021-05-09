@@ -1,11 +1,11 @@
-#include "company_tests.h"
 #include "iostream"
-#include "../../lib/external/gtest_lite.h"
+#include "company_tests.h"
 #include "../../src/company/CompanyBuilder.h"
 #include "../../lib/rand/RandomProvider.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/option/Option.h"
 #include "../cc_test.h"
+#include "../../lib/external/gtest_lite.h"
 
 using nhflib::RandomProvider;
 using nhflib::Option;

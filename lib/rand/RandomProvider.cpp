@@ -1,7 +1,7 @@
-
-#include "RandomProvider.h"
+#include "../prelude.h"
 #include <random>
 #include <math.h>
+#include "RandomProvider.h"
 
 nhflib::RandomProvider::RandomProvider(nhflib::Option<usize> seed) {
 	this->seed(std::move(seed));
