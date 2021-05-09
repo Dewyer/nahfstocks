@@ -20,6 +20,8 @@
 #include <memory>
 #include <limits>
 #include <functional>
+#include <cstdlib>
+#include <random>
 #include "../prelude.h"
 #include "../types.h"
 #include "../external/memtrace.h"

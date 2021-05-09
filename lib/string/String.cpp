@@ -51,7 +51,7 @@ const char &String::operator[](unsigned int idx) const {
 String String::operator+(const String &rhs_s) const {
 	String temp;
 	temp.length = length + rhs_s.length;
-	delete[]temp.stringData;
+	delete[] temp.stringData;
 	temp.stringData = new char[temp.length + 1];
 	strcpy(temp.stringData, stringData);
 	strcat(temp.stringData, rhs_s.stringData);

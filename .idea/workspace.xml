@@ -37,52 +37,12 @@
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Map.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Map.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/external/gtest_lite.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/gtest_lite.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/external/memtrace.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/memtrace.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/external/memtrace.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/memtrace.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/memory/Rc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/memory/Rc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/option/Option.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/memory/remove.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/memory/remove.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/rand/RandomProvider.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/rand/RandomProvider.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/string/String.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/string/String.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/string/String.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/types.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/types.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliHelper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliHelper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliHelper.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliQuestioner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliQuestioner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliQuestioner.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliQuestioner.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliTableBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliTableBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/CliTableBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/CliTableBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyAgent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyAgent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/CompanyBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/CompanyBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/names_data.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/names_data.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/Config.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/ConfigValue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/ConfigValue.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/ConfigValue.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/ConfigValue.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/events/Event.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/Event.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/events/EventDispatcher.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/EventDispatcher.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simulation/Simulation.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/Simulation.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/format_money.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/format_money.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/to_string.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/to_string.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/company/company_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/company/company_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/events/events_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/events/events_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/exchange/exchange_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/exchange/exchange_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +265,7 @@
       <workItem from="1620478825286" duration="17179000" />
       <workItem from="1620551372458" duration="9106000" />
       <workItem from="1620572400308" duration="3920000" />
-      <workItem from="1620577621942" duration="5934000" />
+      <workItem from="1620577621942" duration="6559000" />
     </task>
     <servers />
   </component>

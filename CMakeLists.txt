@@ -101,7 +101,7 @@ add_executable(nahfstocks
         src/events/Event.cpp
         src/trader/NormalTraderAgent.cpp
         src/trader/NormalTraderAgent.h
-        lib/prelude.h lib/memory/remove.cpp lib/memory/remove.h)
+        lib/prelude.h)
 
 # target_link_libraries(nahfstocks ${CMAKE_THREAD_LIBS_INIT})
 # target_compile_options(nahfstocks PRIVATE -fsanitize=address)
