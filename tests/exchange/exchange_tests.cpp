@@ -60,7 +60,7 @@ CC_TEST(void ExchangeTester::run_exchange_tests(), {
 		auto exchange = exchange_builder->build_random();
 
 		EXPECT_NO_THROW(
-		for (int ii = 0; ii < 100; ++ii) {
+		for (int ii = 0; ii < 5; ++ii) {
 			exchange->cycle();
 		}
 		);

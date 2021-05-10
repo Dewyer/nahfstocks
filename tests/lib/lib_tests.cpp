@@ -14,6 +14,7 @@ public:
 	usize b;
 };
 
+#ifdef ETEST
 template<typename T>
 void working_expect_throw(const std::function<void()> &func) {
 	bool caught = false;
@@ -29,6 +30,8 @@ void working_expect_throw(const std::function<void()> &func) {
 		EXPECT_EQ("other", "Bad throw dude!");
 	}
 }
+#endif
+
 
 CC_TEST(void run_lib_tests(), {
 	TEST(LibTests, Option)

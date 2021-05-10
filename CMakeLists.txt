@@ -9,11 +9,11 @@ else ()
     add_compile_options(-Wall -Wextra -pedantic -Werror)
 endif ()
 
-add_definitions(-D"${TEST_VAR}" -DETHREAD -DMEMTRACE)
+add_definitions(-D"${TEST_VAR}" -DMEMTRACE)
 
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libgcc -static-libstdc++")
 
-find_package( Threads )
+# find_package( Threads )
 
 add_executable(nahfstocks
         src/main.cpp
@@ -101,7 +101,7 @@ add_executable(nahfstocks
         src/events/Event.cpp
         src/trader/NormalTraderAgent.cpp
         src/trader/NormalTraderAgent.h
-        lib/prelude.h)
+        lib/prelude.h lib/external/gtest_real.h)
 
 # target_link_libraries(nahfstocks ${CMAKE_THREAD_LIBS_INIT})
 # target_compile_options(nahfstocks PRIVATE -fsanitize=address)

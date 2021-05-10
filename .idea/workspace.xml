@@ -36,14 +36,13 @@
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/TraderRecordInExchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/NormalTraderAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/NormalTraderAgent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/external/gtest_lite.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/external/gtest_lite.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/exchange/exchange_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/exchange/exchange_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lib/lib_tests.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/trader/trader_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/trader/trader_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +265,7 @@
       <workItem from="1620478825286" duration="17179000" />
       <workItem from="1620551372458" duration="9106000" />
       <workItem from="1620572400308" duration="3920000" />
-      <workItem from="1620577621942" duration="33134000" />
+      <workItem from="1620577621942" duration="34599000" />
     </task>
     <servers />
   </component>
@@ -297,11 +296,6 @@
           <url>file://$PROJECT_DIR$/src/exchange/Exchange.cpp</url>
           <line>143</line>
           <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/exchange/Exchange.cpp</url>
-          <line>273</line>
-          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

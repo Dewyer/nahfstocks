@@ -7,7 +7,7 @@
 constexpr bool THREADING_ENABLED =
 #ifdef ETHREAD
 		true
-#elif
+#else
 false
 #endif
 ;
