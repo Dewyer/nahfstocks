@@ -26,6 +26,7 @@ void trader::NormalTraderAgent::on_cycle(exchange::ExchangeApi &api) {
 	this->adjust_profiles_with_events(api);
 	this->adjust_profiles_with_price_data(api);
 
+	this->negotiate_orders(api);
 	this->sell_stocks(api);
 	this->buy_up_stocks(api);
 	this->had_cycle = true;
@@ -79,7 +80,9 @@ void trader::NormalTraderAgent::buy_one_stock(ExchangeApi &api) {
 	}
 
 	auto worth = this->get_per_stock_spending(api.get_trader_available_balance()) * (1+this->rng->next_f64(0, 0.2)-0.1);
-	auto price_per_share = (usize)(cmp->get_ask().unwrap_or(0) * (1 + NormalTraderAgent::negotiation_percentage(cmp_prof->sentiment, 0)));
+	auto base_pr = cmp->get_bid().unwrap_or(0);
+	auto adjusted_negotiation_pr = (usize)(base_pr * (1 - NormalTraderAgent::negotiation_percentage(cmp_prof->sentiment, 0)));
+	auto price_per_share = std::max(adjusted_negotiation_pr, (usize)1);
 	auto shares = (usize)std::floor(worth / price_per_share);
 
 	if (shares < 1) {
@@ -90,8 +93,8 @@ void trader::NormalTraderAgent::buy_one_stock(ExchangeApi &api) {
 		return;
 	}
 
-	api.get_cli()->os() << "T opening Buy: " << this->get_id() <<", " << shares << " symb: "<< cmp->get_symbol();
-	api.get_cli()->print_ln();
+	// api.get_cli()->os() << "T opening Buy: " << this->get_id() <<", " << shares << " symb: "<< cmp->get_symbol();
+	// api.get_cli()->print_ln();
 
 	api.open_order(exchange::OrderCreationPayload {
 		exchange::OrderType::Buy,
@@ -243,32 +246,41 @@ usize trader::NormalTraderAgent::get_per_stock_spending(usize balance) const {
 void trader::NormalTraderAgent::sell_stocks(ExchangeApi &api) {
 	auto portfolio = api.get_owned_stocks();
 	auto companies = api.get_market_context().companies;
+	auto orders = api.get_orders();
 
 	for (auto stock : portfolio) {
 		auto profile = this->company_profiles.find([&stock](Rc<TraderCompanyProfile> prof){
 			return stock->company_id == prof->company_id;
 		});
-		auto cmp = companies->find([&profile] (Rc<Company> cmp) {
-			return cmp->get_id() == profile->company_id;
+		auto cmp = companies->find([&stock] (Rc<Company> cmp) {
+			return cmp->get_id() == stock->company_id;
+		});
+		auto order_for_comp = orders.find([&stock] (Rc<Order> cmp) {
+			return cmp->company_id == stock->company_id;
 		});
 
-		if (!profile) {
+		if (!profile || order_for_comp) {
 			continue;
 		}
 		auto bias = this->bought_bias * this->get_fundamentals(cmp);
-		auto stop_loss_s = bias + this->stop_loss;
+		auto stop_loss_s = -(bias + this->stop_loss);
 		auto stop_win_ws = bias + this->stop_win;
+		auto price = cmp->get_stock_price();
 
-		if (profile->sentiment > stop_loss_s && profile->sentiment < stop_win_ws) {
+		auto profit = stock->bought_for / (f64)(price == 0 ? 1 : price) - 1;
+
+		if (profit > stop_loss_s && profit < stop_win_ws) {
 			continue;
 		}
 
 		auto price_per_share = (usize)((NormalTraderAgent::negotiation_percentage(profile->sentiment, 0)+1) * cmp->get_ask().unwrap_or(0));
+		// api.get_cli()->os() << "T opening Sell: " << this->get_id() <<", " << stock->amount << " symb: "<< cmp->get_symbol() << ", for/sh: "<< utils::format_money(price_per_share);
+		// api.get_cli()->print_ln();
 
 		api.open_order(exchange::OrderCreationPayload {
 			exchange::OrderType::Sell,
 			cmp->get_id(),
-			stock->amount,
+			stock->free_amount,
 			price_per_share,
 			Option<usize>()
 		});
@@ -277,7 +289,60 @@ void trader::NormalTraderAgent::sell_stocks(ExchangeApi &api) {
 
 f64 trader::NormalTraderAgent::negotiation_percentage(f64 sentiment, usize time) {
 	auto senti_norm = std::min(std::max(sentiment, -1.0), 1.0);
-	auto pp = (0.1*senti_norm)/time;
+	auto pp = (0.1*senti_norm)/(time+1);
 	return pp >= 0.01 ? pp : 0;
+}
+
+void trader::NormalTraderAgent::negotiate_orders(ExchangeApi &api) {
+	auto orders = api.get_orders().clone();
+	auto companies = api.get_market_context().companies;
+
+	for (auto ord: orders) {
+		auto negot = this->negotiations.find([&ord](Rc<OrderNegotiation> nn){
+			return nn->order_id == ord->id;
+		});
+
+		auto cmp = companies->find([&ord] (Rc<Company> cmp) {
+			return cmp->get_id() == ord->company_id;
+		});
+
+		auto profile = company_profiles.find([&ord] (Rc<TraderCompanyProfile> prof) {
+			return prof->company_id == ord->company_id;
+		});
+
+		if (!cmp || !profile) {
+			continue;;
+		}
+
+		if (!negot) {
+			OrderNegotiation nn {
+				ord->id,
+				0
+			};
+			negot = nhflib::make_rc(nn);
+			this->negotiations.push_back(negot);
+		}
+		auto new_price = ord->target_price;
+
+		if (ord->type == exchange::OrderType::Buy) {
+			auto base_pr = cmp->get_bid().unwrap_or(0);
+			auto adjusted_negotiation_pr = (usize)(base_pr * (1 - NormalTraderAgent::negotiation_percentage(profile->sentiment, negot->times)));
+			new_price = std::max(adjusted_negotiation_pr, (usize)1);
+		} else {
+			new_price = (usize)((NormalTraderAgent::negotiation_percentage(profile->sentiment, negot->times)+1) * cmp->get_ask().unwrap_or(0));
+		}
+
+		exchange::OrderCreationPayload new_ord {
+			ord->type,
+			ord->company_id,
+			ord->amount,
+			new_price,
+			Option<usize>(),
+		};
+		api.cancel_order(ord->id);
+		auto oo = api.open_order(new_ord);
+		negot->order_id = oo.id;
+		negot->times++;
+	}
 }
 

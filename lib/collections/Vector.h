@@ -116,7 +116,7 @@ namespace nhflib {
 			delete[] temp;
 
 			this->len--;
-			this->capacity = this->size() - 1;
+			this->capacity = this->size();
 		}
 
 		void insert_at(usize idx, const Rc <T> &el) {
@@ -129,7 +129,7 @@ namespace nhflib {
 
 			temp.push_back(el);
 
-			for (usize ii = idx + 1; ii < this->size(); ii++) {
+			for (usize ii = idx; ii < this->size(); ii++) {
 				auto el_at = this->at(ii);
 				temp.push_back(el_at);
 			}

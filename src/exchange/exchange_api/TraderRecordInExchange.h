@@ -24,6 +24,7 @@ namespace exchange {
 		usize company_id;
 		usize amount;
 		usize free_amount;
+		usize bought_for;
 	};
 
 	struct CompanyDto {
@@ -72,7 +73,7 @@ namespace exchange {
 			return this->total_balance - this->available_balance;
 		}
 
-		void add_or_sub_stocks_and_free_stocks(usize company, i32 amount, i32 free_amount) {
+		void add_or_sub_stocks_and_free_stocks(usize company, i32 amount, i32 free_amount, usize buy_for) {
 			auto existing_rec = this->stocks.find([&company](Rc<TraderStock> stck) {
 				return stck->company_id == company;
 			});
@@ -80,6 +81,10 @@ namespace exchange {
 			if (!existing_rec.is_null()) {
 				existing_rec->amount +=
 						amount < 0 ? -std::min(-1 * amount, static_cast<i32>(existing_rec->amount)) : amount;
+				if (amount > 0) {
+					existing_rec->bought_for = (buy_for*amount + existing_rec->bought_for*existing_rec->amount)/(amount + existing_rec->amount);
+				}
+
 				existing_rec->free_amount +=
 						free_amount < 0 ? -std::min(-1 * free_amount, static_cast<i32>(existing_rec->free_amount))
 										: free_amount;
@@ -102,7 +107,8 @@ namespace exchange {
 			this->stocks.push_back(TraderStock{
 					company,
 					am,
-					fam
+					fam,
+					buy_for
 			});
 		}
 

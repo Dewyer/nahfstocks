@@ -118,7 +118,7 @@ namespace config {
 		}
 
 		virtual usize get_price_sampling_rate() {
-			auto sampling = this->get_config_with_default<int>(Config::PRICE_SAMPLING_RATE_KEY, 20);
+			auto sampling = this->get_config_with_default<int>(Config::PRICE_SAMPLING_RATE_KEY, 10);
 			return sampling;
 		}
 

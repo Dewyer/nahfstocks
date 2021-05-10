@@ -53,7 +53,7 @@ void exchange::Exchange::setup_traders(
 
 		TraderRecordInExchange rec(trader_id++, company_trader.base_rc<TraderAgent>(), 0, 0);
 		auto shares_to_add = static_cast<i32>(company_target->get_outstanding_shares());
-		rec.add_or_sub_stocks_and_free_stocks(company_trader->get_company(), shares_to_add, shares_to_add);
+		rec.add_or_sub_stocks_and_free_stocks(company_trader->get_company(), shares_to_add, shares_to_add, 1);
 
 		this->traders->push_back(rec);
 	}
@@ -172,7 +172,7 @@ exchange::Exchange::open_order(Rc<TraderRecordInExchange> trader, exchange::Orde
 	if (order.type == OrderType::Buy) {
 		trader->available_balance -= order.get_total_price();
 	} else {
-		trader->add_or_sub_stocks_and_free_stocks(order.company_id, 0, -static_cast<i32>(order.amount));
+		trader->add_or_sub_stocks_and_free_stocks(order.company_id, 0, -static_cast<i32>(order.amount), 0);
 	}
 
 	if (!comp_target->had_an_ipo) {
@@ -201,7 +201,6 @@ void exchange::Exchange::cancel_order(Rc<TraderRecordInExchange> trader, usize o
 		throw std::runtime_error("Order with id doesn't exists");
 	}
 
-
 	comp_target->orders.remove([order_id](Rc<exchange::Order> ord) {
 		return ord->id == order_id;
 	});
@@ -213,7 +212,7 @@ void exchange::Exchange::cancel_order(Rc<TraderRecordInExchange> trader, usize o
 	if (order_target->type == OrderType::Buy)
 		trader->available_balance += order_target->get_total_price();
 	else
-		trader->add_or_sub_stocks_and_free_stocks(order_target->company_id, 0, order_target->amount);
+		trader->add_or_sub_stocks_and_free_stocks(order_target->company_id, 0, order_target->amount, 0);
 }
 
 void exchange::Exchange::execute_open_auction() {
@@ -225,8 +224,8 @@ void exchange::Exchange::execute_open_auction() {
 				continue;
 			}
 
-			for (usize kk = ii - 1;; kk--) {
-				auto sell_order = cmp->orders[kk];
+			for (int kk = (int)ii - 1; kk >= 0; kk--) {
+				auto sell_order = cmp->orders[(usize)kk];
 				auto buyer = this->traders->find([&at_order](Rc<TraderRecordInExchange> tr) {
 					return tr->trader_id == at_order->trader_id;
 				});
@@ -243,10 +242,6 @@ void exchange::Exchange::execute_open_auction() {
 				if (at_order->amount == 0) {
 					break;
 				}
-
-				if (kk == 0) {
-					break;
-				}
 			}
 		}
 	});
@@ -260,6 +255,9 @@ void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_orde
 	usize total_sale_price = exchange_price * exchanged_am;
 	auto exchanged_company = buy_order->company_id;
 
+	this->cli->os() << "Exec trade: " << buy_order->id << " w " << sell_order->id <<", for: "<<utils::format_money(total_sale_price) << ", comp.: " << company->get_symbol();
+	this->cli->print_ln();
+
 	usize buy_target = buy_order->get_total_price();
 
 	buy_order->amount -= exchanged_am;
@@ -269,8 +267,8 @@ void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_orde
 	seller->total_balance += total_sale_price;
 	seller->available_balance += total_sale_price;
 
-	buyer->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am);
-	seller->add_or_sub_stocks_and_free_stocks(exchanged_company, -exchanged_am, -exchanged_am);
+	buyer->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am, exchange_price);
+	seller->add_or_sub_stocks_and_free_stocks(exchanged_company, -exchanged_am, -exchanged_am, 0);
 
 	company->cached_buy_vol -= exchanged_am;
 	company->cached_sell_vol -= exchanged_am;

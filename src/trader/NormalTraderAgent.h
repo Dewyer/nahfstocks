@@ -25,6 +25,11 @@ namespace trader {
 		usize last_sell_vol;
 	};
 
+	struct OrderNegotiation {
+		usize order_id;
+		usize times;
+	};
+
 	class NormalTraderAgent : public TraderAgent {
 		Rc<RandomProvider> rng;
 		Rc<Config> config;
@@ -43,6 +48,7 @@ namespace trader {
 		bool had_cycle;
 
 		Vector<TraderCompanyProfile> company_profiles;
+		Vector<OrderNegotiation> negotiations;
 
 		usize get_per_stock_spending(usize balance) const;
 
@@ -71,11 +77,15 @@ namespace trader {
 		static f64 negotiation_percentage(f64 sentiment, usize time);
 
 		void sell_stocks(ExchangeApi &api);
+
+		void negotiate_orders(ExchangeApi &api);
+
 	public:
 		NormalTraderAgent(const String& _name, const Rc<RandomProvider>& _rng, const Rc<Config>& _config): TraderAgent(_name) {
 			this->rng = _rng;
 			this->config = _config;
 			this->company_profiles = Vector<TraderCompanyProfile>();
+			this->negotiations = Vector<OrderNegotiation>();
 
 			this->had_cycle = false;
 			this->choose_random_settings();

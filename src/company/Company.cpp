@@ -174,7 +174,7 @@ void company::Company::view_price_table_in_range(Rc<CliHelper> cli, usize from_i
 		throw std::runtime_error("No pricing records to show.");
 	}
 
-	auto range_ok = record_count - 1 >= from_idx && to_idx > from_idx && to_idx <= record_count - 1;
+	auto range_ok = record_count - 1 >= from_idx && to_idx >= from_idx && to_idx <= record_count - 1;
 	if (!range_ok) {
 		throw std::runtime_error("Invalid view for price table.");
 	}
