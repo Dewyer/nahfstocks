@@ -9,6 +9,7 @@ using nhflib::Vector;
 using nhflib::Rc;
 
 namespace nhflib {
+	/// Map implementation for any key and value types that can check fox equality, at this time it is not hash based.
 	template<typename TKey, typename TVal>
 	class Map {
 	private:

@@ -13,6 +13,7 @@ namespace cli {
 
 	class CliTableBuilder;
 
+	/// Console logging helper, with safe generic reads. Also manages other CLi helper classes.
 	class CliHelper {
 		std::ostream *out_stream;
 		std::istream *in_stream;

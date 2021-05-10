@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {1.3}Beállítások}{2}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Interaktív mód}{2}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Szimuláció megállítása/elindítása}{2}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Statisztikák lekérése}{2}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2}Statisztikák lekérése}{3}{subsubsection.1.4.2}%
 \contentsline {subsubsection}{\numberline {1.4.3}Cégek listázása}{3}{subsubsection.1.4.3}%
 \contentsline {subsubsection}{\numberline {1.4.4}Cégek részletes adatai}{3}{subsubsection.1.4.4}%
 \contentsline {subsubsection}{\numberline {1.4.5}Kereskedők listázása}{3}{subsubsection.1.4.5}%
@@ -16,5 +16,8 @@
 \contentsline {subsubsection}{\numberline {3.1.1}Könyvtár - Terv}{3}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Rc<T> - Implementáció}{6}{subsubsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.2}Implementációs - Terv}{6}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Skeleton Program Jelenlegi Állása}{6}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Skeleton Program - Testprogram}{7}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Megvalósítás}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}NormalTraderAgent}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}.config}{7}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Tesztelés}{7}{section.5}%
+\contentsline {section}{\numberline {6}Programozói dokumentáció - Doxygen}{7}{section.6}%

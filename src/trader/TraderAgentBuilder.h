@@ -5,6 +5,8 @@
 #include "TraderAgent.h"
 
 namespace trader {
+
+	/// Builds the default TraderAgent for an exchange
 	class TraderAgentBuilder {
 		nhflib::Rc<nhflib::RandomProvider> rng;
 		nhflib::Rc<config::Config> config;

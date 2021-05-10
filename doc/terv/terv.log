@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.29)  20 APR 2021 03:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.29)  10 MAY 2021 05:15
 entering extended mode
 **./terv.tex
 (terv.tex
@@ -521,26 +521,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--44
  []
 
 [3]
-<./pngs//nhflib2.png, id=131, 569.87906pt x 1186.4325pt>
+<./pngs//nhflib2.png, id=139, 569.87906pt x 1186.4325pt>
 File: ./pngs//nhflib2.png Graphic file (type png)
 <use ./pngs//nhflib2.png>
 Package pdftex.def Info: ./pngs//nhflib2.png  used on input line 83.
 (pdftex.def)             Requested size: 313.43445pt x 652.5399pt.
  [4] [5 <./pngs//nhflib2.png>]
-<./pngs//cli.png, id=149, 2199.71812pt x 1717.91812pt>
+<./pngs//cli.png, id=164, 2199.71812pt x 1717.91812pt>
 File: ./pngs//cli.png Graphic file (type png)
 <use ./pngs//cli.png>
 Package pdftex.def Info: ./pngs//cli.png  used on input line 103.
 (pdftex.def)             Requested size: 439.93584pt x 343.57755pt.
  [6 <./pngs//cli.png>] [7] (terv.aux)
 Package rerunfilecheck Info: File `terv.out' has not changed.
-(rerunfilecheck)             Checksum: FAA5D801346B550170C0C147FBCD0034;3333.
+(rerunfilecheck)             Checksum: 3DA3E8B37E43FF9C09EB16762991E398;3551.
  ) 
 Here is how much of TeX's memory you used:
- 12979 strings out of 479321
- 195086 string characters out of 2856583
- 511758 words of memory out of 3000000
- 30232 multiletter control sequences out of 15000+600000
+ 12985 strings out of 479321
+ 195146 string characters out of 2856583
+ 511761 words of memory out of 3000000
+ 30235 multiletter control sequences out of 15000+600000
  413370 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,8n,74p,396b,1800s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -553,9 +553,9 @@ pen/ec/dpi600\ecbx1000.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fonts/pk/ljfour
 ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Barna\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
 Output written on C:/Users\Barna\Projects\nahfstocks\doc\terv\terv.pdf (7 pages
-, 796605 bytes).
+, 805501 bytes).
 PDF statistics:
- 503 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 535 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 195 words of extra memory for PDF output out of 10000 (max. 10000000)
 

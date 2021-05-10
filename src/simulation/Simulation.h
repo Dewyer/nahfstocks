@@ -16,6 +16,8 @@ using exchange::Exchange;
 using exchange::TraderRecordInExchange;
 
 namespace simulation {
+
+	/// Wraps and constructs an exchange for the SimulatorCli class
 	class Simulation {
 
 		Rc<RandomProvider> rng;

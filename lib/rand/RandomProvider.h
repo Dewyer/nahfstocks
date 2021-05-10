@@ -4,6 +4,7 @@
 #include "../option/Option.h"
 
 namespace nhflib {
+	/// Random number generator, for 64 bit floats and unsigned ints, can produce numbers with normal and even distribution
 	class RandomProvider {
 		std::mt19937 engine;
 	public:

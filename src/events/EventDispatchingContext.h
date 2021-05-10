@@ -7,6 +7,7 @@ namespace company {
 	class Company;
 }
 
+/// The required per dispatch information for the EventDispatcher class
 class EventDispatchingContext {
 public:
 	usize at_cycle;

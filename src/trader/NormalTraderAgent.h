@@ -30,6 +30,7 @@ namespace trader {
 		usize times;
 	};
 
+	/// The basic TraderAgent implementation with trading logic
 	class NormalTraderAgent : public TraderAgent {
 		Rc<RandomProvider> rng;
 		Rc<Config> config;

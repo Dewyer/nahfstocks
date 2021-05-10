@@ -5,5 +5,6 @@
 using nhflib::String;
 
 namespace utils {
+	/// Formats a monetari value to be displayed on the console
 	String format_money(usize money);
 }

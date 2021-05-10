@@ -6,6 +6,7 @@
 #include "../external/memtrace.h"
 
 namespace nhflib {
+	/// Vector that stores any type T, heterogenic
 	template<typename T>
 	class Vector {
 	private:

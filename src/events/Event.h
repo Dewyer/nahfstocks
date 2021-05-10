@@ -15,6 +15,7 @@ namespace event {
 
 	String event_target_to_string(EventTarget target);
 
+	/// Represents an event emitted by the EventDispatcher
 	class Event {
 	public:
 		usize id;

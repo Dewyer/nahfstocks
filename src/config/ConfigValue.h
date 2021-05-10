@@ -10,6 +10,7 @@ namespace config {
 		Bool,
 	};
 
+	/// The dynamically typed config value the Config classes manages
 	class ConfigValue {
 	private:
 		String value;

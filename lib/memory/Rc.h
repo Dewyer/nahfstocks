@@ -27,6 +27,7 @@
 #include "../external/memtrace.h"
 
 namespace nhflib {
+	/// Reference counted smart pointer, for safe memory management
 	template<typename T>
 	class Rc {
 	private:

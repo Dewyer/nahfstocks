@@ -20,6 +20,7 @@ namespace company {
 		String symbol;
 	};
 
+	/// Builder for company agents
 	class CompanyBuilder {
 		Rc<RandomProvider> rng;
 		Rc<config::Config> config;

@@ -4,7 +4,7 @@
 #include "../../lib/string/String.h"
 
 namespace company {
-	// First just sell at a fixed price
+	/// The TraderAgent implementation that helps implement a company IPO
 	class CompanyAgent : public trader::TraderAgent {
 		usize company_id;
 		usize per_share_starter;

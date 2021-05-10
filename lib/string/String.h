@@ -11,6 +11,7 @@ using nhflib::Vector;
 using nhflib::Rc;
 
 namespace nhflib {
+	/// Basic String implementation, works with cstrings under the hood
 	class String {
 		char *stringData;
 		usize length;

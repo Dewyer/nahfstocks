@@ -103,14 +103,28 @@
         \includegraphics[scale=0.20]{cli}
     \end{center}
 
-    \subsection{Skeleton Program Jelenlegi Állása}
-    A program jelenleg előrehaladott az implementáció terén, ami még hátravan, az a kereskedői logika véglegesítése és a CLI interfész teljes lefejlesztése.
-    A testprogram még hiányosságokkal rendelkezik, a piac nem minden funkciójára van teljese lefedettség.
+    \section{Megvalósítás}
+    A megvalósításhoz pár extra segéd osztály bevezetésére volt szükség: \textit{CliHelper} - standard kimenetre való kiírást kezeli, biztonságos beolvasást implementál.
+    \textit{CliQuestioner} - feleletválasztós felhasználói bevitel feldolgozását segító osztály.
+    \textit{CliTableBuilder} - standard kimenetre írandó táblázatok építéséért felelős osztály.
+    Ezeken kívül a \textit{TraderAgent} már csak a kereskedő inteligencia ősosztályaként szerepel, az inteligens megvalósítást a \textit{NormalTraderAgent} tartalmazza erről lejjebb kicsit bővebbem.
 
-    \subsection{Skeleton Program - Testprogram}
-    A testprogram amit mellékelek teljesen jól lefordul és lefut.
-    A Jporta hiányosságai miatt az összes forrásfájlt egy mappába kellett raknom ami megnehezíti bennük való keresést, a végleges program mappákat fog tartalmazni.
-    A tesztprogram részei a \textit{main.cpp} fileban kerülnek meghívásra, ehhez a beadáshoz NEM definiáltam a kódban az \textit{ETEST} szimbólumot (Ez kell ahhoz, hogy a tesztek feltételesen beleforduljanak a kódba).
-    Mivel ha a programom a \textit{gtest\_lite.h} filet próbálja használni akkor a Jporta azt is ellenőrzi és hibásnak találja, ezekbe a fileokba nem tudok belenyúlni tehát a hibákat se tudom kijavítani.
-    (A teszteléshez a javasolt \textit{gtest\_lite} könyvtárat használtam egy saját makróval, ami megkönnyíti a fejlesztést több Cmake profillal.)
+    \subsection{NormalTraderAgent}
+    A kereskedő inteligncie egy egyszerú algoritmust követ, aminek az az alapja, hogy minden példány random, rejtett adatokkal van létrehozva és ezeket felhasználva reagál az eseményekre.
+    Minden kereskedő fentart egy indikátor értéket minden céghez, amit eredetileg csak az elérhető fundamentális adatokból képez.
+    A szimuláció közben pedig minden aktivációjakor frissíti ezt, események beérkezésére az esemény tipusa és súlya alapján.
+    Ár illetve részvény volumen változásokra is reagál, különböző súlyok és diszpozíciók alapján.
+    Megbízásait folyamatosan frissíti az indikátora változása és a megbízás teljesítetlensége miatt.
+
+    \subsection{.config}
+    A másik újítás, az hogy a program már a munka könyvtárában elhelyezett \textit{.config} fileokat is feldolgozza, configurációs kulcs érték párokat olvas be.
+    Ez a fejlesztés megkönnyítését szolgált tenni, a \textit{SKIP\_CIN\_CONFIG} config változó beállításával a standard bemenetről való configuráció teljesen át is léphető.
+
+    \section{Tesztelés}
+    A program álltal használt egyedi könyvtár és a legfőbb működés is automata tesztekkel van lefedve a \textit{g\_test\_lite.h} könyvtár segítségével.
+    A \textit{ETEST} definícióval lefordított program a teszteseteket futtatja le a rendes működés helyett.
+    A beadáshoz a standard input megadását választottam viszont interaktív módban mert így a parancssoros interfész is tesztelve van.
+
+    \section{Programozói dokumentáció - Doxygen}
+
 \end{document}

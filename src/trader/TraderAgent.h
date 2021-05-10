@@ -22,6 +22,7 @@ namespace trader {
 		const Rc<Vector<Company>>& companies;
 	};
 
+	/// The trader agent base class, any agents have to be inherited from this, no functions are required to be implemented
 	class TraderAgent {
 		nhflib::String name;
 		usize id;

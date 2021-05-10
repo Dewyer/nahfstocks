@@ -18,6 +18,7 @@ using cli::CliHelper;
 
 namespace exchange {
 
+	/// Exchange's builder
 	class ExchangeBuilder {
 		Rc<RandomProvider> rng;
 		Rc<Config> config;

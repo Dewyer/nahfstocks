@@ -20,6 +20,7 @@ namespace config {
 		ConfigValueType type;
 	};
 
+	/// Configuration manager class, implements dynamic configuration reading from the standard input and config files
 	class Config {
 	private:
 		Map<String, ConfigValue> configs;
@@ -115,6 +116,11 @@ namespace config {
 
 		virtual usize get_max_trader_positions() const noexcept {
 			return 10;
+		}
+
+		virtual usize get_limit_runs() {
+			auto cycles = this->get_config_with_default<int>(Config::CYCLE_LIMITS_KEY, 5);
+			return (usize)cycles;
 		}
 
 		virtual usize get_price_sampling_rate() {

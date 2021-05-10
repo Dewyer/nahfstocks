@@ -14,6 +14,7 @@ using company::Company;
 using nhflib::Rc;
 using exchange::TraderRecordInExchange;
 
+/// Represents statistics at a certain cycle for an exchange
 class ExchangeStats {
 	usize total_money;
 	Rc<Company> biggest_company;

@@ -10,6 +10,7 @@ using nhflib::Option;
 using nhflib::String;
 
 namespace cli {
+	/// Helper to construct questionares, with a builder API
 	class CliQuestioner {
 		CliHelper &cli;
 		Vector<String> options;

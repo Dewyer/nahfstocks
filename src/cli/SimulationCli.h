@@ -10,6 +10,7 @@ using config::Config;
 using simulation::Simulation;
 
 namespace cli {
+	/// The simulator main class, manages configuration, simulation running and the user interface
 	class SimulationCli {
 		Rc<Simulation> sim;
 		Rc<Config> config;

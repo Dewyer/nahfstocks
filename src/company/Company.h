@@ -26,6 +26,7 @@ namespace company {
 		usize ask;
 	};
 
+	/// Represents a listed company on an exchange
 	class Company {
 	private:
 		friend class exchange::Exchange;

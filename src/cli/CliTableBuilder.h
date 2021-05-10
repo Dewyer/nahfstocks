@@ -32,6 +32,7 @@ namespace cli {
 	};
 
 
+	/// Helper to construct tables, with a builder API
 	class CliTableBuilder {
 		struct CliTableContent {
 			String cell;

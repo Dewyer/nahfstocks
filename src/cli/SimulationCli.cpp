@@ -24,10 +24,9 @@ void cli::SimulationCli::start() {
 		if (this->config->get_is_interactive()) {
 			this->start_interactive();
 		} else {
-			this->cli->print_ln("TO Impl. non interactive");
+			this->sim->run_for(this->config->get_limit_runs());
 		}
 
-		// this->sim->run(Option<usize>(100));
 	} catch (std::runtime_error &err) {
 		this->cli->os() << "Runtime error: " << err.what();
 		this->cli->print_ln();

@@ -3,6 +3,7 @@
 #include "../memory/Rc.h"
 
 namespace nhflib {
+	/// Stores an option value of T, unwrapping throws!
 	template<typename T>
 	class Option {
 		Rc<T> value;

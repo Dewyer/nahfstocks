@@ -30,6 +30,7 @@ using nhflib::RandomProvider;
 using event::Event;
 using event::EventDispatcher;
 
+/// The exchange manages the main business logic behind running the open auction and connects all the pieces, like companies and agents
 namespace exchange {
 	class Exchange {
 	private:

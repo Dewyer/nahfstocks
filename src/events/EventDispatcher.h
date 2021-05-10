@@ -13,6 +13,7 @@ using nhflib::RandomProvider;
 using config::Config;
 
 namespace event {
+	/// Dispatches events on every cycle, managed by an exchange instance
 	class EventDispatcher {
 	private:
 		usize next_event_id;
