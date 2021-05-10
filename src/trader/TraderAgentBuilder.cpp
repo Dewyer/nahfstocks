@@ -9,6 +9,6 @@ nhflib::Rc<trader::TraderAgent> trader::TraderAgentBuilder::build_random() {
 	auto first_name = String(first_name_word_list[first_name_idx]);
 	auto last_name = String(last_name_word_list[last_name_idx]);
 
-	NormalTraderAgent agent(first_name + " " + last_name, this->rng);
+	NormalTraderAgent agent(first_name + " " + last_name, this->rng, this->config);
 	return nhflib::make_rc(agent).base_rc<TraderAgent>();
 }

@@ -113,6 +113,10 @@ namespace config {
 			return 0.30;
 		}
 
+		virtual usize get_max_trader_positions() const noexcept {
+			return 10;
+		}
+
 		virtual usize get_price_sampling_rate() {
 			auto sampling = this->get_config_with_default<int>(Config::PRICE_SAMPLING_RATE_KEY, 20);
 			return sampling;

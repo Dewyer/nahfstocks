@@ -32,9 +32,15 @@ namespace trader {
 			this->id = 0;
 		}
 
+		virtual bool is_retail() const {
+			return false;
+		}
+
 		virtual void print_to(Rc<CliHelper> cli) const noexcept;
 
 		virtual const nhflib::String &get_name() const noexcept;
+
+		virtual const usize &get_id() const noexcept;
 
 		virtual void init(TraderAgentInitPayload payload);
 

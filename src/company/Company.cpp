@@ -71,18 +71,24 @@ void company::Company::add_order(nhflib::Rc<exchange::Order> ord_rc) {
 		if (!this->cached_bid.is_some() || this->cached_bid.unwrap() < ord_rc->target_price) {
 			this->cached_bid.swap(ord_rc->target_price);
 		}
+
+		this->cached_buy_vol += ord_rc->amount;
 	}
 
 	if (ord_rc->type == exchange::OrderType::Sell) {
 		if (!this->cached_ask.is_some() || this->cached_ask.unwrap() > ord_rc->target_price) {
 			this->cached_ask.swap(ord_rc->target_price);
 		}
+
+		this->cached_sell_vol += ord_rc->amount;
 	}
 }
 
-void company::Company::recalculate_bid_ask() {
+void company::Company::recalculate_details() {
 	this->bid = this->cached_bid;
 	this->ask = this->cached_ask;
+	this->buy_vol = this->cached_buy_vol;
+	this->sell_vol = this->cached_sell_vol;
 }
 
 const Option<usize> &company::Company::get_bid() const {
@@ -190,4 +196,24 @@ void company::Company::view_price_table_in_range(Rc<CliHelper> cli, usize from_i
 	}
 
 	price_table.print();
+}
+
+f64 company::Company::get_leadership() const noexcept {
+	return this->leadership_bias;
+}
+
+f64 company::Company::get_financials() const noexcept {
+	return this->financial_standing;
+}
+
+bool company::Company::get_had_an_ipo() const noexcept {
+	return this->had_an_ipo;
+}
+
+usize company::Company::get_buy_vol() const {
+	return this->buy_vol;
+}
+
+usize company::Company::get_sel_vol() const {
+	return this->sell_vol;
 }

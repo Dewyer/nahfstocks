@@ -42,17 +42,25 @@ namespace company {
 
 		Vector<Order> orders;
 
+		usize cached_buy_vol;
+		usize cached_sell_vol;
+
 		Option<usize> cached_bid;
 		Option<usize> cached_ask;
 
 		Option<usize> bid;
 		Option<usize> ask;
 
+		usize buy_vol;
+		usize sell_vol;
+
+		bool had_an_ipo;
+
 		Vector<CompanyPriceRecord> price_records;
 
 		void add_order(nhflib::Rc<exchange::Order> ord_rc);
 
-		void recalculate_bid_ask();
+		void recalculate_details();
 
 		void view_price_table_in_range(Rc<CliHelper> cli, usize from_idx, usize to_idx);
 
@@ -80,7 +88,17 @@ namespace company {
 
 		const Option<usize> &get_ask() const;
 
+		usize get_buy_vol() const;
+
+		usize get_sel_vol() const;
+
 		f64 get_sector() const noexcept;
+
+		f64 get_leadership() const noexcept;
+
+		f64 get_financials() const noexcept;
+
+		bool get_had_an_ipo() const noexcept;
 
 		usize get_outstanding_shares() const noexcept;
 

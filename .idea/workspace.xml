@@ -36,18 +36,21 @@
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/agent.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/agent.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/memory/Rc.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/memory/Rc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/option/Option.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/option/Option.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/ExchangeApi.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/Order.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/Order.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/exchange_api/Order.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/exchange_api/Order.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/NormalTraderAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/NormalTraderAgent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/TraderAgentBuilder.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +273,7 @@
       <workItem from="1620478825286" duration="17179000" />
       <workItem from="1620551372458" duration="9106000" />
       <workItem from="1620572400308" duration="3920000" />
-      <workItem from="1620577621942" duration="12015000" />
+      <workItem from="1620577621942" duration="26617000" />
     </task>
     <servers />
   </component>

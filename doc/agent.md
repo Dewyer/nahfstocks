@@ -29,3 +29,11 @@
     - Income reinvestment:
         - How much do they hold for the next buy / how much they put in to their best plays
     
+
+Negotioations:
+
+Sell: ask + %
+
+wantness ? = |sentiment| + time
+
+buy: bid - %

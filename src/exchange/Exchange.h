@@ -60,11 +60,11 @@ namespace exchange {
 
 		void handle_fixed_income_on_cycle();
 
-		void recalculate_prices_on_cycle();
+		void recalculate_company_details_on_cycle();
 
 		void handle_trader_agent_activation();
 
-		static void execute_orders(Rc<Order> buy, Rc<Order> sell, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller);
+		static void execute_orders(Rc<Order> buy, Rc<Order> sell, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller, Rc<Company> company);
 
 		void clear_executed_orders();
 

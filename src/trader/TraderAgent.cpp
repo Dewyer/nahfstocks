@@ -13,10 +13,14 @@ void trader::TraderAgent::on_cycle(exchange::ExchangeApi &api) {
 }
 
 void trader::TraderAgent::print_to(Rc<CliHelper> cli) const noexcept {
-	cli->os() << "T[" << this->get_name() << "]";
+	cli->os() << "T[" << this->get_name() << "]("<<this->id<<")";
 	cli->print_ln();
 }
 
 void trader::TraderAgent::init(trader::TraderAgentInitPayload payload) {
 	this->id = payload.agent_id;
+}
+
+const usize &trader::TraderAgent::get_id() const noexcept {
+	return this->id;
 }

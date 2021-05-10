@@ -308,6 +308,22 @@ namespace nhflib {
 			return tmp;
 		}
 
+		Vector<T> sort_by(const std::function<bool (const Rc <T> &, const Rc <T> &)> &fn) const {
+			Vector<T> tmp;
+			if (this->size() == 0) {
+				return tmp;
+			}
+
+			for (usize ii = 0; ii < this->size(); ii++) {
+				auto el = this->at(ii);
+				tmp.sorted_push_back(el, [&fn](Rc<T> aa, Rc<T> bb) {
+					return fn(aa, bb);
+				});
+			}
+
+			return tmp;
+		}
+
 		bool deep_equal(const Vector<T> &rhs) const {
 			if (&rhs == this) {
 				return true;

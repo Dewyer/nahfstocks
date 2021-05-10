@@ -42,6 +42,10 @@ namespace exchange {
 			return this->trader->total_balance;
 		}
 
+		usize get_trader_available_balance() const noexcept {
+			return this->trader->available_balance;
+		}
+
 		usize get_trader_id() const noexcept {
 			return this->trader->trader_id;
 		}

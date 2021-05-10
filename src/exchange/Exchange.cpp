@@ -76,11 +76,10 @@ Rc<TraderRecordInExchange> exchange::Exchange::create_trader_record(const Rc<Tra
 
 
 void exchange::Exchange::cycle() {
-	this->cli->print_ln("Cycle");
 	this->cycle_count++;
 
 	this->handle_fixed_income_on_cycle();
-	this->recalculate_prices_on_cycle();
+	this->recalculate_company_details_on_cycle();
 	this->handle_company_price_sampling();
 
 	this->handle_event_generation();
@@ -176,13 +175,13 @@ exchange::Exchange::open_order(Rc<TraderRecordInExchange> trader, exchange::Orde
 		trader->add_or_sub_stocks_and_free_stocks(order.company_id, 0, -static_cast<i32>(order.amount));
 	}
 
+	if (!comp_target->had_an_ipo) {
+		comp_target->had_an_ipo = true;
+	}
+
 	auto ord_rc = nhflib::make_rc(ord);
 	comp_target->add_order(ord_rc);
-	trader->open_orders.push_back(exchange::Order {
-		ord.id,
-		ord.trader_id,
-		order
-	});
+	trader->open_orders.push_back(ord_rc);
 
 	return ord;
 }
@@ -240,7 +239,7 @@ void exchange::Exchange::execute_open_auction() {
 					continue;
 				}
 
-				Exchange::execute_orders(at_order, sell_order, buyer, seller);
+				Exchange::execute_orders(at_order, sell_order, buyer, seller, cmp);
 				if (at_order->amount == 0) {
 					break;
 				}
@@ -255,7 +254,7 @@ void exchange::Exchange::execute_open_auction() {
 	this->clear_executed_orders();
 }
 
-void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_order, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller) {
+void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_order, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller, Rc<Company> company) {
 	usize exchanged_am = std::min(sell_order->amount, buy_order->amount);
 	usize exchange_price = (sell_order->target_price + buy_order->target_price) / 2;
 	usize total_sale_price = exchange_price * exchanged_am;
@@ -272,6 +271,9 @@ void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_orde
 
 	buyer->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am);
 	seller->add_or_sub_stocks_and_free_stocks(exchanged_company, -exchanged_am, -exchanged_am);
+
+	company->cached_buy_vol -= exchanged_am;
+	company->cached_sell_vol -= exchanged_am;
 }
 
 void exchange::Exchange::clear_executed_orders() {
@@ -288,9 +290,9 @@ void exchange::Exchange::clear_executed_orders() {
 	});
 }
 
-void exchange::Exchange::recalculate_prices_on_cycle() {
+void exchange::Exchange::recalculate_company_details_on_cycle() {
 	this->companies->for_each([](Rc<Company> cmp) {
-		cmp->recalculate_bid_ask();
+		cmp->recalculate_details();
 	});
 }
 
@@ -321,7 +323,7 @@ Rc<Company> exchange::Exchange::get_biggest_company() {
 
 Rc<TraderRecordInExchange> exchange::Exchange::get_richest_trader() {
 	return this->traders->max([](Rc<TraderRecordInExchange> trader) {
-		return trader->total_balance;
+		return trader->trader->is_retail() ? trader->total_balance : 0;
 	});
 }
 
