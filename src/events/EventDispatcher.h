@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/rand/RandomProvider.h"
 #include "../../lib/collections/Vector.h"
 #include "../../lib/memory/Rc.h"
@@ -34,7 +35,7 @@ namespace event {
 
 	public:
 		explicit EventDispatcher(const Rc<RandomProvider> &_rng, const Rc<config::Config> &_config) : next_event_id(0),
-																									rng(_rng),
+																									  rng(_rng),
 																									  config(_config) {}
 
 		Rc<Vector<Event>> dispatch_events(const EventDispatchingContext &context);

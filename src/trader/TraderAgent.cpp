@@ -13,7 +13,7 @@ void trader::TraderAgent::on_cycle(exchange::ExchangeApi &api) {
 }
 
 void trader::TraderAgent::print_to(Rc<CliHelper> cli) const noexcept {
-	cli->os() << "T[" << this->get_name() << "]("<<this->id<<")";
+	cli->os() << "T[" << this->get_name() << "](" << this->id << ")";
 	cli->print_ln();
 }
 

@@ -1,6 +1,8 @@
 #pragma once
+
 #include "../../lib/string/String.h"
 #include "../../lib/types.h"
+
 constexpr usize FIRST_NAME_WORD_LIST_LENGTH = 419;
 
 constexpr char first_name_word_list[FIRST_NAME_WORD_LIST_LENGTH][80] = {

@@ -36,8 +36,15 @@
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.log" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/terv/terv.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/terv/terv.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeStats.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeStats.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +54,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -99,7 +107,7 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="LaTeX.Terv">
+  <component name="RunManager" selected="CMake Application.nahfstocks">
     <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
         <compiler />
@@ -128,6 +136,11 @@
         <work-dir />
       </texify-external>
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Spec" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify>
@@ -253,6 +266,9 @@
       <workItem from="1620615719553" duration="2133000" />
       <workItem from="1620618632965" duration="862000" />
       <workItem from="1620636211113" duration="4000" />
+      <workItem from="1620753238400" duration="382000" />
+      <workItem from="1620804009723" duration="103000" />
+      <workItem from="1620860573036" duration="3110000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../prelude.h"
 #include "../memory/Rc.h"
 #include "../option/Option.h"
@@ -176,7 +177,7 @@ namespace nhflib {
 			for (usize ii = 0; ii < this->size(); ii++) {
 				auto el_ii = this->at(ii);
 				if (el_bigger(el, el_ii)) {
-					this->insert_at(ii + 1, el);
+					this->insert_at(ii, el);
 					return;
 				}
 			}
@@ -309,7 +310,7 @@ namespace nhflib {
 			return tmp;
 		}
 
-		Vector<T> sort_by(const std::function<bool (const Rc <T> &, const Rc <T> &)> &fn) const {
+		Vector<T> sort_by(const std::function<bool(const Rc <T> &, const Rc <T> &)> &fn) const {
 			Vector<T> tmp;
 			if (this->size() == 0) {
 				return tmp;

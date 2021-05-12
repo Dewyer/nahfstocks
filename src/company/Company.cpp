@@ -56,17 +56,15 @@ usize company::Company::get_id() const noexcept {
 	return this->id;
 }
 
-
-bool sort_orders(Rc<exchange::Order> then, Rc<exchange::Order> that) {
-	if (then->target_price == that->target_price) {
-		return then->amount > that->amount;
-	}
-
-	return then->target_price > that->target_price;
-}
-
 void company::Company::add_order(nhflib::Rc<exchange::Order> ord_rc) {
-	this->orders.sorted_push_back(ord_rc, sort_orders);
+	this->orders.sorted_push_back(ord_rc, [](const Rc<exchange::Order> &then, Rc<exchange::Order> that) {
+		if (then->target_price == that->target_price) {
+			return then->amount > that->amount;
+		}
+
+		return then->target_price < that->target_price;
+	});
+
 	if (ord_rc->type == exchange::OrderType::Buy) {
 		if (!this->cached_bid.is_some() || this->cached_bid.unwrap() < ord_rc->target_price) {
 			this->cached_bid.swap(ord_rc->target_price);

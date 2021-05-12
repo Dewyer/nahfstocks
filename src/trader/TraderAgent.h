@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/collections/Vector.h"
 #include "../../lib/string/String.h"
 #include "../cli/CliHelper.h"
@@ -19,7 +20,7 @@ using cli::CliHelper;
 namespace trader {
 	struct TraderAgentInitPayload {
 		usize agent_id;
-		const Rc<Vector<Company>>& companies;
+		const Rc<Vector<Company>> &companies;
 	};
 
 	/// The trader agent base class, any agents have to be inherited from this, no functions are required to be implemented

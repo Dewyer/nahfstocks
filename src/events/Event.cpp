@@ -1,7 +1,6 @@
 #include "./Event.h"
 
-String event::event_target_to_string(EventTarget target)
-{
+String event::event_target_to_string(EventTarget target) {
 	switch (target) {
 		case EventTarget::Global:
 			return "Global";

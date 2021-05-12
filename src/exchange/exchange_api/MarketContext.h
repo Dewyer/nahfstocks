@@ -12,6 +12,7 @@ namespace exchange {
 	class MarketContext {
 	public:
 		Rc<Vector<Company>> companies;
+
 		explicit MarketContext(const Rc<Vector<company::Company>> &cc) : companies(cc) {}
 	};
 }

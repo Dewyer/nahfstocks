@@ -1,4 +1,5 @@
 #pragma once
+
 #include "./TraderAgent.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/collections/Vector.h"
@@ -57,7 +58,7 @@ namespace trader {
 
 		void choose_random_settings();
 
-		f64 get_fundamentals(const Rc<Company>& cmp);
+		f64 get_fundamentals(const Rc<Company> &cmp);
 
 		Rc<Company> choose_company_to_buy(ExchangeApi &api);
 
@@ -82,7 +83,8 @@ namespace trader {
 		void negotiate_orders(ExchangeApi &api);
 
 	public:
-		NormalTraderAgent(const String& _name, const Rc<RandomProvider>& _rng, const Rc<Config>& _config): TraderAgent(_name) {
+		NormalTraderAgent(const String &_name, const Rc<RandomProvider> &_rng, const Rc<Config> &_config) : TraderAgent(
+				_name) {
 			this->rng = _rng;
 			this->config = _config;
 			this->company_profiles = Vector<TraderCompanyProfile>();

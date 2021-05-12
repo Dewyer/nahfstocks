@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/prelude.h"
 #include "../simulation/Simulation.h"
 #include "../../lib/option/Option.h"
@@ -8,7 +9,6 @@
 
 using config::Config;
 using simulation::Simulation;
-
 namespace cli {
 	/// The simulator main class, manages configuration, simulation running and the user interface
 	class SimulationCli {
@@ -19,6 +19,8 @@ namespace cli {
 		void dump_simulation_data();
 
 		void start_sim(nhflib::Option<usize> limit);
+
+		exchange::CompanyDto company_lookup_fn(usize company_id);
 
 		template<typename T>
 		void show_list_of_printables(const Rc<Vector<T>> &to_list, const String &what) {

@@ -224,8 +224,8 @@ void exchange::Exchange::execute_open_auction() {
 				continue;
 			}
 
-			for (int kk = (int)ii - 1; kk >= 0; kk--) {
-				auto sell_order = cmp->orders[(usize)kk];
+			for (int kk = (int) ii - 1; kk >= 0; kk--) {
+				auto sell_order = cmp->orders[(usize) kk];
 				auto buyer = this->traders->find([&at_order](Rc<TraderRecordInExchange> tr) {
 					return tr->trader_id == at_order->trader_id;
 				});
@@ -249,13 +249,19 @@ void exchange::Exchange::execute_open_auction() {
 	this->clear_executed_orders();
 }
 
-void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_order, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller, Rc<Company> company) {
+void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_order, Rc<TraderRecordInExchange> buyer,
+										Rc<TraderRecordInExchange> seller, Rc<Company> company) {
+	if (buy_order->target_price < sell_order->target_price) {
+		throw std::runtime_error("Auction assertion failed!");
+	}
+
 	usize exchanged_am = std::min(sell_order->amount, buy_order->amount);
 	usize exchange_price = (sell_order->target_price + buy_order->target_price) / 2;
 	usize total_sale_price = exchange_price * exchanged_am;
 	auto exchanged_company = buy_order->company_id;
 
-	this->cli->os() << "Exec trade: " << buy_order->id << " w " << sell_order->id <<", for: "<<utils::format_money(total_sale_price) << ", comp.: " << company->get_symbol();
+	this->cli->os() << "Exec trade: " << buy_order->id << " w " << sell_order->id << ", for: "
+					<< utils::format_money(total_sale_price) << ", comp.: " << company->get_symbol();
 	this->cli->print_ln();
 
 	usize buy_target = buy_order->get_total_price();
@@ -320,8 +326,10 @@ Rc<Company> exchange::Exchange::get_biggest_company() {
 }
 
 Rc<TraderRecordInExchange> exchange::Exchange::get_richest_trader() {
-	return this->traders->max([](Rc<TraderRecordInExchange> trader) {
-		return trader->trader->is_retail() ? trader->total_balance : 0;
+	return this->traders->max([this](Rc<TraderRecordInExchange> trader) {
+		auto portfolio = this->get_trader_portfolio_size(trader);
+
+		return trader->trader->is_retail() ? trader->total_balance + portfolio : 0;
 	});
 }
 
@@ -337,17 +345,17 @@ void exchange::Exchange::handle_company_price_sampling() {
 
 void exchange::Exchange::init_traders() {
 	for (auto trader: *this->traders) {
-		trader->trader->init(TraderAgentInitPayload {
-			trader->trader_id,
-			this->get_companies(),
+		trader->trader->init(TraderAgentInitPayload{
+				trader->trader_id,
+				this->get_companies(),
 		});
 	}
 }
 
 void exchange::Exchange::handle_event_generation() {
-	auto new_events = this->event_dispatcher->dispatch_events(EventDispatchingContext {
-		this->cycle_count,
-		this->companies
+	auto new_events = this->event_dispatcher->dispatch_events(EventDispatchingContext{
+			this->cycle_count,
+			this->companies
 	});
 
 	for (auto trader : *this->traders) {
@@ -355,4 +363,16 @@ void exchange::Exchange::handle_event_generation() {
 			trader->events_to_see.push_back(ev.clone());
 		}
 	}
+}
+
+usize exchange::Exchange::get_trader_portfolio_size(Rc<TraderRecordInExchange> trader) {
+	auto portfolio = (usize) 0;
+	for (auto stock : trader->stocks) {
+		auto cmp = this->companies->find([&stock](Rc<Company> cp) {
+			return cp->get_id() == stock->company_id;
+		});
+		portfolio += stock->amount * cmp->get_stock_price();
+	}
+
+	return portfolio;
 }

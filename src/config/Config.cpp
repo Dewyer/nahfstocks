@@ -3,19 +3,19 @@
 #include "./Config.h"
 
 namespace config {
-	const char* Config::SKIP_CIN_CONFIG_KEY = "SKIP_CIN_CONFIG";
-	const char* Config::INTERACTIVE_MODE_KEY = "INTERACTIVE_MODE";
-	const char* Config::CYCLE_LIMITS_KEY = "CYCLE_LIMITS";
-	const char* Config::SEED_KEY = "SEED";
-	const char* Config::LOG_LEVEL_KEY = "LOG_LEVEL";
-	const char* Config::EARNINGS_CYCLES_KEY = "EARNINGS_CYCLES";
-	const char* Config::DIVIDEND_CYCLES_KEY = "DIVIDEND_CYCLES";
-	const char* Config::TRADER_MONEY_KEY = "TRADER_MONEY";
-	const char* Config::TRADER_INCOME_KEY = "TRADER_INCOME";
-	const char* Config::MEDIAN_IPO_KEY = "MEDIAN_IPO";
-	const char* Config::PRICE_SAMPLING_RATE_KEY = "PRICE_SAMPLING_RATE";
-	const char* Config::COMPANY_COUNT_KEY = "COMPANY_COUNT";
-	const char* Config::TRADER_COUNT_KEY = "TRADER_COUNT";
+	const char *Config::SKIP_CIN_CONFIG_KEY = "SKIP_CIN_CONFIG";
+	const char *Config::INTERACTIVE_MODE_KEY = "INTERACTIVE_MODE";
+	const char *Config::CYCLE_LIMITS_KEY = "CYCLE_LIMITS";
+	const char *Config::SEED_KEY = "SEED";
+	const char *Config::LOG_LEVEL_KEY = "LOG_LEVEL";
+	const char *Config::EARNINGS_CYCLES_KEY = "EARNINGS_CYCLES";
+	const char *Config::DIVIDEND_CYCLES_KEY = "DIVIDEND_CYCLES";
+	const char *Config::TRADER_MONEY_KEY = "TRADER_MONEY";
+	const char *Config::TRADER_INCOME_KEY = "TRADER_INCOME";
+	const char *Config::MEDIAN_IPO_KEY = "MEDIAN_IPO";
+	const char *Config::PRICE_SAMPLING_RATE_KEY = "PRICE_SAMPLING_RATE";
+	const char *Config::COMPANY_COUNT_KEY = "COMPANY_COUNT";
+	const char *Config::TRADER_COUNT_KEY = "TRADER_COUNT";
 
 	void Config::process_config_string_read(const String &line) {
 		auto line_tokens = line.split('=');

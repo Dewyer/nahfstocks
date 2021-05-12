@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/collections/Vector.h"
 #include "../../lib/memory/Rc.h"
 #include "../../lib/option/Option.h"
@@ -65,11 +66,14 @@ namespace exchange {
 
 		void handle_trader_agent_activation();
 
-		void execute_orders(Rc<Order> buy, Rc<Order> sell, Rc<TraderRecordInExchange> buyer, Rc<TraderRecordInExchange> seller, Rc<Company> company);
+		void execute_orders(Rc<Order> buy, Rc<Order> sell, Rc<TraderRecordInExchange> buyer,
+							Rc<TraderRecordInExchange> seller, Rc<Company> company);
 
 		void clear_executed_orders();
 
 		void execute_open_auction();
+
+		usize get_trader_portfolio_size(Rc<TraderRecordInExchange> trader);
 
 		Rc<Company> get_biggest_company();
 

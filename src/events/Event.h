@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/option/Option.h"
 #include "../../lib/types.h"
 #include "../../lib/string/String.h"
@@ -30,7 +31,7 @@ namespace event {
 
 		Event() {}
 
-		Event(const Event& rhs) {
+		Event(const Event &rhs) {
 			this->created_at = rhs.created_at;
 			this->target = rhs.target;
 			this->company_target = rhs.company_target ? Option<usize>(rhs.company_target) : Option<usize>();

@@ -35,12 +35,11 @@ namespace exchange {
 		}
 
 		OrderCreationPayload(OrderType type, usize i, usize i1, usize i2, nhflib::Option<usize> option)
-		: type(type),
-		company_id(i),
-		amount(i1),
-		target_price(i2),
-		expires_at(option)
-		{
+				: type(type),
+				  company_id(i),
+				  amount(i1),
+				  target_price(i2),
+				  expires_at(option) {
 		}
 
 		virtual ~OrderCreationPayload() = default;

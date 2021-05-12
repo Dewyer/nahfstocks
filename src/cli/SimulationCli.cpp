@@ -8,7 +8,7 @@ constexpr bool THREADING_ENABLED =
 #ifdef ETHREAD
 		true
 #else
-false
+		false
 #endif
 ;
 
@@ -108,7 +108,10 @@ void cli::SimulationCli::show_simulation_stats() {
 	this->cli->print_ln("Richest trader: ");
 	this->cli->set_tabs(2);
 
-	stats.get_richest_trader()->print_to(this->cli);
+	stats.get_richest_trader()->detailed_print_to(this->cli, [this](usize id) {
+		return this->company_lookup_fn(id);
+	});
+
 	this->cli->print_ln();
 	this->cli->clear_tabs();
 }
@@ -133,15 +136,8 @@ void cli::SimulationCli::show_trader_details_by_id(usize trader_id) {
 	}
 
 	this->cli->set_tabs(1);
-	trader->detailed_print_to(this->cli, [this](usize company_id) {
-		auto cmp = this->sim->exchange->get_companies()->find([&company_id](Rc<Company> cmp) {
-			return cmp->get_id() == company_id;
-		});
-		return cmp ? CompanyDto{
-				cmp->get_symbol(),
-				cmp->get_name(),
-				cmp->get_stock_price()
-		} : CompanyDto::empty();
+	trader->detailed_print_to(this->cli, [this](usize id) {
+		return this->company_lookup_fn(id);
 	});
 
 	this->cli->clear_tabs();
@@ -223,4 +219,15 @@ void cli::SimulationCli::run_simulation_in_limit_mode() {
 	this->cli->print_ln("Starting running the iterations...");
 	this->sim->run_for(iters_number);
 	this->cli->print_ln("Running finished.");
+}
+
+exchange::CompanyDto cli::SimulationCli::company_lookup_fn(usize company_id) {
+	auto cmp = this->sim->exchange->get_companies()->find([&company_id](Rc<Company> cmp) {
+		return cmp->get_id() == company_id;
+	});
+	return cmp ? CompanyDto{
+			cmp->get_symbol(),
+			cmp->get_name(),
+			cmp->get_stock_price()
+	} : CompanyDto::empty();
 }

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../prelude.h"
 #include "../collections/Vector.h"
 #include "../memory/Rc.h"

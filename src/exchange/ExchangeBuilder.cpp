@@ -49,7 +49,7 @@ Rc<Vector<CompanyAgent>> exchange::ExchangeBuilder::build_trader_agents_for_comp
 	auto traders = nhflib::make_rc_ctr<Vector<CompanyAgent>>();
 
 	companies->for_each([this, &traders](Rc<Company> cmp) {
-		auto per_share = this->rng->next_usize_normal(1, 5000, 120, 1000);
+		auto per_share = this->rng->next_usize(1, 5000);
 		auto agent = company::CompanyAgent(cmp->get_id(), cmp->get_name() + " Trader", per_share);
 
 		auto agent_rc = nhflib::make_rc<CompanyAgent>(agent);

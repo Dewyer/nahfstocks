@@ -1,4 +1,5 @@
 #pragma once
+
 #include <algorithm>
 #include "../../trader/TraderAgent.h"
 #include "../../../lib/string/String.h"
@@ -82,7 +83,8 @@ namespace exchange {
 				existing_rec->amount +=
 						amount < 0 ? -std::min(-1 * amount, static_cast<i32>(existing_rec->amount)) : amount;
 				if (amount > 0) {
-					existing_rec->bought_for = (buy_for*amount + existing_rec->bought_for*existing_rec->amount)/(amount + existing_rec->amount);
+					existing_rec->bought_for = (buy_for * amount + existing_rec->bought_for * existing_rec->amount) /
+											   (amount + existing_rec->amount);
 				}
 
 				existing_rec->free_amount +=

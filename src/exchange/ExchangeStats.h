@@ -35,7 +35,7 @@ public:
 		return this->biggest_company;
 	}
 
-	const Rc<TraderRecordInExchange> &get_richest_trader() const {
+	Rc<TraderRecordInExchange> get_richest_trader() {
 		return this->richest_trader;
 	}
 

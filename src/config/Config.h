@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../../lib/types.h"
 #include "../../lib/option/Option.h"
 #include "../../lib/string/String.h"
@@ -26,19 +27,19 @@ namespace config {
 		Map<String, ConfigValue> configs;
 		Vector<ConfigKeyDefinition> definitions;
 
-		static const char* SKIP_CIN_CONFIG_KEY;
-		static const char* INTERACTIVE_MODE_KEY;
-		static const char* CYCLE_LIMITS_KEY;
-		static const char* SEED_KEY;
-		static const char* LOG_LEVEL_KEY;
-		static const char* COMPANY_COUNT_KEY;
-		static const char* TRADER_COUNT_KEY;
-		static const char* EARNINGS_CYCLES_KEY;
-		static const char* DIVIDEND_CYCLES_KEY;
-		static const char* TRADER_MONEY_KEY;
-		static const char* TRADER_INCOME_KEY;
-		static const char* MEDIAN_IPO_KEY;
-		static const char* PRICE_SAMPLING_RATE_KEY;
+		static const char *SKIP_CIN_CONFIG_KEY;
+		static const char *INTERACTIVE_MODE_KEY;
+		static const char *CYCLE_LIMITS_KEY;
+		static const char *SEED_KEY;
+		static const char *LOG_LEVEL_KEY;
+		static const char *COMPANY_COUNT_KEY;
+		static const char *TRADER_COUNT_KEY;
+		static const char *EARNINGS_CYCLES_KEY;
+		static const char *DIVIDEND_CYCLES_KEY;
+		static const char *TRADER_MONEY_KEY;
+		static const char *TRADER_INCOME_KEY;
+		static const char *MEDIAN_IPO_KEY;
+		static const char *PRICE_SAMPLING_RATE_KEY;
 
 		void process_config_string_read(const String &line);
 
@@ -120,7 +121,7 @@ namespace config {
 
 		virtual usize get_limit_runs() {
 			auto cycles = this->get_config_with_default<int>(Config::CYCLE_LIMITS_KEY, 5);
-			return (usize)cycles;
+			return (usize) cycles;
 		}
 
 		virtual usize get_price_sampling_rate() {
