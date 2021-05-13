@@ -215,3 +215,16 @@ usize company::Company::get_buy_vol() const {
 usize company::Company::get_sel_vol() const {
 	return this->sell_vol;
 }
+
+void company::Company::dump_json(Rc<CliHelper> cli) {
+	cli->os() << "{ symbol: \"" << this->get_symbol() << "\" ,prices: [";
+	for (usize ii = 0; ii < this->price_records.size(); ii++) {
+		auto pr = this->price_records.at(ii);
+		cli->os() << "{ ask:" << pr->ask << ", bid: " << pr->bid << "}";
+
+		if (ii != this->price_records.size() - 1) {
+			cli->print(",");
+		}
+	}
+	cli->print("]}");
+}

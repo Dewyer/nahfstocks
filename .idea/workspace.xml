@@ -36,15 +36,11 @@
   <component name="ChangeListManager">
     <list default="true" id="787de274-d448-4181-a02b-026912f3c078" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/collections/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/collections/Vector.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli/SimulationCli.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli/SimulationCli.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/Company.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/Exchange.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/Exchange.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeBuilder.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exchange/ExchangeStats.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/exchange/ExchangeStats.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/trader/NormalTraderAgent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Company.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Company.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Config.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Config.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +264,7 @@
       <workItem from="1620636211113" duration="4000" />
       <workItem from="1620753238400" duration="382000" />
       <workItem from="1620804009723" duration="103000" />
-      <workItem from="1620860573036" duration="3110000" />
+      <workItem from="1620860573036" duration="4558000" />
     </task>
     <servers />
   </component>
@@ -292,7 +288,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/lib/collections/Vector.h</url>
-          <line>46</line>
+          <line>47</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">

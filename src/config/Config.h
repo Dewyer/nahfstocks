@@ -40,6 +40,7 @@ namespace config {
 		static const char *TRADER_INCOME_KEY;
 		static const char *MEDIAN_IPO_KEY;
 		static const char *PRICE_SAMPLING_RATE_KEY;
+		static const char *DUMP_JSON_KEY;
 
 		void process_config_string_read(const String &line);
 
@@ -95,8 +96,9 @@ namespace config {
 			return 24 * 30;
 		}
 
-		virtual usize get_median_starting_cash() const noexcept {
-			return 10000;
+		virtual usize get_median_starting_cash() {
+			auto money = this->get_config_with_default<int>(Config::TRADER_INCOME_KEY, 200000);
+			return (usize) money;
 		}
 
 		virtual usize get_mean_company_outstanding_shares() const noexcept {
@@ -136,6 +138,10 @@ namespace config {
 
 		virtual bool get_is_interactive() {
 			return this->get_config_with_default<bool>(Config::INTERACTIVE_MODE_KEY, false);
+		}
+
+		virtual bool should_dump_json() {
+			return this->get_config_with_default<bool>(Config::DUMP_JSON_KEY, false);
 		}
 
 		virtual ~Config() {}

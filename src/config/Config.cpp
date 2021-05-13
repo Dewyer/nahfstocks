@@ -16,6 +16,7 @@ namespace config {
 	const char *Config::PRICE_SAMPLING_RATE_KEY = "PRICE_SAMPLING_RATE";
 	const char *Config::COMPANY_COUNT_KEY = "COMPANY_COUNT";
 	const char *Config::TRADER_COUNT_KEY = "TRADER_COUNT";
+	const char *Config::DUMP_JSON_KEY = "DUMP_JSON";
 
 	void Config::process_config_string_read(const String &line) {
 		auto line_tokens = line.split('=');
@@ -94,6 +95,10 @@ namespace config {
 		});
 		this->definitions.push_back(ConfigKeyDefinition{
 				Config::SKIP_CIN_CONFIG_KEY,
+				ConfigValueType::Bool
+		});
+		this->definitions.push_back(ConfigKeyDefinition{
+				Config::DUMP_JSON_KEY,
 				ConfigValueType::Bool
 		});
 	}

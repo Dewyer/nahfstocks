@@ -105,5 +105,7 @@ namespace company {
 		usize get_outstanding_shares() const noexcept;
 
 		void take_price_sample(usize cycle);
+
+		void dump_json(Rc<CliHelper> cli);
 	};
 }

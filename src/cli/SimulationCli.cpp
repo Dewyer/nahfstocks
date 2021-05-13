@@ -31,6 +31,8 @@ void cli::SimulationCli::start() {
 		this->cli->os() << "Runtime error: " << err.what();
 		this->cli->print_ln();
 	}
+
+	this->dump_simulation_data();
 }
 
 void cli::SimulationCli::show_startup_screen() {
@@ -230,4 +232,25 @@ exchange::CompanyDto cli::SimulationCli::company_lookup_fn(usize company_id) {
 			cmp->get_name(),
 			cmp->get_stock_price()
 	} : CompanyDto::empty();
+}
+
+void cli::SimulationCli::dump_simulation_data() {
+	if (!this->config->should_dump_json()) {
+		return;
+	}
+
+	this->cli->print_ln("=== COMPANY JSON DUMP");
+	this->cli->print_ln("{companies:[");
+
+	auto companies = this->sim->exchange->get_companies();
+
+	for (usize ii = 0; ii < companies->size(); ii++) {
+		auto cmp = companies->at(ii);
+		cmp->dump_json(this->cli);
+		if (ii != companies->size() - 1) {
+			this->cli->print_ln(",");
+		}
+	}
+
+	this->cli->print_ln("]}");
 }
