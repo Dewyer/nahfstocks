@@ -121,6 +121,11 @@ namespace config {
 			return 10;
 		}
 
+		virtual usize get_dividend_cycles() {
+			auto cycles = this->get_config_with_default<int>(Config::DIVIDEND_CYCLES_KEY, 100);
+			return (usize) cycles;
+		}
+
 		virtual usize get_limit_runs() {
 			auto cycles = this->get_config_with_default<int>(Config::CYCLE_LIMITS_KEY, 5);
 			return (usize) cycles;

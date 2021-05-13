@@ -132,6 +132,11 @@ namespace exchange {
 			this->detailed_print_portfolio(cli, lookup_company_dto);
 		}
 
+		void add_balance(usize bal) {
+			this->total_balance += bal;
+			this->available_balance += bal;
+		}
+
 	private:
 
 		void detailed_print_orders(Rc<CliHelper> cli, const CompanyDtoLookupFn &lookup_company_data) {

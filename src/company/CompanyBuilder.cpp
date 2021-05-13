@@ -12,7 +12,12 @@ nhflib::Rc<company::Company> company::CompanyBuilder::build_random(usize id) {
 	auto mean_sh = this->config->get_mean_company_outstanding_shares();
 	auto shares = this->rng->next_usize_normal(mean_sh * 0.1, mean_sh * 5, mean_sh, mean_sh);
 
-	Company cmp(id, cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings, shares);
+	auto dividend = this->rng->next_f64(0,0.05);
+	if (dividend < 0.01) {
+		dividend = 0;
+	}
+
+	Company cmp(id, cmp_name.name, cmp_name.symbol, financials, sector, leadership, earnings, shares, dividend);
 	return nhflib::make_rc(cmp);
 }
 

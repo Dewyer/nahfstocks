@@ -79,6 +79,8 @@ void exchange::Exchange::cycle() {
 	this->cycle_count++;
 
 	this->handle_fixed_income_on_cycle();
+	this->handle_dividends_on_cycle();
+
 	this->recalculate_company_details_on_cycle();
 	this->handle_company_price_sampling();
 
@@ -94,7 +96,7 @@ void exchange::Exchange::handle_fixed_income_on_cycle() {
 	}
 
 	this->traders->for_each([](Rc<TraderRecordInExchange> trader_rec) {
-		trader_rec->total_balance += trader_rec->fixed_income;
+		trader_rec->add_balance(trader_rec->fixed_income);
 	});
 }
 
@@ -270,8 +272,7 @@ void exchange::Exchange::execute_orders(Rc<Order> buy_order, Rc<Order> sell_orde
 	buyer->available_balance += buy_target - total_sale_price;
 	buyer->total_balance -= total_sale_price;
 	sell_order->amount -= exchanged_am;
-	seller->total_balance += total_sale_price;
-	seller->available_balance += total_sale_price;
+	seller->add_balance(total_sale_price);
 
 	buyer->add_or_sub_stocks_and_free_stocks(exchanged_company, exchanged_am, exchanged_am, exchange_price);
 	seller->add_or_sub_stocks_and_free_stocks(exchanged_company, -exchanged_am, -exchanged_am, 0);
@@ -375,4 +376,23 @@ usize exchange::Exchange::get_trader_portfolio_size(Rc<TraderRecordInExchange> t
 	}
 
 	return portfolio;
+}
+
+void exchange::Exchange::handle_dividends_on_cycle() {
+	auto dividend_cycle = this->config->get_dividend_cycles();
+
+	if (this->cycle_count % dividend_cycle != 0) {
+		return;
+	}
+
+	for (auto trader: *this->traders) {
+		for (auto pos : trader->stocks) {
+			auto cmp = this->companies->find([&pos](Rc<Company> cm){
+				return cm->get_id() == pos->company_id;
+			});
+
+			auto dividend_val = pos->amount * cmp->dividend_per_share();
+			trader->add_balance(dividend_val);
+		}
+	}
 }

@@ -39,6 +39,7 @@ namespace company {
 		f64 sector;
 		f64 leadership_bias;
 		usize earnings_offset;
+		f64 dividend_percentage;
 
 		usize outstanding_shares;
 
@@ -70,7 +71,7 @@ namespace company {
 
 	public:
 		Company(usize id, const String &_name, const String &_sym, f64 _financial_standing, f64 _sector,
-				f64 _leadership_bias, usize _earnings_offset, usize outstanding_shares);
+				f64 _leadership_bias, usize _earnings_offset, usize outstanding_shares, f64 _dividend_percentage);
 
 		usize get_id() const noexcept;
 
@@ -107,5 +108,7 @@ namespace company {
 		void take_price_sample(usize cycle);
 
 		void dump_json(Rc<CliHelper> cli);
+
+		usize dividend_per_share() const;
 	};
 }

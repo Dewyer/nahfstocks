@@ -23,7 +23,7 @@ const String &company::Company::get_symbol() const noexcept {
 
 company::Company::Company(usize id, const String &_name, const String &_sym, f64 _financial_standing, f64 _sector,
 						  f64 _leadership_bias,
-						  usize _earnings_offset, usize _outstanding_shares) {
+						  usize _earnings_offset, usize _outstanding_shares, f64 _dividend_percentage) {
 	this->id = id;
 	this->name = _name;
 	this->symbol = _sym;
@@ -38,6 +38,7 @@ company::Company::Company(usize id, const String &_name, const String &_sym, f64
 	this->outstanding_shares = _outstanding_shares;
 	this->orders = Vector<Order>();
 	this->price_records = Vector<CompanyPriceRecord>();
+	this->dividend_percentage = _dividend_percentage;
 }
 
 void company::Company::print_to(Rc<CliHelper> cli) const {
@@ -227,4 +228,8 @@ void company::Company::dump_json(Rc<CliHelper> cli) {
 		}
 	}
 	cli->print("]}");
+}
+
+usize company::Company::dividend_per_share() const {
+	return (usize)std::floor(this->dividend_percentage * this->get_stock_price());
 }

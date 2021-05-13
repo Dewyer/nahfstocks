@@ -62,6 +62,8 @@ namespace exchange {
 
 		void handle_fixed_income_on_cycle();
 
+		void handle_dividends_on_cycle();
+
 		void recalculate_company_details_on_cycle();
 
 		void handle_trader_agent_activation();
