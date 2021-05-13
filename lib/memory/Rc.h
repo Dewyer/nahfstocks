@@ -1,5 +1,4 @@
 #pragma once
-// Kurwa anyádat memtrace hogy nem tudnak bazmeg az IIT ben programozni összefosom magam
 #include <cstddef>
 #include <cstdint>
 #include <memory>

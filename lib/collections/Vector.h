@@ -35,6 +35,10 @@ namespace nhflib {
 		}
 
 		void copy(const Vector<T> &rhs) {
+			if (this->data != nullptr) {
+				delete[] this->data;
+			}
+
 			this->null_init();
 			this->resize(rhs.len);
 			this->len = rhs.len;
@@ -55,6 +59,7 @@ namespace nhflib {
 		}
 
 		Vector(const Vector<T> &rhs) {
+			this->null_init();
 			this->copy(rhs);
 		}
 
