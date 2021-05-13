@@ -347,9 +347,16 @@ void trader::NormalTraderAgent::negotiate_orders(ExchangeApi &api) {
 				Option<usize>(),
 		};
 		api.cancel_order(ord->id);
-		auto oo = api.open_order(new_ord);
-		negot->order_id = oo.id;
-		negot->times++;
+
+		if (api.get_trader_available_balance() >= new_ord.get_total_price()) {
+			auto oo = api.open_order(new_ord);
+			negot->order_id = oo.id;
+			negot->times++;
+		} else {
+			this->negotiations.filter_in_place([&negot](Rc<OrderNegotiation> nn){
+				return nn->order_id != negot->order_id;
+			});
+		}
 	}
 }
 
